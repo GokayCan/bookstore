@@ -10,13 +10,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Index Page</title>
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <%
-            DbConnector cls = new DbConnector();
-            cls.Connect();
-        %>
+        <h1>Index Page</h1>
     </body>
 </html>
