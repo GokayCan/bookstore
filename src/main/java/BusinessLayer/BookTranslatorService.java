@@ -1,19 +1,17 @@
-package DataAccess.Concretes;
+package BusinessLayer;
 
-import DataAccess.Abstractions.IRepository;
 import DataAccess.Entities.BaseEntity;
-import java.sql.Connection;
 import java.util.ArrayList;
 
-public class Repository implements IRepository{
+public class BookTranslatorService implements IService{
 
-    Connection con;
-    public Repository(Connection con) {
-        this.con = con;
-    }
-    
     @Override
-    public ArrayList<BaseEntity> getList() {
+    public ArrayList<BaseEntity> List() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public BaseEntity getByID(int ID) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -29,11 +27,6 @@ public class Repository implements IRepository{
 
     @Override
     public void Delete(int ID) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public BaseEntity getById(int ID) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     

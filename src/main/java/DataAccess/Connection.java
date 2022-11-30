@@ -4,7 +4,7 @@ package DataAccess;
 import java.sql.*;
 
 
-public class Connection {
+public class Connection{
     private String url = "jdbc:mysql://app.sobiad.com:3306/grup1?useUnicode=true&characterEncoding=UTF-8&useSSL=false";
     private String username = "grup1";
     private String password = "grup1";
