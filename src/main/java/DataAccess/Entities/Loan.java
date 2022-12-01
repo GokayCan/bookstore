@@ -2,8 +2,9 @@ package DataAccess.Entities;
 import java.util.Date;
 
 public class Loan extends BaseEntity{
-    
+
     private int UserID;
+    private int EmployeeID;
     private int BookID;
     private Date LoanDate;
     private Date MaxReturnDate;
@@ -17,7 +18,15 @@ public class Loan extends BaseEntity{
     public void setUserID(int UserID) {
         this.UserID = UserID;
     }
+    
+    public int getEmployeeID() {
+        return EmployeeID;
+    }
 
+    public void setEmployeeID(int EmployeeID) {
+        this.EmployeeID = EmployeeID;
+    }
+    
     public int getBookID() {
         return BookID;
     }

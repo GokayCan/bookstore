@@ -1,40 +1,12 @@
 package DataAccess.Concretes;
-
-import DataAccess.Abstractions.IRepository;
-import DataAccess.Entities.BaseEntity;
+import DataAccess.Connect;
 import java.sql.Connection;
-import java.util.ArrayList;
-
-public class Repository implements IRepository{
+public class Repository{
 
     Connection con;
-    public Repository(Connection con) {
-        this.con = con;
-    }
-    
-    @Override
-    public ArrayList<BaseEntity> getList() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void Add(BaseEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void Update(BaseEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void Delete(int ID) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public BaseEntity getById(int ID) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Repository() {
+        Connect connect=new Connect();
+        this.con = connect.getConnection();
     }
     
 }

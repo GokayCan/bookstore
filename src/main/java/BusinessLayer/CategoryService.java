@@ -1,31 +1,37 @@
 package BusinessLayer;
 
+import DataAccess.Concretes.CategoryRepository;
 import DataAccess.Entities.BaseEntity;
+import DataAccess.Entities.Category;
+import java.sql.*;
 import java.util.ArrayList;
 
-public class CategoryService implements IService {
+public class CategoryService {
+    
+    Connection con;
+    
 
-    @Override
-    public ArrayList<BaseEntity> List() {
+    public ArrayList<Category> List() {
+        
+        CategoryRepository categoryRepository=new CategoryRepository();
+        
+        ArrayList<Category> categories=categoryRepository.getList();
+        
+        return categories;
+    }
+
+    public Category getByID(int ID) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
-    public BaseEntity getByID(int ID) {
+    public void Add(Category entity) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
-    public void Add(BaseEntity entity) {
+    public void Update(Category entity) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
-    public void Update(BaseEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
     public void Delete(int ID) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
