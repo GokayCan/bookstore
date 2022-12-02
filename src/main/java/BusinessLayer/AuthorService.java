@@ -1,31 +1,32 @@
 package BusinessLayer;
 
-import DataAccess.Entities.BaseEntity;
+import DataAccess.Concretes.AuthorRepository;
+import DataAccess.Entities.Author;
+import DataAccess.Entities.Category;
 import java.util.ArrayList;
 
-public class AuthorService implements IService{
+public class AuthorService{
 
-    @Override
-    public ArrayList<BaseEntity> List() {
+    public ArrayList<Author> List() {
+        AuthorRepository authoryRepository=new AuthorRepository();
+        
+        ArrayList<Author> authors=authoryRepository.getList();
+        
+        return authors;
+    }
+
+    public Author getByID(int ID) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
-    public BaseEntity getByID(int ID) {
+    public void Add(Author entity) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
-    public void Add(BaseEntity entity) {
+    public void Update(Author entity) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
-    public void Update(BaseEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
     public void Delete(int ID) {
         throw new UnsupportedOperationException("Not supported yet.");
     }

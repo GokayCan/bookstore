@@ -8,10 +8,14 @@ public class Book  extends BaseEntity{
     private int Stock;
     private boolean Enable;
     private int PublisherID;
+    private String PublisherName;
     private Date PublishDate;
     private String PageNumber;
     private String PrintCount;
     private String ImageUrl;
+    private String authors;
+    private String categories;
+    private String translators;
 
     public String getName() {
         return Name;
@@ -45,6 +49,16 @@ public class Book  extends BaseEntity{
         this.PublisherID = PublisherID;
     }
 
+    public String getPublisherName() {
+        return PublisherName;
+    }
+
+    public void setPublisherName(String PublisherName) {
+        this.PublisherName = PublisherName;
+    }
+    
+    
+
     public Date getPublishDate() {
         return PublishDate;
     }
@@ -76,6 +90,32 @@ public class Book  extends BaseEntity{
     public void setImageUrl(String ImageUrl) {
         this.ImageUrl = ImageUrl;
     }
+
+    public String getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(String authors) {
+        this.authors = authors;
+    }
+
+    public String getCategories() {
+        return categories;
+    }
+
+    public void setCategories(String categories) {
+        this.categories = categories;
+    }
+
+    public String getTranslators() {
+        return translators;
+    }
+
+    public void setTranslators(String translators) {
+        this.translators = translators;
+    }
+   
+
     
     
 }

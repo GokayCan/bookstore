@@ -10,6 +10,7 @@ public class User extends BaseEntity{
     private String PhoneNumber;
     private String Address;
     private int CityID;
+    private String CityName;
     private Date BirthDate;
     private String ImageUrl;
 
@@ -68,6 +69,14 @@ public class User extends BaseEntity{
     public void setCityID(int CityID) {
         this.CityID = CityID;
     }
+    
+    public String getCityName() {
+        return CityName;
+    }
+
+    public void setCityName(String CityName) {
+        this.CityName = CityName;
+    }
 
     public Date getBirthDate() {
         return BirthDate;
@@ -84,6 +93,8 @@ public class User extends BaseEntity{
     public void setImageUrl(String ImageUrl) {
         this.ImageUrl = ImageUrl;
     }
+
+    
     
     
 }

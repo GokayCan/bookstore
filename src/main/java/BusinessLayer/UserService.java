@@ -1,31 +1,29 @@
 package BusinessLayer;
 
+import DataAccess.Concretes.UserRepository;
 import DataAccess.Entities.BaseEntity;
+import DataAccess.Entities.User;
 import java.util.ArrayList;
 
-public class UserService implements IService{
+public class UserService{
 
-    @Override
-    public ArrayList<BaseEntity> List() {
+    public ArrayList<User> List() {
+        UserRepository repo = new UserRepository();
+        return repo.getList();
+    }
+
+    public User getByID(int ID) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
-    public BaseEntity getByID(int ID) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void Add(BaseEntity entity) {
+    public void Add(User entity) {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
 
-    @Override
-    public void Update(BaseEntity entity) {
+    public void Update(User entity) {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
 
-    @Override
     public void Delete(int ID) {
         throw new UnsupportedOperationException("Not supported yet.");
     }

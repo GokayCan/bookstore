@@ -9,10 +9,12 @@ import java.util.ArrayList;
 
 public class CategoryRepository extends Repository implements ICategoryRepository {
 
-    private Statement st;
-    private ResultSet rs;
     public ArrayList<Category> categories;
     public Category category;
+    
+    Statement st;
+    ResultSet rs;
+    PreparedStatement pst;
     
     public CategoryRepository(){
         
@@ -20,9 +22,8 @@ public class CategoryRepository extends Repository implements ICategoryRepositor
 
     @Override
     public ArrayList<Category> getList() {
+        
         String query = "SELECT * From Category";
-
-        category = new Category();
 
         categories = new ArrayList<Category>();
 
@@ -31,11 +32,14 @@ public class CategoryRepository extends Repository implements ICategoryRepositor
             rs = st.executeQuery(query);
 
             while (rs.next()) {
-
+                
+                category = new Category();
                 category.setID(rs.getInt("ID"));
                 category.setName(rs.getString("Name"));
 
                 categories.add(category);
+                
+                System.out.println(categories);
             }
 
             return categories;

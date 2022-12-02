@@ -1,31 +1,28 @@
 package BusinessLayer;
 
-import DataAccess.Entities.BaseEntity;
+import DataAccess.Concretes.BookRepository;
+import DataAccess.Entities.Book;
 import java.util.ArrayList;
 
-public class BookService implements IService{
+public class BookService{
 
-    @Override
-    public ArrayList<BaseEntity> List() {
+    public ArrayList<Book> List() {
+        BookRepository repo = new BookRepository();
+        return repo.getList();
+    }
+
+    public Book getByID(int ID) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
-    public BaseEntity getByID(int ID) {
+    public void Add(Book entity) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
-    public void Add(BaseEntity entity) {
+    public void Update(Book entity) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
-    public void Update(BaseEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
     public void Delete(int ID) {
         throw new UnsupportedOperationException("Not supported yet.");
     }

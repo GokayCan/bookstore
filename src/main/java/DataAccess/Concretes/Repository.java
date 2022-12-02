@@ -1,9 +1,11 @@
 package DataAccess.Concretes;
 import DataAccess.Connect;
-import java.sql.Connection;
+import java.sql.*;
 public class Repository{
 
-    Connection con;
+    public Connection con;
+    
+    
     public Repository() {
         Connect connect=new Connect();
         this.con = connect.getConnection();

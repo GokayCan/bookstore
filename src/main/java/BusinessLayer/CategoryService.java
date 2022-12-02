@@ -8,7 +8,9 @@ import java.util.ArrayList;
 
 public class CategoryService {
     
-    Connection con;
+    public CategoryService(){
+        
+    }
     
 
     public ArrayList<Category> List() {

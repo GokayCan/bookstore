@@ -1,31 +1,32 @@
 package BusinessLayer;
 
-import DataAccess.Entities.BaseEntity;
+import DataAccess.Concretes.CityRepository;
+import DataAccess.Entities.City;
+import DataAccess.Entities.Publisher;
 import java.util.ArrayList;
 
-public class CityService implements IService {
+public class CityService{
 
-    @Override
-    public ArrayList<BaseEntity> List() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public ArrayList<City> List() {
+        CityRepository cityRepository=new CityRepository();
+        
+        ArrayList<City> cities=cityRepository.getList();
+        
+        return cities;
     }
     
-    @Override
-    public BaseEntity getByID(int ID) {
+    public City getByID(int ID) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
-    public void Add(BaseEntity entity) {
+    public void Add(City entity) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
-    public void Update(BaseEntity entity) {
+    public void Update(City entity) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
     public void Delete(int ID) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
