@@ -94,7 +94,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link">
+                <a href="employees.jsp" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Çalışanlar Listesi</p>
                 </a>
@@ -117,7 +117,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link">
+                <a href="authors.jsp" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Yazar Listesi</p>
                 </a>

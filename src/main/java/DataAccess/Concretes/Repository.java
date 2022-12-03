@@ -1,7 +1,8 @@
 package DataAccess.Concretes;
 import DataAccess.Connect;
 import java.sql.*;
-public class Repository{
+import javax.servlet.http.HttpServlet;
+public class Repository extends HttpServlet{
 
     public Connection con;
     

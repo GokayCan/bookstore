@@ -23,19 +23,32 @@ public class CategoryService {
     }
 
     public Category getByID(int ID) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
+        Category category=new Category();
+        
+        CategoryRepository categoryRepository=new CategoryRepository();
+        
+        category=categoryRepository.getById(ID);
+        
+        return category;
     }
 
     public void Add(Category entity) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        CategoryRepository categoryRepository=new CategoryRepository();
+        
+        categoryRepository.Add(entity);
     }
 
     public void Update(Category entity) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        CategoryRepository categoryRepository=new CategoryRepository();
+        
+        categoryRepository.Update(entity);
     }
 
     public void Delete(int ID) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        CategoryRepository categoryRepository=new CategoryRepository();
+        
+        categoryRepository.Delete(ID);
     }
     
 }

@@ -50,21 +50,63 @@ public class CityRepository extends Repository implements ICityRepository{
 
     @Override
     public void Add(City entity) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String query = "INSERT INTO City(Name) VALUES('"+entity.getName()+"')";
+        
+        try {
+            st=con.createStatement();
+            st.execute(query);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @Override
-    public void Update(City entity) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void Update(City city) {
+        
+        String query="UPDATE City SET Name='"+city.getName()+"' Where ID='"+city.getID()+"'";
+        
+        try {
+            st=con.createStatement();
+            st.execute(query);
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
     }
 
     @Override
     public void Delete(int ID) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String query="DELETE FROM City Where ID='"+ID+"'";
+        
+        try {
+            st=con.createStatement();
+            st.execute(query);
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @Override
     public City getById(int ID) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+        City city=new City();
+        
+        String query="SELECT * FROM City Where ID='"+ID+"'";
+        
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(query);
+            
+            rs.next();
+            
+            city.setName(rs.getString("Name"));
+            city.setID(rs.getInt("ID"));
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return city;
+    }    
 }

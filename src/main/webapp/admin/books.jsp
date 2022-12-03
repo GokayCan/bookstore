@@ -75,8 +75,6 @@
                         <th scope="col">Çevirmenler</th>
                         <th scope="col">Kategoriler</th>
                         <th scope="col">Basım Tarihi</th>                     
-                        <th scope="col">Durumu</th>
-                        <th scope="col">Fotoğraf</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
                     </thead>
@@ -99,8 +97,6 @@
                                     <td><%=books.get(i).getTranslators()%></td>
                                     <td><%=books.get(i).getCategories()%></td>
                                     <td><%=books.get(i).getPublishDate()%></td>
-                                    <td><%=books.get(i).getEnable()%></td>
-                                    <td><%=books.get(i).getImageUrl()%></td>
                                     <td>
                                         <a href="#" class="btn btn-warning"><i class="far fa-edit"></i> Güncelle</a>
                                     </td>

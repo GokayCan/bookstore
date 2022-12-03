@@ -16,19 +16,31 @@ public class PublisherService {
     }
 
     public Publisher getByID(int ID) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        Publisher publisher=new Publisher();
+        
+        PublisherRepository publisherRepository=new PublisherRepository();
+        
+        publisher=publisherRepository.getById(ID);
+        
+        return publisher;
     }
 
     public void Add(Publisher entity) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        PublisherRepository publisherRepository=new PublisherRepository();
+        
+        publisherRepository.Add(entity);
     }
 
     public void Update(Publisher entity) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        PublisherRepository publisherRepository=new PublisherRepository();
+        
+        publisherRepository.Update(entity);
     }
 
     public void Delete(int ID) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        PublisherRepository publisherRepository=new PublisherRepository();
+        
+        publisherRepository.Delete(ID);
     }
     
 }

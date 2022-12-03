@@ -5,9 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="DataAccess.Entities.User"%>
+<%@page import="DataAccess.Entities.*"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="BusinessLayer.UserService" %>
+<%@page import="BusinessLayer.*" %>
 <html>
 <!-- header -->
 <%@ include file="header.jsp" %>
@@ -69,12 +69,9 @@
                         <th scope="col">İsim</th>
                         <th scope="col">Soyisim</th>
                         <th scope="col">Eposta</th>
-                        <th scope="col">Şifre</th>
                         <th scope="col">Telefon Numarası</th>
-                        <th scope="col">Adres</th>
                         <th scope="col">Şehir</th>
                         <th scope="col">Doğum Tarihi</th>
-                        <th scope="col">Fotoğraf</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
                     </thead>
@@ -91,13 +88,9 @@
                                     <td><%=users.get(i).getFirstName()%></td>
                                     <td><%=users.get(i).getLastName()%></td>
                                     <td><%=users.get(i).getEmail()%></td>
-                                    <td><%=users.get(i).getPassword()%></td>
                                     <td><%=users.get(i).getPhoneNumber()%></td>
-                                    <td><%=users.get(i).getAddress()%></td>
                                     <td><%=users.get(i).getCityName()%></td>
                                     <td><%=users.get(i).getBirthDate()%></td>
-                                    <td><%=users.get(i).getImageUrl()%></td>
-                                    
                                     <td>
                                         <a href="#" class="btn btn-warning"><i class="far fa-edit"></i> Güncelle</a>
                                     </td>

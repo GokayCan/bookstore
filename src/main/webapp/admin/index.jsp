@@ -4,7 +4,6 @@
     Author     : Bahadır
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="DataAccess.Entities.Category"%>
 <html>
 <!-- header -->
 <%@ include file="header.jsp" %>
@@ -25,7 +24,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Ana Sayfa</a></li>
+              <li class="breadcrumb-item"><a href="index.jsp">Ana Sayfa</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

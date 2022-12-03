@@ -16,19 +16,31 @@ public class CityService{
     }
     
     public City getByID(int ID) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        City city=new City();
+        
+        CityRepository cityRepository=new CityRepository();
+        
+        city=cityRepository.getById(ID);
+        
+        return city;
     }
 
     public void Add(City entity) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        CityRepository cityRepository=new CityRepository();
+        
+        cityRepository.Add(entity);
     }
 
     public void Update(City entity) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        CityRepository cityRepository=new CityRepository();
+        
+        cityRepository.Update(entity);
     }
 
     public void Delete(int ID) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        CityRepository cityRepository=new CityRepository();
+        
+        cityRepository.Delete(ID);
     }
     
 }

@@ -16,19 +16,31 @@ public class AuthorService{
     }
 
     public Author getByID(int ID) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Author author=new Author();
+        
+        AuthorRepository authoryRepository=new AuthorRepository();
+        
+        author=authoryRepository.getById(ID);
+        
+        return author;
     }
 
     public void Add(Author entity) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        AuthorRepository authoryRepository=new AuthorRepository();
+        
+        authoryRepository.Add(entity);
     }
 
     public void Update(Author entity) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        AuthorRepository authoryRepository=new AuthorRepository();
+        
+        authoryRepository.Update(entity);
     }
 
     public void Delete(int ID) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        AuthorRepository authoryRepository=new AuthorRepository();
+        
+        authoryRepository.Delete(ID);
     }
     
 }

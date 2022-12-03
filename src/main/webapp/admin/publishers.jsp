@@ -54,7 +54,7 @@
             <div class="card-body">
                 <div class="row mb-2">
                     <div class="col-10">
-                      <a class="btn btn-primary"><i class="fas fa-plus"></i>
+                      <a class="btn btn-primary" href="add-publisher.jsp"><i class="fas fa-plus"></i>
                         Yeni Ekle</a>
                     </div>
                     <div class="col-2">
@@ -82,10 +82,10 @@
                                     <td><%=publishers.get(i).getID()%></td>
                                     <td><%=publishers.get(i).getName()%></td>
                                     <td>
-                                        <a href="#" class="btn btn-warning"><i class="far fa-edit"></i> Güncelle</a>
+                                        <a href="update-publisher.jsp?ID=<%=publishers.get(i).getID()%>" class="btn btn-warning"><i class="far fa-edit"></i> Güncelle</a>
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-danger"><i class="far fa-trash-alt"></i> Sil</a>
+                                        <a href="delete-publisher.jsp?ID=<%=publishers.get(i).getID()%>" class="btn btn-danger"><i class="far fa-trash-alt"></i> Sil</a>
                                     </td>
                                 </tr>
                         <%        
