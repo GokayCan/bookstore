@@ -1,11 +1,11 @@
 <%-- 
-    Document   : categories
-    Created on : 3 Ara 2022, 00:08:17
+    Document   : translators
+    Created on : 3 Ara 2022, 23:41:31
     Author     : Bahadır
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="DataAccess.Entities.Category"%>
+<%@page import="DataAccess.Entities.*"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="BusinessLayer.*" %>
 <!DOCTYPE html>
@@ -23,29 +23,31 @@
         <div class="content-wrapper">
             <div class="card mt-2">
                 <div class="card-header">
-                    <h2 class="text-header text-center">Kategoriler</h2>
+                    <h2 class="text-header text-center">Çevirmenler</h2>
                 </div>
                 <div class="card-body">
-                    <a href="add-category.jsp" class="btn btn-primary mt-2 mb-2"><i class="icon-plus"></i> Yeni Ekle</a>
+                    <a href="add-translator.jsp" class="btn btn-primary mt-2 mb-2"><i class="icon-plus"></i> Yeni Ekle</a>
                     <table class="table table-bordered table-hover text-center">
                         <thead>
                         <th scope="col">Id</th>
-                        <th scope="col">Kategori Adı</th>
+                        <th scope="col">Adı</th>
+                        <th scope="col">Soyadı</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
                         </thead>
                         <tbody>
                             <%
-                            CategoryService service=new CategoryService();
-                            ArrayList<Category> categories=new ArrayList<Category>();
-                            categories=service.List();
-                            for(int i=0;i<categories.size();i++){
+                            TranslatorService service=new TranslatorService();
+                            ArrayList<Translator> translators=new ArrayList<Translator>();
+                            translators=service.List();
+                            for(int i=0;i<translators.size();i++){
                                 %>
                                 <tr>
-                                    <td><%=categories.get(i).getID()%></td>
-                                    <td><%=categories.get(i).getName()%></td>
-                                    <td><a href="update-category.jsp?ID=<%=categories.get(i).getID()%>" class="btn btn-warning"><i class="ti-pencil"></i> Güncelle</a></td>
-                                    <td><a href="delete-category.jsp?ID=<%=categories.get(i).getID()%>" class="btn btn-danger"><i class="icon-trash"></i> Sil</a></td>
+                                    <td><%=translators.get(i).getID()%></td>
+                                    <td><%=translators.get(i).getFirstName()%></td>
+                                    <td><%=translators.get(i).getLastName()%></td>
+                                    <td><a href="update-translator.jsp?ID=<%=translators.get(i).getID()%>" class="btn btn-warning"><i class="ti-pencil"></i> Güncelle</a></td>
+                                    <td><a href="delete-translator.jsp?ID=<%=translators.get(i).getID()%>" class="btn btn-danger"><i class="icon-trash"></i> Sil</a></td>
                                 </tr>
                             <%        
                                 }

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : update-category
-    Created on : 3 Ara 2022, 00:38:27
+    Document   : update-translator
+    Created on : 3 Ara 2022, 23:41:51
     Author     : Bahadır
 --%>
 
@@ -24,22 +24,26 @@
            <%
                 int ID=Integer.parseInt(request.getParameter("ID"));
 
-                CategoryService service=new CategoryService();
-                Category category=new Category();
+                TranslatorService service=new TranslatorService();
+                Translator translator=new Translator();
 
-                category=service.getByID(ID);
+                translator=service.getByID(ID);
         
             %>
             
             <form method="post" action="#">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="text-center text-header">Kategori Güncelle</h2>
+                        <h2 class="text-center text-header">Çevirmen Güncelle</h2>
                     </div>
                     <div class="card-body">
-                        <div class="form-group">
-                            <label class="form-label">Kategori Adı</label>
-                            <input type="text" class="form-control" name="txtName" value="<%=category.getName()%>">
+                        <div class="form-group mb-2">
+                            <label class="form-label">Çevirmen Adı</label>
+                            <input type="text" class="form-control" name="txtFirstName" value="<%=translator.getFirstName()%>">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label class="form-label">Çevirmen Soyadı</label>
+                            <input type="text" class="form-control" name="txtLastName" value="<%=translator.getLastName()%>">
                         </div>
                     </div>
                     <div class="card-footer">
@@ -53,10 +57,11 @@
             <%
                 if(request.getParameter("save")!=null){
 
-                    category.setName(request.getParameter("txtName"));
-                    service.Update(category);
+                    translator.setFirstName(request.getParameter("txtFirstName"));
+                    translator.setLastName(request.getParameter("txtLastName"));
+                    service.Update(translator);
 
-                    response.sendRedirect("categories.jsp");
+                    response.sendRedirect("translators.jsp");
                 }
             %>
             

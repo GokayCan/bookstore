@@ -88,7 +88,7 @@ public class PublisherRepository extends Repository implements IPublisherReposit
 
     @Override
     public Publisher getById(int ID) {
-        Publisher city=new Publisher();
+        Publisher publisher=new Publisher();
         
         String query="SELECT * FROM Publisher Where ID='"+ID+"'";
         
@@ -98,13 +98,13 @@ public class PublisherRepository extends Repository implements IPublisherReposit
             
             rs.next();
             
-            city.setName(rs.getString("Name"));
-            city.setID(rs.getInt("ID"));
+            publisher.setName(rs.getString("Name"));
+            publisher.setID(rs.getInt("ID"));
             
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         
-        return city;
+        return publisher;
     } 
 }

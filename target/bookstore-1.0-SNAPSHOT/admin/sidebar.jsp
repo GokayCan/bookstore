@@ -147,6 +147,14 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
+            <a href="translators.jsp" class="nav-link">
+              <i class="nav-icon fas fa-pen-alt"></i>
+              <p>
+                Çevirmenler
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
             <a href="cities.jsp" class="nav-link">
               <i class="nav-icon fas fa-map"></i>
               <p>

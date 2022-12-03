@@ -14,19 +14,31 @@ public class TranslatorService {
     }
 
     public Translator getByID(int ID) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        Translator translator=new Translator();
+        
+        TranslatorRepository translatorRepository=new TranslatorRepository();
+        
+        translator=translatorRepository.getById(ID);
+        
+        return translator;
     }
 
     public void Add(Translator entity) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        TranslatorRepository translatorRepository=new TranslatorRepository();
+        
+        translatorRepository.Add(entity);
     }
 
     public void Update(Translator entity) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        TranslatorRepository translatorRepository=new TranslatorRepository();
+        
+        translatorRepository.Update(entity);
     }
 
     public void Delete(int ID) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        TranslatorRepository translatorRepository=new TranslatorRepository();
+        
+        translatorRepository.Delete(ID);
     }
     
 }

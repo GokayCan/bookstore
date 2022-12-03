@@ -1,6 +1,6 @@
 <%-- 
-    Document   : add-category
-    Created on : 3 Ara 2022, 00:38:09
+    Document   : add-translator
+    Created on : 3 Ara 2022, 23:41:37
     Author     : Bahadır
 --%>
 
@@ -24,12 +24,16 @@
             <form method="post" action="#">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="text-center text-header">Kategori Ekle</h2>
+                        <h2 class="text-center text-header">Çevirmen Ekle</h2>
                     </div>
                     <div class="card-body">
-                        <div class="form-group">
-                            <label class="form-label">Kategori Adı</label>
-                            <input type="text" class="form-control" name="txtName">
+                        <div class="form-group mb-2">
+                            <label class="form-label">Çevirmen Adı</label>
+                            <input type="text" class="form-control" name="txtFirstName">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label class="form-label">Çevirmen Soyadı</label>
+                            <input type="text" class="form-control" name="txtLastName">
                         </div>
                     </div>
                     <div class="card-footer">
@@ -43,13 +47,14 @@
             <%
             if(request.getParameter("save")!=null){
                 
-                Category category=new Category();
-                CategoryService service=new CategoryService();
+                Translator translator=new Translator();
+                TranslatorService service=new TranslatorService();
                 
-                category.setName(request.getParameter("txtName"));
-                service.Add(category);
+                translator.setFirstName(request.getParameter("txtFirstName"));
+                translator.setLastName(request.getParameter("txtLastName"));
+                service.Add(translator);
                 
-                response.sendRedirect("categories.jsp");
+                response.sendRedirect("translators.jsp");
             }
         %>
             

@@ -27,6 +27,8 @@ public class TranslatorRepository extends Repository implements ITranslatorRepos
             rs = st.executeQuery(query);
 
             while (rs.next()) {
+                
+                translator = new Translator();
 
                 translator.setID(rs.getInt("ID"));
                 translator.setFirstName(rs.getString("FirstName"));
@@ -47,21 +49,64 @@ public class TranslatorRepository extends Repository implements ITranslatorRepos
 
     @Override
     public void Add(Translator entity) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String query = "INSERT INTO Translator(FirstName,LastName) VALUES('"+entity.getFirstName()+"','"+entity.getLastName()+"')";
+        
+        try {
+            st=con.createStatement();
+            st.execute(query);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @Override
-    public void Update(Translator entity) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void Update(Translator translator) {
+        
+        String query="UPDATE Translator SET FirstName='"+translator.getFirstName()+"',LastName='"+translator.getLastName()+"' Where ID='"+translator.getID()+"'";
+        
+        try {
+            st=con.createStatement();
+            st.execute(query);
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
     }
 
     @Override
     public void Delete(int ID) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String query="DELETE FROM Translator Where ID='"+ID+"'";
+        
+        try {
+            st=con.createStatement();
+            st.execute(query);
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @Override
     public Translator getById(int ID) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+        Translator translator=new Translator();
+        
+        String query="SELECT * FROM Translator Where ID='"+ID+"'";
+        
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(query);
+            
+            rs.next();
+            
+            translator.setFirstName(rs.getString("FirstName"));
+            translator.setLastName(rs.getString("LastName"));
+            translator.setID(rs.getInt("ID"));
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return translator;
+    } 
 }

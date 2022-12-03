@@ -32,6 +32,12 @@
         </a>
       </li>
         <li class="nav-item">
+        <a class="nav-link" href="translators.jsp">
+          <i class="ti-write menu-icon"></i>
+          <span class="menu-title">Çevirmenler</span>
+        </a>
+      </li>
+        <li class="nav-item">
         <a class="nav-link" href="categories.jsp">
           <i class="icon-grid menu-icon"></i>
           <span class="menu-title">Kategoriler</span>

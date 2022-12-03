@@ -44,8 +44,8 @@
                                 <tr>
                                     <td><%=categories.get(i).getID()%></td>
                                     <td><%=categories.get(i).getName()%></td>
-                                    <td><a href="update-category.jsp" class="btn btn-warning"><i class="ti-pencil"></i> Güncelle</a></td>
-                                <td><a href="delete-category.jsp" class="btn btn-danger"><i class="icon-trash"></i> Sil</a></td>
+                                    <td><a href="update-category.jsp?ID=<%=categories.get(i).getID()%>" class="btn btn-warning"><i class="ti-pencil"></i> Güncelle</a></td>
+                                    <td><a href="delete-category.jsp?ID=<%=categories.get(i).getID()%>" class="btn btn-danger"><i class="icon-trash"></i> Sil</a></td>
                                 </tr>
                             <%        
                                 }
