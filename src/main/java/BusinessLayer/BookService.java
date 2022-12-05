@@ -12,11 +12,19 @@ public class BookService{
     }
 
     public Book getByID(int ID) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Book book=new Book();
+        
+        BookRepository bookRepository=new BookRepository();
+        
+        book=bookRepository.getById(ID);
+        
+        return book;
     }
 
     public void Add(Book entity) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        BookRepository bookRepository=new BookRepository();
+        
+        bookRepository.Add(entity);
     }
 
     public void Update(Book entity) {
@@ -24,7 +32,11 @@ public class BookService{
     }
 
     public void Delete(int ID) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        BookRepository bookRepository=new BookRepository();
+        
+        bookRepository.Delete(ID);
     }
+    
+    
     
 }

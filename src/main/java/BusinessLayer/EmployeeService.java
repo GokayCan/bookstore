@@ -1,8 +1,6 @@
 package BusinessLayer;
 
-import DataAccess.Concretes.AuthorRepository;
 import DataAccess.Concretes.EmployeeRepository;
-import DataAccess.Entities.Author;
 import DataAccess.Entities.Employee;
 import java.util.ArrayList;
 
@@ -17,19 +15,31 @@ public class EmployeeService{
     }
 
     public Employee getByID(int ID) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Employee employee=new Employee();
+        
+        EmployeeRepository employeeRepository=new EmployeeRepository();
+        
+        employee=employeeRepository.getById(ID);
+        
+        return employee;
     }
 
     public void Add(Employee entity) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        EmployeeRepository employeeRepository=new EmployeeRepository();
+        
+        employeeRepository.Add(entity);
     }
 
     public void Update(Employee entity) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        EmployeeRepository employeeRepository=new EmployeeRepository();
+        
+        employeeRepository.Update(entity);
     }
 
     public void Delete(int ID) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        EmployeeRepository employeeRepository=new EmployeeRepository();
+        
+        employeeRepository.Delete(ID);
     }
     
 }

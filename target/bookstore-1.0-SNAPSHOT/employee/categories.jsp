@@ -39,7 +39,8 @@
                             CategoryService service=new CategoryService();
                             ArrayList<Category> categories=new ArrayList<Category>();
                             categories=service.List();
-                            for(int i=0;i<categories.size();i++){
+                            for(int i=0;i<categories.size();i++)
+                            {
                                 %>
                                 <tr>
                                     <td><%=categories.get(i).getID()%></td>

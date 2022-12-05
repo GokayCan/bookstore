@@ -24,12 +24,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Kitaplar Menüsü</h1>
+            <h1 class="m-0 text-dark">Kitap Menüsü</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.jsp">Ana Sayfa</a></li>
-              <li class="breadcrumb-item active">Kitaplar</li>
+              <li class="breadcrumb-item active">Kitap Listesi</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -54,7 +54,7 @@
             <div class="card-body">
                 <div class="row mb-2">
                     <div class="col-10">
-                      <a class="btn btn-primary"><i class="fas fa-plus"></i>
+                        <a class="btn btn-primary" href="add-book.jsp"><i class="fas fa-plus"></i>
                         Yeni Ekle</a>
                     </div>
                     <div class="col-2">
@@ -98,10 +98,10 @@
                                     <td><%=books.get(i).getCategories()%></td>
                                     <td><%=books.get(i).getPublishDate()%></td>
                                     <td>
-                                        <a href="#" class="btn btn-warning"><i class="far fa-edit"></i> Güncelle</a>
+                                        <a href="update-book.jsp?ID=<%=books.get(i).getID()%>" class="btn btn-warning"><i class="far fa-edit"></i> Güncelle</a>
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-danger"><i class="far fa-trash-alt"></i> Sil</a>
+                                        <a href="delete-book.jsp?ID=<%=books.get(i).getID()%>" class="btn btn-danger"><i class="far fa-trash-alt"></i> Sil</a>
                                     </td>
                                 </tr>
                         <%        

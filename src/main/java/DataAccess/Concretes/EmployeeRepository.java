@@ -35,6 +35,9 @@ public class EmployeeRepository extends Repository implements IEmployeeRepositor
                 employee.setID(rs.getInt("ID"));
                 employee.setFirstName(rs.getString("FirstName"));
                 employee.setLastName(rs.getString("LastName"));
+                employee.setTCNo(rs.getString("TcNo"));
+                employee.setPassword(rs.getString("PassWord"));
+                employee.setDocument(rs.getString("Document"));
                 employee.setStartDate(rs.getDate("StartDate"));
                 employee.setEndDate(rs.getDate("EndDate"));
 
@@ -52,21 +55,70 @@ public class EmployeeRepository extends Repository implements IEmployeeRepositor
 
     @Override
     public void Add(Employee entity) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String query = "INSERT INTO Employee(FirstName,LastName,TCNo,Password,Document,StartDate) VALUES('"+entity.getFirstName()+"','"+entity.getLastName()+"','"+entity.getTCNo()+"','"+entity.getPassword()+"'"
+                + ",'"+entity.getDocument()+"','"+entity.getStartDate()+"')";
+        
+        try {
+            st=con.createStatement();
+            st.execute(query);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @Override
-    public void Update(Employee entity) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void Update(Employee employee) {
+        
+        String query="UPDATE Employee SET FirstName='"+employee.getFirstName()+"',LastName='"+employee.getLastName()+"'"
+                + ",TCNo='"+employee.getTCNo()+"',Password='"+employee.getPassword()+"',Document='"+employee.getDocument()+"'"
+                + ",StartDate='"+employee.getStartDate()+"' Where ID='"+employee.getID()+"'";
+        
+        try {
+            st=con.createStatement();
+            st.execute(query);
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
     }
 
     @Override
     public void Delete(int ID) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String query="DELETE FROM Employee Where ID='"+ID+"'";
+        
+        try {
+            st=con.createStatement();
+            st.execute(query);
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @Override
     public Employee getById(int ID) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+        Employee employee=new Employee();
+        
+        String query="SELECT * FROM Employee Where ID='"+ID+"'";
+        
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(query);
+            
+            rs.next();
+            
+            employee.setFirstName(rs.getString("FirstName"));
+            employee.setLastName(rs.getString("LastName"));
+            employee.setTCNo(rs.getString("LastName"));
+            employee.setPassword(rs.getString("LastName"));
+            employee.setStartDate(rs.getDate("StartDate"));
+            employee.setID(rs.getInt("ID"));
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return employee;
+    } 
 }

@@ -19,7 +19,7 @@ public class BookRepository extends Repository implements IBookRepository{
 
     @Override
     public ArrayList<Book> getList() {
-        String query = "SELECT B.ID,B.Name,B.Stock,B.Enable,P.Name as Publisher,B.PublishDate,B.PageNumber,B.PrintCount,B.ImageUrl FROM Book B " +
+        String query = "SELECT B.ID,B.Name,B.Subject,B.Stock,B.Enable,P.Name as Publisher,B.PublishDate,B.PageNumber,B.PrintCount,B.ImageUrl FROM Book B " +
                         "inner join Publisher P on B.PublisherID = P.ID";
         books = new ArrayList<Book>();
 
@@ -32,6 +32,7 @@ public class BookRepository extends Repository implements IBookRepository{
                 ID = rs.getInt("ID");
                 book.setID(rs.getInt("ID"));
                 book.setName(rs.getString("Name"));
+                book.setSubject(rs.getString("Subject"));
                 book.setPageNumber(rs.getString("PageNumber"));
                 book.setEnable(rs.getBoolean("Enable"));
                 book.setPrintCount(rs.getString("PrintCount"));
@@ -89,7 +90,15 @@ public class BookRepository extends Repository implements IBookRepository{
 
     @Override
     public void Add(Book entity) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String query = "INSERT INTO Book(Name,Subject,Stock,Enable,PublisherID,PublishDate,PageNumber,PrintCount,ImageUrl) VALUES('"+entity.getName()+"','"+entity.getSubject()+"','"+entity.getStock()+"','"+1+"'"
+                + ",'"+entity.getPublisherID()+"','"+entity.getPublishDate()+"','"+entity.getPageNumber()+"','"+entity.getPrintCount()+"','"+entity.getImageUrl()+"')";
+        
+        try {
+            st=con.createStatement();
+            st.execute(query);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @Override
@@ -99,12 +108,42 @@ public class BookRepository extends Repository implements IBookRepository{
 
     @Override
     public void Delete(int ID) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String query="DELETE FROM Book Where ID='"+ID+"'";
+        
+        try {
+            st=con.createStatement();
+            st.execute(query);
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @Override
     public Book getById(int ID) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Book book=new Book();
+        
+        String query="SELECT * FROM Book Where ID='"+ID+"'";
+        
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(query);
+            
+            rs.next();
+            
+            book.setName(rs.getString("Name"));
+            book.setSubject(rs.getString("Subject"));
+            book.setPageNumber(rs.getString("PageNumber"));
+            book.setPrintCount(rs.getString("PrintCount"));
+            book.setStock(rs.getInt("Stock"));
+            book.setPublishDate(rs.getDate("PublishDate"));
+            book.setID(rs.getInt("ID"));
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return book;
     }
     
 }

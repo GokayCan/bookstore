@@ -5,6 +5,7 @@ import java.util.Date;
 public class Book  extends BaseEntity{
     
     private String Name;
+    private String Subject;
     private int Stock;
     private boolean Enable;
     private int PublisherID;
@@ -23,6 +24,14 @@ public class Book  extends BaseEntity{
 
     public void setName(String Name) {
         this.Name = Name;
+    }
+    
+    public String getSubject() {
+        return Subject;
+    }
+
+    public void setSubject(String Subject) {
+        this.Subject = Subject;
     }
 
     public int getStock() {

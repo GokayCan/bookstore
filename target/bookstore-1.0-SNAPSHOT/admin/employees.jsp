@@ -54,7 +54,7 @@
             <div class="card-body">
                 <div class="row mb-2">
                     <div class="col-10">
-                      <a class="btn btn-primary"><i class="fas fa-plus"></i>
+                        <a class="btn btn-primary" href="add-employee.jsp"><i class="fas fa-plus"></i>
                         Yeni Ekle</a>
                     </div>
                     <div class="col-2">

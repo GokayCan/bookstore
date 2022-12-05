@@ -54,7 +54,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="book-list.jsp" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kitaplar</p>
                 </a>
@@ -100,7 +100,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="employee-list.jsp" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Çalışanlar</p>
                 </a>
