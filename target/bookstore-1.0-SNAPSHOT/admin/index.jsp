@@ -3,6 +3,7 @@
     Created on : 5 Kas 2022, 00:05:25
     Author     : Bahadır
 --%>
+<%--@ include file="authorization.jsp" --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
 <!-- header -->

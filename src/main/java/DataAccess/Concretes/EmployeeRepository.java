@@ -121,4 +121,21 @@ public class EmployeeRepository extends Repository implements IEmployeeRepositor
         
         return employee;
     } 
+
+    @Override
+    public boolean IsAccountExist(String tc, String password) {
+        String query = "Select Count(*) as Account From Employee where TcNo = '"+ tc +"' and Password = '"+ password +"'";
+        try{
+            st = con.createStatement();
+            rs = st.executeQuery(query);
+            rs.next();
+            int row = rs.getInt("Account");
+            if (row > 0){
+                return true;
+            }           
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
+    }
 }

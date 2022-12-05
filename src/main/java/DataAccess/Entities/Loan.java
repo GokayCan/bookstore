@@ -4,8 +4,11 @@ import java.util.Date;
 public class Loan extends BaseEntity{
 
     private int UserID;
+    private String User;
     private int EmployeeID;
+    private String Employee;
     private int BookID;
+    private String Book;
     private Date LoanDate;
     private Date MaxReturnDate;
     private Date ReturnedDate;
@@ -59,12 +62,36 @@ public class Loan extends BaseEntity{
         this.ReturnedDate = ReturnedDate;
     }
 
-    public boolean isIsEnd() {
+    public boolean getIsEnd() {
         return IsEnd;
     }
 
     public void setIsEnd(boolean IsEnd) {
         this.IsEnd = IsEnd;
+    }
+
+    public String getUser() {
+        return User;
+    }
+
+    public void setUser(String User) {
+        this.User = User;
+    }
+
+    public String getEmployee() {
+        return Employee;
+    }
+
+    public void setEmployee(String Employee) {
+        this.Employee = Employee;
+    }
+
+    public String getBook() {
+        return Book;
+    }
+
+    public void setBook(String Book) {
+        this.Book = Book;
     }
     
     

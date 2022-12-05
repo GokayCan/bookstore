@@ -37,6 +37,11 @@ public class BookService{
         bookRepository.Delete(ID);
     }
     
+    public ArrayList<Book> getOnlyId_Name() {
+        BookRepository repo = new BookRepository();
+        return repo.getOnlyId_Name();
+    }
+    
     
     
 }

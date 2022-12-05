@@ -1,7 +1,6 @@
 package DataAccess.Concretes;
 import DataAccess.Abstractions.IUserRepository;
 import DataAccess.Entities.User;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -65,11 +64,47 @@ public class UserRepository extends Repository implements IUserRepository{
 
     @Override
     public void Delete(int ID) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String query="DELETE FROM User Where ID='"+ID+"'";
+        
+        try {
+            st=con.createStatement();
+            st.execute(query);
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @Override
     public User getById(int ID) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        User user = new User();
+        
+        String query="SELECT * FROM User U "
+                + "inner join City C on U.CityID = C.ID"
+                + " Where ID='" + ID + "'";
+        
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(query);
+            
+            rs.next();
+            
+            user.setFirstName(rs.getString("FirstName"));
+            user.setLastName(rs.getString("LastName"));
+            user.setEmail(rs.getString("Email"));
+            user.setPassword(rs.getString("Password"));
+            user.setPhoneNumber(rs.getString("PhoneNumber"));
+            user.setAddress(rs.getString("Address"));
+            user.setCityName(rs.getString("CityID"));
+            user.setBirthDate(rs.getDate("BirthDate"));
+            user.setImageUrl(rs.getString("ImageUrl"));
+            user.setCityName(rs.getString("Name"));
+            user.setID(rs.getInt("ID"));
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return user;
     }
 }

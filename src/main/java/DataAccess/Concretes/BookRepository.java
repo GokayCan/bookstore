@@ -146,4 +146,24 @@ public class BookRepository extends Repository implements IBookRepository{
         return book;
     }
     
+    public ArrayList<Book> getOnlyId_Name(){        
+        String query="SELECT ID,Name FROM Book where Stock > 0";
+        books = new ArrayList<Book>();
+        Book book;
+        try {
+            st=con.createStatement();
+            rs=st.executeQuery(query);
+            
+            while(rs.next()){
+                book = new Book();
+                book.setID(rs.getInt("ID"));
+                book.setName(rs.getString("Name"));
+                books.add(book);
+            }          
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return books;
+    }
+    
 }

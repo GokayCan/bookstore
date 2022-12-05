@@ -1,28 +1,39 @@
 package BusinessLayer;
 
-import DataAccess.Entities.BaseEntity;
+import DataAccess.Concretes.AdminRepository;
+import DataAccess.Entities.Admin;
 import java.util.ArrayList;
 
 public class AdminService{
+    
+    private AdminRepository repo;
+    
+    public AdminService(){
+        repo = new AdminRepository();
+    }
 
-    public ArrayList<BaseEntity> List() {
+    public ArrayList<Admin> List() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public BaseEntity getByID(int ID) {
+    public Admin getByID(int ID) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public void Add(BaseEntity entity) {
+    public void Add(Admin entity) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public void Update(BaseEntity entity) {
+    public void Update(Admin entity) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     public void Delete(int ID) {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    public boolean IsAccountExist(String username, String password) {
+        return repo.IsAccountExist(username, password);
     }
     
 }

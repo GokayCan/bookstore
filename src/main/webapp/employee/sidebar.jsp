@@ -44,7 +44,7 @@
         </a>
       </li>
         <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="loans.jsp">
           <i class="icon-arrow-left menu-icon"></i>
           <span class="menu-title">Emanetler</span>
         </a>

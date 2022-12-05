@@ -5,41 +5,38 @@ import DataAccess.Entities.Employee;
 import java.util.ArrayList;
 
 public class EmployeeService{
+    
+    private EmployeeRepository repo;
+    
+    public EmployeeService(){
+        repo = new EmployeeRepository();
+    }
 
-    public ArrayList<Employee> List() {
-        EmployeeRepository employeeRepository=new EmployeeRepository();
-        
-        ArrayList<Employee> employees=employeeRepository.getList();
-        
+    public ArrayList<Employee> List() {       
+        ArrayList<Employee> employees=repo.getList();  
         return employees;
     }
 
     public Employee getByID(int ID) {
-        Employee employee=new Employee();
-        
-        EmployeeRepository employeeRepository=new EmployeeRepository();
-        
-        employee=employeeRepository.getById(ID);
-        
+        Employee employee=new Employee();       
+        employee=repo.getById(ID);     
         return employee;
     }
 
-    public void Add(Employee entity) {
-        EmployeeRepository employeeRepository=new EmployeeRepository();
-        
-        employeeRepository.Add(entity);
+    public void Add(Employee entity) {     
+        repo.Add(entity);
     }
 
-    public void Update(Employee entity) {
-        EmployeeRepository employeeRepository=new EmployeeRepository();
-        
-        employeeRepository.Update(entity);
+    public void Update(Employee entity) {  
+        repo.Update(entity);
     }
 
-    public void Delete(int ID) {
-        EmployeeRepository employeeRepository=new EmployeeRepository();
-        
-        employeeRepository.Delete(ID);
+    public void Delete(int ID) {    
+        repo.Delete(ID);
+    }
+    
+    public boolean IsAccountExist(String tc, String password) {
+        return repo.IsAccountExist(tc, password);
     }
     
 }

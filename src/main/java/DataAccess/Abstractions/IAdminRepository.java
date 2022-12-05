@@ -5,6 +5,7 @@ import DataAccess.Entities.Admin;
 import java.util.ArrayList;
 
 public interface IAdminRepository{
+    
     public ArrayList<Admin> getList();
 
     public void Add(Admin entity);
@@ -14,5 +15,7 @@ public interface IAdminRepository{
     public void Delete(int ID);
 
     public Admin getById(int ID);
+    
+    public boolean IsAccountExist(String username , String password);
     
 }
