@@ -17,6 +17,6 @@ public interface IEmployeeRepository{
 
     public Employee getById(int ID);
     
-    public boolean IsAccountExist(String tc , String password);
+    public Employee AccountExist(String tc , String password);
     
 }

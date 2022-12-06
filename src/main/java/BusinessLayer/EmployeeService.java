@@ -35,8 +35,8 @@ public class EmployeeService{
         repo.Delete(ID);
     }
     
-    public boolean IsAccountExist(String tc, String password) {
-        return repo.IsAccountExist(tc, password);
+    public Employee AccountExist(String tc, String password) {
+        return repo.AccountExist(tc, password);
     }
     
 }

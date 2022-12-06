@@ -3,9 +3,11 @@ package DataAccess.Concretes;
 import DataAccess.Abstractions.ILoanRepository;
 import DataAccess.Entities.Loan;
 import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Calendar;
 
 public class LoanRepository extends Repository implements ILoanRepository{
     
@@ -54,9 +56,21 @@ public class LoanRepository extends Repository implements ILoanRepository{
     public void Add(Loan loan) {
         String query = "INSERT INTO Loan (UserID,EmployeeID,BookID,LoanDate,MaxReturnDate,ReturnedDate,IsEnd) " +
                         "Values ('"+ loan.getUserID() +"' , '"+ loan.getEmployeeID() +"' , '"+ loan.getBookID() +"' , " +
-                        "'"+ loan.getLoanDate()+"' , '"+ loan.getMaxReturnDate()+"' , '"+ loan.getReturnedDate()+"' , '"+ loan.getIsEnd()+"')";
+                        "? , ? , '"+ null +"' , '"+ loan.getIsEnd()+"')";
         try {
-            st = con.createStatement();
+            //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+            //LocalDateTime now = LocalDateTime.now();
+            //java.util.Date utilDate = new SimpleDateFormat("yyyy/MM/dd").parse(dtf.format(now));
+            Calendar cal = Calendar.getInstance();
+            java.util.Date utilDate1 = cal.getTime();
+            java.sql.Date sqlDate1 = new java.sql.Date(utilDate1.getTime());
+            cal.add(Calendar.MONTH, 6);
+            java.util.Date utilDate2 = cal.getTime();
+            java.sql.Date sqlDate2 = new java.sql.Date(utilDate2.getTime());
+            
+            pst = con.prepareStatement(query);
+            pst.setDate(1,sqlDate1);
+            pst.setDate(2,sqlDate2);
             st.execute(query);
         } catch (Exception ex) {
             ex.printStackTrace();

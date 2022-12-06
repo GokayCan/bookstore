@@ -6,9 +6,13 @@ import DataAccess.Entities.User;
 import java.util.ArrayList;
 
 public class UserService{
-
+    UserRepository repo;
+    
+    public UserService(){
+        repo = new UserRepository();
+    }
+    
     public ArrayList<User> List() {
-        UserRepository repo = new UserRepository();
         return repo.getList();
     }
 
@@ -26,6 +30,10 @@ public class UserService{
 
     public void Delete(int ID) {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    public int getByEmail(String email) {
+        return repo.getByEmail(email);
     }
     
 }

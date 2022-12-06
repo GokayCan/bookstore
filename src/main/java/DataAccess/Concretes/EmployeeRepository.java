@@ -123,19 +123,20 @@ public class EmployeeRepository extends Repository implements IEmployeeRepositor
     } 
 
     @Override
-    public boolean IsAccountExist(String tc, String password) {
-        String query = "Select Count(*) as Account From Employee where TcNo = '"+ tc +"' and Password = '"+ password +"'";
+    public Employee AccountExist(String tc, String password) {
+        String query = "Select ID,TcNo,Password From Employee where TcNo = '"+ tc +"' and Password = '"+ password +"'";
         try{
             st = con.createStatement();
             rs = st.executeQuery(query);
             rs.next();
-            int row = rs.getInt("Account");
-            if (row > 0){
-                return true;
-            }           
+            Employee emp = new Employee();
+            emp.setID(rs.getInt("ID"));
+            emp.setTCNo(rs.getString("TcNo"));
+            emp.setPassword(rs.getString("Password"));
+            return emp;
         }catch(Exception ex){
             ex.printStackTrace();
         }
-        return false;
+        return null;
     }
 }

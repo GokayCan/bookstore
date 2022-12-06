@@ -4,6 +4,8 @@ import DataAccess.Entities.User;
 import java.sql.SQLException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class UserRepository extends Repository implements IUserRepository{
     
@@ -106,5 +108,20 @@ public class UserRepository extends Repository implements IUserRepository{
         }
         
         return user;
+    }
+
+    @Override
+    public int getByEmail(String email) {
+        String query = "Select ID From User where Email = '"+email+"'";
+        try {
+            st = con.createStatement();
+            rs = st.executeQuery(query);
+            rs.next();
+            int id = rs.getInt("ID");
+            return id;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return -1;
     }
 }

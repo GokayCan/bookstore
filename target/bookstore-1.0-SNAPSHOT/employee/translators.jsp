@@ -3,7 +3,7 @@
     Created on : 3 Ara 2022, 23:41:31
     Author     : Bahadır
 --%>
-
+<%@include file="authorization.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="DataAccess.Entities.*"%>
 <%@page import="java.util.ArrayList"%>

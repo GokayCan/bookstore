@@ -3,6 +3,7 @@
     Created on : 6 Dec 2022, 00:08:24
     Author     : mavia
 --%>
+<%@include file="authorization.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="DataAccess.Entities.Loan"%>
 <%@page import="java.util.ArrayList"%>

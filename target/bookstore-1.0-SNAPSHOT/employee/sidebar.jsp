@@ -8,7 +8,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="index.jsp">
           <i class="ti-home menu-icon"></i>
           <span class="menu-title">Ana Sayfa</span>
         </a>
