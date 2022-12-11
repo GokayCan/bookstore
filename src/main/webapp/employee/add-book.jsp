@@ -18,7 +18,7 @@
       <%@ include file="sidebar.jsp" %>
       <div class="main-panel">
         <div class="content-wrapper">
-            <form action="EmployeeBookUpload" method="post" enctype="multipart/form-data">
+            <form action="EmployeeBookAdd" method="post" enctype="multipart/form-data">
                 <div class="card">
                     <div class="card-header">
                         <h2 class="text-center text-header">Kitap Ekle</h2>

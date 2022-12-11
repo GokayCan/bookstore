@@ -1,6 +1,8 @@
 package BusinessLayer;
 
+import DataAccess.Concretes.BookCategoryRepository;
 import DataAccess.Entities.BaseEntity;
+import DataAccess.Entities.BookCategory;
 import java.util.ArrayList;
 
 public class BookCategoryService {
@@ -13,8 +15,10 @@ public class BookCategoryService {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public void Add(BaseEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void Add(BookCategory entity) {
+        BookCategoryRepository bookCategoryRepository=new BookCategoryRepository();
+        
+        bookCategoryRepository.Add(entity);
     }
 
     public void Update(BaseEntity entity) {
@@ -22,7 +26,9 @@ public class BookCategoryService {
     }
 
     public void Delete(int ID) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        BookCategoryRepository bookCategoryRepository=new BookCategoryRepository();
+        
+        bookCategoryRepository.Delete(ID);
     }
     
 }

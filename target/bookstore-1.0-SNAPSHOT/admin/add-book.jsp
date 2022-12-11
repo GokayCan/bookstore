@@ -40,7 +40,7 @@
 
     <!-- Main content -->
     <section class="content">
-        <form action="AdminBookUpload" method="post" enctype="multipart/form-data">
+        <form action="AdminBookAdd" method="post" enctype="multipart/form-data">
             <div class="card">
                 <div class="card-header">
                     <div class="card-tools">

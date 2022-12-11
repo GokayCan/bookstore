@@ -103,7 +103,15 @@ public class BookRepository extends Repository implements IBookRepository{
 
     @Override
     public void Update(Book entity) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String query = "UPDATE Book SET Name='"+entity.getName()+"',Subject='"+entity.getSubject()+"',Stock='"+entity.getStock()+"',Enable='"+1+"',PublisherID='"+entity.getPublisherID()+"'"
+                + ",PublishDate='"+entity.getPublishDate()+"',PageNumber='"+entity.getPageNumber()+"',PrintCount='"+entity.getPrintCount()+"',ImageUrl='"+entity.getImageUrl()+"' Where ID='"+entity.getID()+"'";
+        
+        try {
+            st=con.createStatement();
+            st.execute(query);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @Override

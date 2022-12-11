@@ -1,46 +1,28 @@
 <%-- 
     Document   : update-book
-    Created on : 9 Ara 2022, 10:41:10
+    Created on : 11 Ara 2022, 21:41:42
     Author     : Bahadır
 --%>
-
 <%@page import="java.util.ArrayList"%>
 <%@page import="DataAccess.Entities.*"%>
 <%@page import="BusinessLayer.*"%>
+<%@include file="authorization.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<html>
-<!-- header -->
-<%@ include file="header.jsp" %>
-<body class="hold-transition sidebar-mini layout-fixed">
-<div class="wrapper">
-  <!-- Navbar -->
-    <%@ include file="navbar.jsp" %>
-  <!-- Sidebar -->
-    <%@ include file="sidebar.jsp" %>
-  <!-- Content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Kitap Menüsü</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="index.jsp">Ana Sayfa</a></li>
-              <li class="breadcrumb-item active"><a href="books.jsp">Kitaplar</a></li>
-              <li class="breadcrumb-item active">Kitap Güncelle</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+<!DOCTYPE html>
+<html lang="tr">
 
-    <!-- Main content -->
-    
-    <%
+<%@ include file="header.jsp" %>
+<body>
+  <div class="container-scroller">
+    <!-- Navbar-->
+    <%@ include file="navbar.jsp" %>
+    <div class="container-fluid page-body-wrapper">
+      <!-- Sidebar -->
+      <%@ include file="sidebar.jsp" %>
+      <div class="main-panel">
+        <div class="content-wrapper">
+            
+            <%
             int ID=Integer.parseInt(request.getParameter("ID"));
             
             BookService service=new BookService();
@@ -49,9 +31,8 @@
             book=service.getByID(ID);
         
         %>
-    
-    <section class="content">
-        <form action="AdminBookUpdate" method="post" enctype="multipart/form-data">
+            
+            <form action="EmployeeBookUpdate" method="post" enctype="multipart/form-data">
             <div class="card">
                 <div class="card-header">
                     <div class="card-tools">
@@ -196,17 +177,15 @@
                 </div>
             </div>
         </form>
-        
-    </section>
-    <!-- /.content -->
-  
-  
-  
+            
+        </div>
+        <!-- footer -->
+        <%@ include file="footer.jsp" %>
+      </div>
+    </div>   
   </div>
-  <!-- Footer -->
-    <%@ include file="footer.jsp" %>
-</div>
-<!-- Scripts -->
-<%@ include file="script.jsp" %>
+
+  <!-- script -->
+  <%@ include file="script.jsp" %>
 </body>
 </html>

@@ -1,6 +1,8 @@
 package BusinessLayer;
 
+import DataAccess.Concretes.BookTranslatorRepository;
 import DataAccess.Entities.BaseEntity;
+import DataAccess.Entities.BookTranslator;
 import java.util.ArrayList;
 
 public class BookTranslatorService{
@@ -13,8 +15,11 @@ public class BookTranslatorService{
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public void Add(BaseEntity entity) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void Add(BookTranslator entity) {
+        System.out.println(entity);
+        BookTranslatorRepository bookTranslatorRepository=new BookTranslatorRepository();
+        
+        bookTranslatorRepository.Add(entity);
     }
 
     public void Update(BaseEntity entity) {
@@ -22,7 +27,9 @@ public class BookTranslatorService{
     }
 
     public void Delete(int ID) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        BookTranslatorRepository bookTranslatorRepository=new BookTranslatorRepository();
+        
+        bookTranslatorRepository.Delete(ID);
     }
     
 }

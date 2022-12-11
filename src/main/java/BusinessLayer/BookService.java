@@ -28,7 +28,9 @@ public class BookService{
     }
 
     public void Update(Book entity) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        BookRepository bookRepository=new BookRepository();
+        
+        bookRepository.Update(entity);
     }
 
     public void Delete(int ID) {

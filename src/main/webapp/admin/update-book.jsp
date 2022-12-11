@@ -73,7 +73,7 @@
                 <div class="card-body">
                         <div class="form-group mb-2">
                             <label class="form-label">Kitap Konusu</label>
-                            <textarea class="form-control" name="txtSubject"><%=book.getID()%></textarea>
+                            <textarea class="form-control" name="txtSubject"><%=book.getSubject()%></textarea>
                         </div>
                 </div>
                 <div class="card-body">
@@ -99,7 +99,7 @@
                                 publishers=publisherService.List();
                                 for(int i=0;i<publishers.size();i++){
                             %>
-                            <option value="<%=publishers.get(i).getName()%>"><%=publishers.get(i).getName()%></option>
+                            <option value="<%=publishers.get(i).getID()%>"><%=publishers.get(i).getName()%></option>
                             <%        
                                 }
                             %>      
