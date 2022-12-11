@@ -54,7 +54,7 @@
             <div class="card-body">
                 <div class="row mb-2">
                     <div class="col-10">
-                      <a class="btn btn-primary"><i class="fas fa-plus"></i>
+                      <a href="add-user.jsp" class="btn btn-primary"><i class="fas fa-plus"></i>
                         Yeni Ekle</a>
                     </div>
                     <div class="col-2">
@@ -92,10 +92,10 @@
                                     <td><%=users.get(i).getCityName()%></td>
                                     <td><%=users.get(i).getBirthDate()%></td>
                                     <td>
-                                        <a href="#" class="btn btn-warning"><i class="far fa-edit"></i> Güncelle</a>
+                                        <a href="update-user.jsp?ID=<%=users.get(i).getID()%>" class="btn btn-warning"><i class="far fa-edit"></i> Güncelle</a>
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-danger"><i class="far fa-trash-alt"></i> Sil</a>
+                                        <a href="delete-user.jsp?ID=<%=users.get(i).getID()%>" class="btn btn-danger"><i class="far fa-trash-alt"></i> Sil</a>
                                     </td>
                                 </tr>
                         <%        

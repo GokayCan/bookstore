@@ -77,7 +77,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="user-list.jsp" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Üyeler</p>
                 </a>

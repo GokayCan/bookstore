@@ -17,5 +17,5 @@ public interface IUserRepository{
 
     public User getById(int ID);
     
-    public int getByEmail(String email);
+    public User getByEmail(String email,String password);
 }

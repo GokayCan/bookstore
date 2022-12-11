@@ -82,8 +82,8 @@
                 </div>
                         <div class="card-footer">
                             <div style="display:flex;justify-content: end">
-                                <a href="update-book.jsp?ID=<%=employees.get(i).getID()%>" class="btn btn-warning mr-2"><i class="far fa-edit"></i> Güncelle</a>
-                                <a href="delete-book.jsp?ID=<%=employees.get(i).getID()%>" class="btn btn-danger"><i class="far fa-trash-alt"></i> Sil</a>
+                                <a href="update-employee.jsp?ID=<%=employees.get(i).getID()%>" class="btn btn-warning mr-2"><i class="far fa-edit"></i> Güncelle</a>
+                                <a href="delete-employee.jsp?ID=<%=employees.get(i).getID()%>" class="btn btn-danger"><i class="far fa-trash-alt"></i> Sil</a>
                             </div>
                         </div>
             </div>

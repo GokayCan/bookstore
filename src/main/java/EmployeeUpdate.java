@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 @MultipartConfig
-@WebServlet("/admin/EmployeeUpload")
-public class EmployeeUpload extends HttpServlet{
+@WebServlet("/admin/EmployeeUpdate")
+public class EmployeeUpdate extends HttpServlet{
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
             
         EmployeeService service=new EmployeeService();
@@ -52,7 +52,8 @@ public class EmployeeUpload extends HttpServlet{
         }
 
         java.sql.Date sqlStartDate = new java.sql.Date(StartDate.getTime());
-
+        
+        employee.setID(Integer.parseInt(request.getParameter("txtID")));
         employee.setFirstName(request.getParameter("txtFirstName"));
         employee.setLastName(request.getParameter("txtLastName"));
         employee.setTCNo(request.getParameter("txtUserName"));
@@ -60,7 +61,7 @@ public class EmployeeUpload extends HttpServlet{
         employee.setStartDate(sqlStartDate);
         employee.setDocument(sImageFileName);
         
-        service.Add(employee);
+        service.Update(employee);
 
         response.sendRedirect("employees.jsp");
     }

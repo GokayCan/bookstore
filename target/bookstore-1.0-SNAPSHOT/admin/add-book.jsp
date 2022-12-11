@@ -4,6 +4,9 @@
     Author     : Bahadır
 --%>
 
+<%@page import="DataAccess.Entities.Publisher"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="BusinessLayer.PublisherService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
 <!-- header -->
@@ -77,10 +80,16 @@
                     <div class="form-group mb-2">
                         <label class="form-label">Kitap Yayınevi</label>
                         <select class="form-control form-select" name="slcPublisher">
-                            <option value="1">Martı</option>
-                            <option value="2">Epsilon</option>
-                            <option value="3">YapıKredi</option>
-                            <option value="4">iŞ Bankası</option>
+                            <%
+                                PublisherService publisherService=new PublisherService();
+                                ArrayList<Publisher> publishers=new ArrayList<Publisher>();
+                                publishers=publisherService.List();
+                                for(int i=0;i<publishers.size();i++){
+                            %>
+                            <option value="<%=publishers.get(i).getName()%>"><%=publishers.get(i).getName()%></option>
+                            <%        
+                                }
+                            %>      
                         </select>
                     </div>
                 </div>

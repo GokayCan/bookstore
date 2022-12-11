@@ -1,9 +1,7 @@
 package DataAccess.Concretes;
 
 import DataAccess.Abstractions.IEmployeeRepository;
-import DataAccess.Entities.Author;
 import DataAccess.Entities.Employee;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -110,8 +108,8 @@ public class EmployeeRepository extends Repository implements IEmployeeRepositor
             
             employee.setFirstName(rs.getString("FirstName"));
             employee.setLastName(rs.getString("LastName"));
-            employee.setTCNo(rs.getString("LastName"));
-            employee.setPassword(rs.getString("LastName"));
+            employee.setTCNo(rs.getString("TcNo"));
+            employee.setPassword(rs.getString("Password"));
             employee.setStartDate(rs.getDate("StartDate"));
             employee.setID(rs.getInt("ID"));
             

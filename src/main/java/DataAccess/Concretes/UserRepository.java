@@ -56,12 +56,34 @@ public class UserRepository extends Repository implements IUserRepository{
 
     @Override
     public void Add(User entity) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String query = "INSERT INTO User(FirstName,LastName,Email,Password,PhoneNumber,Address,CityID,BirthDate,ImageUrl) VALUES('"+entity.getFirstName()+"','"+entity.getLastName()+"'"
+                + ",'"+entity.getEmail()+"','"+entity.getPassword()+"'"
+                + ",'"+entity.getPhoneNumber()+"','"+entity.getAddress()+"'"
+                + ",'"+entity.getCityID()+"','"+entity.getBirthDate()+"','"+entity.getImageUrl()+"')";
+        
+        try {
+            st=con.createStatement();
+            st.execute(query);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @Override
-    public void Update(User entity) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void Update(User user) {
+        
+        String query="UPDATE User SET FirstName='"+user.getFirstName()+"',LastName='"+user.getLastName()+"'"
+                + ",Email='"+user.getEmail()+"',Password='"+user.getPassword()+"',PhoneNumber='"+user.getPhoneNumber()+"'"
+                + ",Address='"+user.getAddress()+"',CityID='"+user.getCityID()+"',BirthDate='"+user.getBirthDate()+"',ImageUrl='"+user.getImageUrl()+"' Where ID='"+user.getID()+"'";
+        
+        try {
+            st=con.createStatement();
+            st.execute(query);
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
     }
 
     @Override
@@ -81,9 +103,7 @@ public class UserRepository extends Repository implements IUserRepository{
     public User getById(int ID) {
         User user = new User();
         
-        String query="SELECT * FROM User U "
-                + "inner join City C on U.CityID = C.ID"
-                + " Where ID='" + ID + "'";
+        String query="SELECT * FROM User Where ID='"+ID+"'";
         
         try {
             st=con.createStatement();
@@ -100,7 +120,6 @@ public class UserRepository extends Repository implements IUserRepository{
             user.setCityName(rs.getString("CityID"));
             user.setBirthDate(rs.getDate("BirthDate"));
             user.setImageUrl(rs.getString("ImageUrl"));
-            user.setCityName(rs.getString("Name"));
             user.setID(rs.getInt("ID"));
             
         } catch (SQLException ex) {
@@ -111,17 +130,20 @@ public class UserRepository extends Repository implements IUserRepository{
     }
 
     @Override
-    public int getByEmail(String email) {
-        String query = "Select ID From User where Email = '"+email+"'";
+    public User getByEmail(String email, String password) {
+        String query = "Select ID From User where Email = '"+email+"' and Password = '"+password+"'";
         try {
             st = con.createStatement();
             rs = st.executeQuery(query);
             rs.next();
             int id = rs.getInt("ID");
-            return id;
+            
+            user=getById(id);
+            
+            return user;
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        return -1;
+        return null;
     }
 }

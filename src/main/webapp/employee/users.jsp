@@ -55,8 +55,8 @@
                                     <td><%=users.get(i).getPhoneNumber()%></td>
                                     <td><%=users.get(i).getCityName()%></td>
                                     <td><%=users.get(i).getBirthDate()%></td>
-                                    <td><a href="update-user.jsp" class="btn btn-warning"><i class="ti-pencil"></i> Güncelle</a></td>
-                                    <td><a href="delete-user.jsp" class="btn btn-danger"><i class="icon-trash"></i> Sil</a></td>
+                                    <td><a href="update-user.jsp?ID=<%=users.get(i).getID()%>" class="btn btn-warning"><i class="ti-pencil"></i> Güncelle</a></td>
+                                    <td><a href="delete-user.jsp?ID=<%=users.get(i).getID()%>" class="btn btn-danger"><i class="icon-trash"></i> Sil</a></td>
                                 </tr>
                             <%        
                                 }

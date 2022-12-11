@@ -17,23 +17,28 @@ public class UserService{
     }
 
     public User getByID(int ID) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        User user=new User();
+        
+        user=repo.getById(ID);
+        
+        return user;
     }
 
     public void Add(User entity) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        repo.Add(entity);
     }
 
     public void Update(User entity) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        repo.Update(entity);
     }
 
     public void Delete(int ID) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        repo.Delete(ID);
     }
     
-    public int getByEmail(String email) {
-        return repo.getByEmail(email);
+    public User getByEmail(String email,String password) {
+        return repo.getByEmail(email,password);
+        
     }
     
 }

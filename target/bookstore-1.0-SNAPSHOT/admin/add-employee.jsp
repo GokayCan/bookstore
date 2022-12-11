@@ -37,7 +37,7 @@
 
     <!-- Main content -->
     <section class="content">
-        <form action="EmployeeUpload" method="post" enctype="multipart/form-data">
+        <form action="EmployeeAdd" method="post" enctype="multipart/form-data">
             <div class="card">
                 <div class="card-header">
                     <div class="card-tools">

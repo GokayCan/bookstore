@@ -40,7 +40,7 @@ public class AdminRepository extends Repository implements IAdminRepository{
 
     @Override
     public boolean IsAccountExist(String username, String password) {
-        String query = "Select Count(*) as Account From Admin where UserName = '"+ username +"' and Password = '"+ password +"'";
+        String query = "Select Count(*) as Account From Admin where UserName = '"+ username +"' and Password='"+password+"' ";
         try{
             st = con.createStatement();
             rs = st.executeQuery(query);
