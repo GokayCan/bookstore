@@ -28,13 +28,10 @@
                     <a href="add-loan.jsp" class="btn btn-primary mt-2 mb-2"><i class="icon-plus"></i> Yeni Ekle</a>
                     <table class="table table-bordered table-hover text-center">
                         <thead>
-                        <th scope="col">ID</th>
                         <th scope="col">Ödünç Alan Kullanıcı</th>
                         <th scope="col">Ödünç Veren Çalışan</th>
                         <th scope="col">Ödünç Verilen Kitap</th>
                         <th scope="col">Ödünç Alma Tarihi</th>
-                        <th scope="col">Vadesinin Bitiş Tarihi</th>
-                        <th scope="col">Teslim Tarihi</th>                    
                         <th scope="col"></th>
                         <th scope="col"></th>
                     </thead>
@@ -48,19 +45,10 @@
                                 %>
 
                                 <tr>
-                                    <td><%=loans.get(i).getID()%></td>
                                     <td><%=loans.get(i).getUser()%></td>
                                     <td><%=loans.get(i).getEmployee()%></td>
                                     <td><%=loans.get(i).getBook()%></td>
                                     <td><%=loans.get(i).getLoanDate()%></td>
-                                    <td><%=loans.get(i).getMaxReturnDate()%></td>
-                                    <%
-                                        if (loans.get(i).getIsEnd() == false){%>
-                                            <td>Teslim Edilmedi</td>
-                                        <%}
-                                        else{%>
-                                            <%=loans.get(i).getMaxReturnDate()%>
-                                        <%}%>
                                     <td>
                                         <a href="update-loan.jsp?ID=<%=loans.get(i).getID()%>" class="btn btn-warning"><i class="far fa-edit"></i> Güncelle</a>
                                     </td>

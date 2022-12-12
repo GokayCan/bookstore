@@ -19,7 +19,7 @@
             <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="#"><i class="fas fa-cog fa-fw"></i> Ayarlar</a>
-                <a class="dropdown-item" href="login.html"><i class="fas fa-power-off fa-fw"></i> Çıkış Yap</a>
+                <a class="dropdown-item" href="login.jsp"><i class="fas fa-power-off fa-fw"></i> Çıkış Yap</a>
             </div>
         </li>
     </ul>

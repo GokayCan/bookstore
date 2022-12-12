@@ -27,7 +27,8 @@
                 </div>
                 <div class="card-body">
                     <a href="add-author.jsp" class="btn btn-primary mt-2 mb-2"><i class="icon-plus"></i> Yeni Ekle</a>
-                    <table class="table table-bordered table-hover text-center">
+                    <input type="text" class="form-control mb-2" id="myInput" onkeyup="myFunction()" placeholder="Yazar Adını Girerek Arama Yapın..">
+                    <table class="table table-bordered table-hover text-center" id="myTable">
                         <thead>
                         <th scope="col">Id</th>
                         <th scope="col">Adı</th>

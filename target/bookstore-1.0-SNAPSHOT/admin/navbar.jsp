@@ -30,6 +30,12 @@
         </div>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="login.jsp" role="button">
+          <i class="fas fa-power-off"></i>
+          Çıkış Yap
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>
         </a>

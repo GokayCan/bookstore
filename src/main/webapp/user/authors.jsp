@@ -22,7 +22,8 @@
                             <h2>Yazarlar</h2>
                         </div>
                         <div class="card-body">
-                            <table class="table table-striped table-hover text-center">
+                            <input type="text" class="form-control mb-2" id="myInput" onkeyup="myFunction()" placeholder="Arama Yapın...">
+                            <table class="table table-striped table-hover text-center" id="myTable">
                                 <thead>
                                 <th scope="col">Adı</th>
                                 <th scope="col">Soyadı</th>
@@ -41,7 +42,7 @@
                                         <td><%=authors.get(i).getFirstName()%></td>
                                         <td><%=authors.get(i).getLastName()%></td>
                                         <td><%=authors.get(i).getBirthDate()%></td>
-                                        <td><a class="btn btn-outline-primary"><i class="fas fa-eye fa-fw"></i> Kitaplarını Görüntüle</a></td>
+                                        <td><a class="btn btn-outline-primary"><i class="fas fa-eye fa-fw"></i> Detay</a></td>
                                         <td><a class="btn btn-outline-info"><i class="fas fa-search fa-fw"></i> Kitaplarını Görüntüle</a></td>
                                     </tr>
                                     <%

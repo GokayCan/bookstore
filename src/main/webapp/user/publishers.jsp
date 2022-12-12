@@ -22,7 +22,8 @@
                             <h2>Yayınevleri</h2>
                         </div>
                         <div class="card-body">
-                            <table class="table table-striped table-hover text-center">
+                            <input type="text" class="form-control mb-2" id="myInput" onkeyup="myFunction()" placeholder="Arama Yapın...">
+                            <table class="table table-striped table-hover text-center" id="myTable">
                                 <thead>
                                 <th scope="col">Adı</th>
                                 <th></th>

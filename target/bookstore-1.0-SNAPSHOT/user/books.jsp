@@ -13,16 +13,17 @@
     <%@ include file="header.jsp" %>
     <body class="sb-nav-fixed">
         <%@ include file="navbar.jsp" %>
-        <div id="layoutSidenav">
-            <%@ include file="sidebar.jsp" %>
-            <div id="layoutSidenav_content">
-                <div class="m-2">
-                    <div class="card">
-                        <div class="card-header">
-                            <h2>Kitaplar</h2>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-striped table-hover text-center">
+    <div id="layoutSidenav">
+        <%@ include file="sidebar.jsp" %>
+        <div id="layoutSidenav_content">
+            <div class="m-2">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Kitaplar</h2>
+                    </div>
+                    <div class="card-body">
+                        <input type="text" class="form-control mb-2" id="myInput" onkeyup="myFunction()" placeholder="Arama Yapın...">
+                            <table class="table table-striped table-hover text-center" id="myTable">
                                 <thead>
                                 <th scope="col">Kitap Adı</th>
                                 <th scope="col">Stok Miktarı</th>
@@ -38,9 +39,9 @@
                                 <tbody>
                                     <%
                                         BookService service = new BookService();
-                                        ArrayList<Book> books=new ArrayList<Book>();
-                                        books=service.List();
-                                        for(int i=0;i<books.size();i++){
+                                        ArrayList<Book> books = new ArrayList<Book>();
+                                        books = service.List();
+                                        for (int i = 0; i < books.size(); i++) {
                                     %>
                                     <tr>
                                         <td><%=books.get(i).getName()%></td>
@@ -59,12 +60,13 @@
                                     %>    
                                 </tbody>
                             </table>
-                        </div>
                     </div>
                 </div>
-                <%@ include file="footer.jsp" %>
             </div>
+            <%@ include file="footer.jsp" %>
         </div>
-        <%@ include file="script.jsp" %>
-    </body>
+    </div>
+    <%@ include file="script.jsp" %>
+    
+</body>
 </html>

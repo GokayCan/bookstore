@@ -59,11 +59,11 @@
                     </div>
                     <div class="col-2">
                       <div style="display: flex;justify-content:end">
-                        <input class="form-control" placeholder="Ara...">
+                        <input type="text" class="form-control mb-2" id="myInput" onkeyup="myFunction()" placeholder="Arama Yapın...">
                       </div>
                     </div>
                 </div>
-                <table class="table table-bordered table-hover" style="text-align: center;">
+                <table class="table table-bordered table-hover" style="text-align: center;" id="myTable">
                     <thead>
                         <th scope="col">ID</th>
                         <th scope="col">Kitap Adı</th>
@@ -123,5 +123,6 @@
 </div>
 <!-- Scripts -->
 <%@ include file="script.jsp" %>
+
 </body>
 </html>
