@@ -38,7 +38,10 @@ public class UserService{
     
     public User getByEmail(String email,String password) {
         return repo.getByEmail(email,password);
-        
+    }
+    
+    public boolean EmailExist(String email){
+        return repo.EmailExist(email);
     }
     
 }

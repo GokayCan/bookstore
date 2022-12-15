@@ -146,4 +146,22 @@ public class UserRepository extends Repository implements IUserRepository{
         }
         return null;
     }
+
+    @Override
+    public boolean EmailExist(String email) {
+        String query = "Select COUNT(*) as Row  From User Where Email = '"+ email +"'";
+        try{
+            st = con.createStatement();
+            rs = st.executeQuery(query);
+            rs.next();
+            int row = rs.getInt("Row");
+            if (row == 0){
+                return true;
+            }
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
+    }
+   
 }

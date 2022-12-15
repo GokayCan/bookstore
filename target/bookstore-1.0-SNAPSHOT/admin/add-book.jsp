@@ -86,7 +86,7 @@
                                 publishers=publisherService.List();
                                 for(int i=0;i<publishers.size();i++){
                             %>
-                            <option value="<%=publishers.get(i).getName()%>"><%=publishers.get(i).getName()%></option>
+                            <option value="<%=publishers.get(i).getID()%>"><%=publishers.get(i).getName()%></option>
                             <%        
                                 }
                             %>      

@@ -38,5 +38,4 @@ public class EmployeeService{
     public Employee AccountExist(String tc, String password) {
         return repo.AccountExist(tc, password);
     }
-    
 }
