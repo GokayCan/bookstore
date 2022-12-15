@@ -1,5 +1,5 @@
 <%
     if (session.getAttribute("authorization") != "admin"){
-        response.sendRedirect("../employee/login.jsp");
+        response.sendRedirect("login.jsp");
     }
 %>

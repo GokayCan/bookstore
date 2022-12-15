@@ -39,7 +39,7 @@
 
                                     if (user != null) {
                                         session.setAttribute("employeeid", user.getID());
-                                        session.setAttribute("authorization", "employee");
+                                        session.setAttribute("authorization", "user");
 
                                         Cookie tc = new Cookie("tcno", user.getEmail());
                                         Cookie pass = new Cookie("password", user.getPassword());

@@ -3,7 +3,7 @@
     Created on : 5 Ara 2022, 13:18:02
     Author     : Bahadır
 --%>
-
+<%@include file="authorization.jsp" %>
 <%@page import="DataAccess.Entities.Publisher"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="BusinessLayer.PublisherService"%>

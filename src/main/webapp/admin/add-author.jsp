@@ -3,7 +3,7 @@
     Created on : 3 Ara 2022, 21:12:37
     Author     : Bahadır
 --%>
-
+<%@include file="authorization.jsp" %>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="DataAccess.Entities.*"%>

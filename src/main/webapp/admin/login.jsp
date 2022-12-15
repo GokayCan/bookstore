@@ -65,7 +65,7 @@
         boolean result = service.IsAccountExist(username, password);
 
         if (result) {
-            session.setAttribute("admin", "authorization");
+            session.setAttribute("authorization", "admin");
             response.sendRedirect("index.jsp");
         } else {%>
 <script>alert("Hesap Doğru Değil");</script>
