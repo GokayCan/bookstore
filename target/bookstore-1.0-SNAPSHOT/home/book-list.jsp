@@ -18,11 +18,11 @@
 %>
 
 <div class="card mb-4">
-    <a href="#!"><img class="card-img-top" src="../assets/<%=books.get(i).getImageUrl()%>" alt="..." /></a>
+    <a href="#!"><img class="card-img-top" src="../assets/<%=books.get(i).getImageUrl()%>" style="height: 400px;" alt="..." /></a>
     <div class="card-body">
         <h2 class="card-title"><%=books.get(i).getName()%></h2>
         <p class="card-text"><%=books.get(i).getSubject()%></p>
-        <a class="btn btn-primary" href="book-detail.jsp">Detay →</a>
+        <a class="btn btn-primary" href="book-detail.jsp?ID=<%=books.get(i).getID()%>">Detay →</a>
     </div>
 </div>
 

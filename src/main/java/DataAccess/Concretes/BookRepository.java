@@ -131,7 +131,8 @@ public class BookRepository extends Repository implements IBookRepository{
     public Book getById(int ID) {
         Book book=new Book();
         
-        String query="SELECT * FROM Book Where ID='"+ID+"'";
+        String query="SELECT B.ID,B.Name,B.Subject,B.Stock,B.PageNumber,B.PrintCount,B.PublishDate,B.ImageUrl,P.Name As Publisher FROM Book B "
+                + "inner join Publisher P on B.PublisherID = P.ID Where B.ID='"+ID+"'";
         
         try {
             st=con.createStatement();
@@ -145,6 +146,8 @@ public class BookRepository extends Repository implements IBookRepository{
             book.setPrintCount(rs.getString("PrintCount"));
             book.setStock(rs.getInt("Stock"));
             book.setPublishDate(rs.getDate("PublishDate"));
+            book.setImageUrl(rs.getString("ImageUrl"));
+            book.setPublisherName(rs.getString("Publisher"));
             book.setID(rs.getInt("ID"));
             
         } catch (SQLException ex) {
@@ -172,6 +175,76 @@ public class BookRepository extends Repository implements IBookRepository{
             ex.printStackTrace();
         }
         return books;
+    }
+
+    @Override
+    public ArrayList<Book> getBooksByCategory(int ID) {
+        String query = "SELECT B.ID,B.Name,B.Subject,B.Stock,B.Enable,P.Name as Publisher,B.PublishDate,B.PageNumber,B.PrintCount,B.ImageUrl FROM Book B " +
+                        "inner join Publisher P on B.PublisherID = P.ID inner join BookCategory BC on BC.CategoryID='"+ID+"' Where BC.BookID=B.ID";
+        books = new ArrayList<Book>();
+
+        try {
+            st = con.createStatement();
+            rs = st.executeQuery(query);
+            
+            while (rs.next()) {
+                book = new Book();
+                ID = rs.getInt("ID");
+                book.setID(rs.getInt("ID"));
+                book.setName(rs.getString("Name"));
+                book.setSubject(rs.getString("Subject"));
+                book.setPageNumber(rs.getString("PageNumber"));
+                book.setEnable(rs.getBoolean("Enable"));
+                book.setPrintCount(rs.getString("PrintCount"));
+                book.setStock(rs.getInt("Stock"));
+                book.setPublishDate(rs.getDate("PublishDate"));
+                book.setPublisherName(rs.getString("Publisher"));
+                book.setImageUrl(rs.getString("ImageUrl"));
+                
+                books.add(book);   
+            }
+            return books;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return null;
+    }
+
+    @Override
+    public ArrayList<Book> getBooksByAuthor(int ID) {
+        String query = "SELECT B.ID,B.Name,B.Subject,B.Stock,B.Enable,P.Name as Publisher,B.PublishDate,B.PageNumber,B.PrintCount,B.ImageUrl FROM Book B " +
+                        "inner join Publisher P on B.PublisherID = P.ID inner join BookAuthor BA on BA.AuthorID='"+ID+"' Where BA.BookID=B.ID";
+        books = new ArrayList<Book>();
+
+        try {
+            st = con.createStatement();
+            rs = st.executeQuery(query);
+            
+            while (rs.next()) {
+                book = new Book();
+                ID = rs.getInt("ID");
+                book.setID(rs.getInt("ID"));
+                book.setName(rs.getString("Name"));
+                book.setSubject(rs.getString("Subject"));
+                book.setPageNumber(rs.getString("PageNumber"));
+                book.setEnable(rs.getBoolean("Enable"));
+                book.setPrintCount(rs.getString("PrintCount"));
+                book.setStock(rs.getInt("Stock"));
+                book.setPublishDate(rs.getDate("PublishDate"));
+                book.setPublisherName(rs.getString("Publisher"));
+                book.setImageUrl(rs.getString("ImageUrl"));
+                
+                books.add(book);   
+            }
+            return books;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return null;
     }
     
 }

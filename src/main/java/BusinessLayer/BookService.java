@@ -44,6 +44,16 @@ public class BookService{
         return repo.getOnlyId_Name();
     }
     
+    public ArrayList<Book> ListByCategory(int ID) {
+        BookRepository repo = new BookRepository();
+        return repo.getBooksByCategory(ID);
+    }
+    
+    public ArrayList<Book> ListByAuthor(int ID) {
+        BookRepository repo = new BookRepository();
+        return repo.getBooksByAuthor(ID);
+    }
+    
     
     
 }

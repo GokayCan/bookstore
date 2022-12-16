@@ -24,7 +24,7 @@
 
                     %>
 
-                    <li><a href="#!"><%=categories.get(i).getName()%></a></li>
+                    <li><a href="book-category-list.jsp?ID=<%=categories.get(i).getID()%>" style="text-decoration: none;"><%=categories.get(i).getName()%></a></li>
 
                     <%
                         }

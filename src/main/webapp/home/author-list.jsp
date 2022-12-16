@@ -24,7 +24,7 @@
 
                     %>
 
-                    <li><a href="#!"><%=authors.get(i).getFirstName()%>  <%=authors.get(i).getLastName()%></a></li>
+                    <li><a href="book-author-list.jsp?ID=<%=authors.get(i).getID()%>" style="text-decoration: none;"><%=authors.get(i).getFirstName()%>  <%=authors.get(i).getLastName()%></a></li>
 
                     <%
                         }
