@@ -148,6 +148,22 @@ public class UserRepository extends Repository implements IUserRepository{
     }
 
     @Override
+    public int getIDByEmail(String email) {
+        String query = "Select ID From User where Email = '"+email+"'";
+        try {
+            st = con.createStatement();
+            rs = st.executeQuery(query);
+            rs.next();
+            int id = rs.getInt("ID");
+
+            return id;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return -1;
+    }
+
+    @Override
     public boolean EmailExist(String email) {
         String query = "Select COUNT(*) as Row  From User Where Email = '"+ email +"'";
         try{

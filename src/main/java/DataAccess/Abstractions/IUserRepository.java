@@ -18,6 +18,8 @@ public interface IUserRepository{
     public User getById(int ID);
     
     public User getByEmail(String email,String password);
+
+    public int getIDByEmail(String email);
     
     public boolean EmailExist(String email);
 }
