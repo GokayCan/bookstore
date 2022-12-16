@@ -10,6 +10,7 @@ public interface IUserRepository{
     public ArrayList<User> getList();
 
     public void Add(User entity);
+    public void Register(User entity);
 
     public void Update(User entity);
 

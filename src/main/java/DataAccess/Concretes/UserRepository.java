@@ -70,6 +70,19 @@ public class UserRepository extends Repository implements IUserRepository{
     }
 
     @Override
+    public void Register(User entity) {
+        String query = "INSERT INTO User(FirstName,LastName,Email,Password) VALUES('"+entity.getFirstName()+"','"+entity.getLastName()+"'"
+                + ",'"+entity.getEmail()+"','"+entity.getPassword()+"')";
+
+        try {
+            st=con.createStatement();
+            st.execute(query);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    @Override
     public void Update(User user) {
         
         String query="UPDATE User SET FirstName='"+user.getFirstName()+"',LastName='"+user.getLastName()+"'"
@@ -172,12 +185,12 @@ public class UserRepository extends Repository implements IUserRepository{
             rs.next();
             int row = rs.getInt("Row");
             if (row == 0){
-                return true;
+                return false;
             }
         }catch(Exception ex){
             ex.printStackTrace();
         }
-        return false;
+        return true;
     }
    
 }

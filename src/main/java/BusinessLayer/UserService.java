@@ -27,6 +27,9 @@ public class UserService{
     public void Add(User entity) {
         repo.Add(entity);
     }
+    public void Register(User entity) {
+        repo.Register(entity);
+    }
 
     public void Update(User entity) {
         repo.Update(entity);
