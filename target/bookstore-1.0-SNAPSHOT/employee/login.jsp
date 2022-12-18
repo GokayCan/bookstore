@@ -56,13 +56,16 @@
             Employee employee = service.AccountExist(tcno, password);
 
             if (employee != null) {
-                session.setAttribute("employeeid", employee.getID());
+                //session.setAttribute("employeeid", employee.getID());
                 session.setAttribute("authorization", "employee");
-
+                String empid = String.valueOf(employee.getID());
+                Cookie employeeid = new Cookie("employeeid", empid);
                 Cookie tc = new Cookie("tcno", employee.getTCNo());
                 Cookie pass = new Cookie("password", employee.getPassword());
+                employeeid.setMaxAge(60 * 60 * 24);
                 tc.setMaxAge(60 * 60 * 24);
                 pass.setMaxAge(60 * 60 * 24);
+                response.addCookie(employeeid);
                 response.addCookie(tc);
                 response.addCookie(pass);
 
