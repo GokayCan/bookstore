@@ -79,7 +79,6 @@
                         LoanService loanservice = new LoanService();
                         UserService userservice = new UserService();
                         Loan loan = new Loan();
-                        //String employeeid = session.getAttribute("employeeid").toString();
                         String employeeid = "";
                         Cookie cookie;
                         Cookie[] cookies;

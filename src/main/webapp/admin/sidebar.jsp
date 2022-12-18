@@ -107,28 +107,13 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link">
+          <li class="nav-item has-treeview">
+            <a href="authors.jsp" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Yazarlar
-                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="authors.jsp" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Yazar Listesi</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Yazarlar</p>
-                </a>
-              </li>
-            </ul>
           </li>
           <li class="nav-item has-treeview">
             <a href="publishers.jsp" class="nav-link">
