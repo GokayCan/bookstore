@@ -1,8 +1,8 @@
 package BusinessLayer;
 
-import DataAccess.Concretes.UserRepository;
+import DataAccess.Concretes.*;
 import DataAccess.Entities.BaseEntity;
-import DataAccess.Entities.User;
+import DataAccess.Entities.*;
 import java.util.ArrayList;
 
 public class UserService{
@@ -41,6 +41,10 @@ public class UserService{
     
     public User getByEmail(String email,String password) {
         return repo.getByEmail(email,password);
+    }
+    
+    public ArrayList<Book> MyBookList(int ID){
+        return repo.getMyBooks(ID);
     }
 
     public int getIDByEmail(String email) {

@@ -1,16 +1,16 @@
 package DataAccess.Concretes;
 import DataAccess.Abstractions.IUserRepository;
-import DataAccess.Entities.User;
+import DataAccess.Entities.*;
 import java.sql.SQLException;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class UserRepository extends Repository implements IUserRepository{
     
     public ArrayList<User> users;
+    public ArrayList<Book> books;
     public User user;
+    public Book book;
     Statement st;
     ResultSet rs;
     PreparedStatement pst;
@@ -175,6 +175,40 @@ public class UserRepository extends Repository implements IUserRepository{
         }
         return -1;
     }
+    
+    @Override
+    public ArrayList<Book> getMyBooks(int ID) {
+        String query="SELECT B.ID,B.Name,B.Subject,B.Stock,B.Enable,P.Name as Publisher ,B.PublishDate,B.PageNumber,B.PrintCount,B.ImageUrl FROM Book B inner join Publisher P on B.PublisherID = P.ID inner join Loan L on L.UserID='"+ID+"' where B.ID=L.BookID";
+        
+        books = new ArrayList<Book>();
+
+        try {
+            st = con.createStatement();
+            rs = st.executeQuery(query);
+            
+            while (rs.next()) {
+                book = new Book();
+                book.setID(rs.getInt("ID"));
+                book.setName(rs.getString("Name"));
+                book.setSubject(rs.getString("Subject"));
+                book.setPageNumber(rs.getString("PageNumber"));
+                book.setEnable(rs.getBoolean("Enable"));
+                book.setPrintCount(rs.getString("PrintCount"));
+                book.setStock(rs.getInt("Stock"));
+                book.setPublishDate(rs.getDate("PublishDate"));
+                book.setPublisherName(rs.getString("Publisher"));
+                book.setImageUrl(rs.getString("ImageUrl"));
+                
+                books.add(book);   
+            }
+            return books;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return null;
+    }
 
     @Override
     public boolean EmailExist(String email) {
@@ -192,5 +226,7 @@ public class UserRepository extends Repository implements IUserRepository{
         }
         return true;
     }
+    
+    
    
 }

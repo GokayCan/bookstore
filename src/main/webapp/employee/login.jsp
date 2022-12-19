@@ -30,17 +30,8 @@
                                 <div class="mt-3">
                                     <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" value="Giriş Yap" name="login">
                                 </div>
-                                <div class="my-2 d-flex justify-content-between align-items-center">
-                                    <div class="form-check">
-                                        <label class="form-check-label text-muted">
-                                            <input type="checkbox" class="form-check-input">
-                                                Beni Hatırla
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="text-center mt-4 font-weight-light">
-                                    Henüz bir hesabınız yok mu? <a href="register.html" class="text-primary">Oluştur</a>
-                                </div>
+                                
+                                
                             </form>
                         </div>
                     </div>

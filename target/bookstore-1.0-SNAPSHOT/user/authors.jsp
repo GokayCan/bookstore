@@ -29,7 +29,6 @@
                                 <th scope="col">Soyadı</th>
                                 <th scope="col">Doğum Tarihi</th>
                                 <th></th>
-                                <th></th>
                                 </thead>
                                 <tbody>
                                     <%
@@ -42,8 +41,7 @@
                                         <td><%=authors.get(i).getFirstName()%></td>
                                         <td><%=authors.get(i).getLastName()%></td>
                                         <td><%=authors.get(i).getBirthDate()%></td>
-                                        <td><a class="btn btn-outline-primary"><i class="fas fa-eye fa-fw"></i> Detay</a></td>
-                                        <td><a class="btn btn-outline-info"><i class="fas fa-search fa-fw"></i> Kitaplarını Görüntüle</a></td>
+                                        <td><a href="book-author.jsp?ID=<%=authors.get(i).getID()%>" class="btn btn-outline-info"><i class="fas fa-search fa-fw"></i> Kitaplarını Görüntüle</a></td>
                                     </tr>
                                     <%
                                         }

@@ -1,6 +1,6 @@
 package DataAccess.Abstractions;
 
-import DataAccess.Entities.User;
+import DataAccess.Entities.*;
 import java.util.ArrayList;
 
 public interface IUserRepository{
@@ -21,6 +21,8 @@ public interface IUserRepository{
     public User getByEmail(String email,String password);
 
     public int getIDByEmail(String email);
+    
+    public ArrayList<Book> getMyBooks(int ID);
     
     public boolean EmailExist(String email);
 }

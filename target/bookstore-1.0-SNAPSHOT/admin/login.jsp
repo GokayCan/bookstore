@@ -36,15 +36,7 @@
                             </div>
                         </div>
                 </div>
-                <div class="row">
-                    <div class="col-8">
-                        <div class="icheck-primary">
-                            <input type="checkbox" id="remember">
-                                <label for="remember">
-                                    Beni Hatırla
-                                </label>
-                        </div>
-                    </div>
+                
                     <!-- /.col -->
                     <div class="col-4">
                         <button type="submit" name="login" class="btn  btn-info btn-block" ><i class="fas fa-lock-open"></i> Giriş </button>
