@@ -46,6 +46,7 @@
                                 <thead>
                                 <th scope="col">ID</th>
                                 <th scope="col">Kitap Adı</th>
+                                <th scope="col">Stok Miktarı</th>
                                 </thead>
                                 <tbody>
                                 <%
@@ -57,6 +58,8 @@
                                     <td><%=books.get(i).getID()%>
                                     </td>
                                     <td><%=books.get(i).getName()%>
+                                    </td>
+                                    <td><%=books.get(i).getStock()%>
                                     </td>
                                 </tr>
                                 <%
@@ -78,6 +81,7 @@
                     if (request.getParameter("save") != null) {
                         LoanService loanservice = new LoanService();
                         UserService userservice = new UserService();
+                        BookService bookservice = new BookService();
                         Loan loan = new Loan();
                         String employeeid = "";
                         Cookie cookie;
@@ -92,17 +96,18 @@
                         }
                         int userid = userservice.getIDByEmail(request.getParameter("txtEmail"));
                         String bookid = request.getParameter("txtBookId");
-
-                        loan.setUserID(userid);
-                        loan.setBookID(Integer.parseInt(bookid));
-                        loan.setEmployeeID(Integer.parseInt(employeeid));
-                        loan.setIsEnd(false);
-
-                        System.out.println(loan);
-
-                        loanservice.Add(loan);
-                        //tarihler otomatik atanacak
-                        response.sendRedirect("loans.jsp");
+                        boolean result = bookservice.CheckStockAmount(Integer.parseInt(bookid));
+                        if (result){
+                            loan.setUserID(userid);
+                            loan.setBookID(Integer.parseInt(bookid));
+                            loan.setEmployeeID(Integer.parseInt(employeeid));
+                            loan.setIsEnd(false);
+                            loanservice.Add(loan);
+                            response.sendRedirect("loans.jsp");
+                        }
+                        else{%>
+                            <script>alert("Stok Miktarı Sıfır Olan Bir Kitabı Seçtiniz");</script>
+                        <%}
                     }
                 %>
                 <!-- footer -->

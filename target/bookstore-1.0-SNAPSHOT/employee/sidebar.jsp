@@ -49,12 +49,6 @@
           <span class="menu-title">Emanetler</span>
         </a>
       </li>
-        <li class="nav-item">
-        <a class="nav-link" href="index.html">
-          <i class="icon-clock menu-icon"></i>
-          <span class="menu-title">Cezalar</span>
-        </a>
-      </li> 
       <li class="nav-item">
         <a class="nav-link" href="users.jsp">
           <i class="ti-user menu-icon"></i>

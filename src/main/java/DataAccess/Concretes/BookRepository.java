@@ -246,5 +246,20 @@ public class BookRepository extends Repository implements IBookRepository{
         
         return null;
     }
-    
+
+    @Override
+    public boolean CheckStockAmount(int BookID) {
+        String query = "Select Count(*) as Result From Book Where ID = '"+ BookID +"' and Stock > 0";
+        try{
+            st = con.createStatement();
+            rs = st.executeQuery(query);
+            rs.next();
+            if(rs.getInt("Result") > 0){
+                return true;
+            }       
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
+    }
 }

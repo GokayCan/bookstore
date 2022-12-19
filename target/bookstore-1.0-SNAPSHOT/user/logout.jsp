@@ -10,6 +10,7 @@
             response.addCookie(cookie);
         }
     }
-    session.invalidate();
+    //session.invalidate();
+    session.removeAttribute("authorization");
     response.sendRedirect("login.jsp");
 %>

@@ -26,7 +26,12 @@
                     </div>
                     <div class="card-body">
                         <a href="add-loan.jsp" class="btn btn-primary mt-2 mb-2"><i class="icon-plus"></i> Yeni Ekle</a>
-                        <table class="table table-bordered table-hover text-center">
+                        <input type="text" class="form-control-sm" id="myInput" onkeyup="myFunction2();" placeholder="Kullanıcı Adını Girin">
+                        <div class="d-flex justify-content-end">
+                            <input class="form-check-dark" type="checkbox" id="filter" onchange="myfilter();">
+                            <label class="form-check-label" style="color:blue;font-style: oblique">Filtrele</label>
+                        </div>
+                        <table class="table table-bordered table-hover text-center" id="myTable">
                             <thead>
                             <th scope="col">Ödünç Alan Kullanıcı</th>
                             <th scope="col">Ödünç Veren Çalışan</th>
@@ -48,25 +53,18 @@
                             %>
 
                             <tr>
-                                <td><%=loans.get(i).getUser()%>
-                                </td>
-                                <td><%=loans.get(i).getEmployee()%>
-                                </td>
-                                <td><%=loans.get(i).getBook()%>
-                                </td>
-                                <td><%=loans.get(i).getLoanDate()%>
-                                </td>
-                                <td><%=loans.get(i).getMaxReturnDate()%>
-                                </td>
+                                <td><%=loans.get(i).getUser()%></td>
+                                <td><%=loans.get(i).getEmployee()%></td>
+                                <td><%=loans.get(i).getBook()%></td>
+                                <td><%=loans.get(i).getLoanDate()%></td>
+                                <td><%=loans.get(i).getMaxReturnDate()%></td>                         
                                 <%
                                     if (loans.get(i).getReturnedDate() != null) {%>
-                                <td><%=loans.get(i).getLoanDate()%>
-                                </td>
-                                <%} else {%>
-                                <td>Boş</td>
-                                <%
-                                    }
-                                %>
+                                        <td><%=loans.get(i).getLoanDate()%></td> 
+                                <%} 
+                                    else {%>
+                                        <td>Boş</td>
+                                <%}%>
                                 <%
                                     if (loans.get(i).getIsEnd()) {%>
                                 <td>Evet</td>
