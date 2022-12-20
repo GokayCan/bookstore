@@ -30,7 +30,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="login.jsp" role="button">
+        <a class="nav-link" href="logout.jsp" role="button">
           <i class="fas fa-power-off"></i>
           Çıkış Yap
         </a>

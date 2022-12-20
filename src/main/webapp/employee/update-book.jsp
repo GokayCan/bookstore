@@ -3,10 +3,10 @@
     Created on : 11 Ara 2022, 21:41:42
     Author     : Bahadır
 --%>
+<%@include file="authorization.jsp" %>
 <%@page import="java.util.ArrayList"%>
 <%@page import="DataAccess.Entities.*"%>
 <%@page import="BusinessLayer.*"%>
-<%@include file="authorization.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="tr">
@@ -32,7 +32,7 @@
         
         %>
             
-            <form action="EmployeeBookUpdate" method="post" enctype="multipart/form-data">
+            <form action="EmployeeBookUpdate" method="post" enctype="multipart/form-data" name="form" onsubmit="return Validate();">
             <div class="card">
                 <div class="card-header">
                     <div class="card-tools">

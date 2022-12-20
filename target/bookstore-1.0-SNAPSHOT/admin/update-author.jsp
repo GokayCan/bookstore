@@ -13,6 +13,19 @@
 <!-- header -->
 <%@ include file="header.jsp" %>
 <body class="hold-transition sidebar-mini layout-fixed">
+<script>
+    function Validate(){
+        let txtFirstName = document.forms["form"]["txtFirstName"].value;
+        let txtLastName = document.forms["form"]["txtLastName"].value;
+        let txtBirthDate = document.forms["form"]["txtBirthDate"].value;
+        let txtBiography = document.forms["form"]["txtBiography"].value;
+        if (txtFirstName === "" || txtLastName === "" || txtBirthDate === "" || txtBiography === ""){
+            alert("Her Kutucuğu Doldurun");
+            return false;
+        }
+        return true;
+    }
+</script>
 <div class="wrapper">
   <!-- Navbar -->
     <%@ include file="navbar.jsp" %>
@@ -54,7 +67,7 @@
         
         %>
         
-        <form method="post" action="#">
+        <form method="post" action="#" name="form" onsubmit="return Validate();">
             <div class="card">
                 <div class="card-header">
                     <div class="card-tools">
@@ -81,8 +94,7 @@
                 <div class="card-body">
                     <div class="form-group mb-2">
                         <label class="form-label">Yazar Doğum Tarihi:</label>
-                        <input type="text" class="form-control" disabled name="txtOldBirthDate" value="<%=author.getBirthDate()%>">
-                        <input type="date" class="form-control" name="txtBirthDate">
+                        <input type="date" class="form-control" name="txtBirthDate" value="<%=author.getBirthDate()%>">
                     </div>
                 </div>
                 <div class="card-body">
@@ -109,9 +121,13 @@
                 
                 java.sql.Date sqlBirthDate = new java.sql.Date(BirthDate.getTime());
                 
-                author.setFirstName(request.getParameter("txtFirstName"));
-                author.setLastName(request.getParameter("txtLastName"));
-                author.setBiography(request.getParameter("txtBiography"));
+                String txtFirstName = new String(request.getParameter("txtFirstName").getBytes("ISO-8859-9"), "UTF-8");
+                String txtLastName = new String(request.getParameter("txtLastName").getBytes("ISO-8859-9"), "UTF-8");
+                String txtBiography = new String(request.getParameter("txtBiography").getBytes("ISO-8859-9"), "UTF-8");
+                
+                author.setFirstName(txtFirstName);
+                author.setLastName(txtLastName);
+                author.setBiography(txtBiography);
                 author.setBirthDate(sqlBirthDate);
                 
                 service.Update(author);

@@ -11,6 +11,17 @@
 <!-- header -->
 <%@ include file="header.jsp" %>
 <body class="hold-transition sidebar-mini layout-fixed">
+    <script>
+    function Validate(){
+        let txtFirstName = document.forms["form"]["txtFirstName"].value;
+        let txtLastName = document.forms["form"]["txtLastName"].value;
+        if (txtFirstName === "" || txtLastName === ""){
+            alert("Her Kutucuğu Doldurun");
+            return false;
+        }
+        return true;
+    }
+</script>
 <div class="wrapper">
   <!-- Navbar -->
     <%@ include file="navbar.jsp" %>
@@ -39,7 +50,7 @@
 
     <!-- Main content -->
     <section class="content">
-        <form method="post" action="#">
+        <form method="post" action="#" name="form" onsubmit="return Validate();">
             <div class="card">
                 <div class="card-header">
                     <div class="card-tools">
@@ -75,8 +86,10 @@
                 Translator translator=new Translator();
                 TranslatorService service=new TranslatorService();
                 
-                translator.setFirstName(request.getParameter("txtFirstName"));
-                translator.setLastName(request.getParameter("txtLastName"));
+                String txtFirstName = new String(request.getParameter("txtFirstName").getBytes("ISO-8859-9"), "UTF-8");
+                String txtLastName = new String(request.getParameter("txtLastName").getBytes("ISO-8859-9"), "UTF-8");
+                translator.setFirstName(txtFirstName);
+                translator.setLastName(txtLastName);
                 service.Add(translator);
                 
                 response.sendRedirect("translators.jsp");

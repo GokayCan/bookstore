@@ -12,6 +12,23 @@
 <!-- header -->
 <%@ include file="header.jsp" %>
 <body class="hold-transition sidebar-mini layout-fixed">
+<script>
+    function Validate(){
+        let txtName = document.forms["form"]["txtName"].value;
+        let txtSubject = document.forms["form"]["txtSubject"].value;
+        let txtStock = document.forms["form"]["txtStock"].value;
+        let txtPublishDate = document.forms["form"]["txtPublishDate"].value;
+        let slcPublisher = document.forms["form"]["slcPublisher"].value;
+        let txtPageNumber = document.forms["form"]["txtPageNumber"].value;
+        let txtPrintCount = document.forms["form"]["txtPrintCount"].value;
+        let txtImage = document.forms["form"]["txtImage"].value;
+        if (txtName === "" || txtSubject === "" || txtStock === "" || txtPublishDate === ""  || slcPublisher === ""  || txtPageNumber === ""  || txtPrintCount === "" || txtImage === ""){
+            alert("Her Kutucuğu Doldurun");
+            return false;
+        }
+        return true;
+    }
+</script>
 <div class="wrapper">
   <!-- Navbar -->
     <%@ include file="navbar.jsp" %>
@@ -40,7 +57,7 @@
 
     <!-- Main content -->
     <section class="content">
-        <form action="AdminBookAdd" method="post" enctype="multipart/form-data">
+        <form action="AdminBookAdd" method="post" enctype="multipart/form-data"  name="form" onsubmit="return Validate();">
             <div class="card">
                 <div class="card-header">
                     <div class="card-tools">

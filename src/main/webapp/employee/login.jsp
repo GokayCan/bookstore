@@ -3,7 +3,22 @@
     Created on : 5 Dec 2022, 22:53:32
     Author     : mavia
 --%>
-
+<%
+    Cookie cookie;
+    Cookie[] cookies;
+    cookies = request.getCookies();
+    String inputtcno = "";
+    String inputpassword = "";
+    for (int i = 0; i < cookies.length; i++) {
+        cookie = cookies[i];
+        if (cookie.getName().equals("tcno")) {
+            inputtcno = cookie.getValue();
+        }
+        if (cookie.getName().equals("password")) {
+            inputpassword = cookie.getValue();
+        }
+    }
+%>
 <%@page import="DataAccess.Entities.Employee"%>
 <%@page import="BusinessLayer.EmployeeService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -22,10 +37,10 @@
                             <h6 class="font-weight-light">Devam etmek için lütfen giriş yapınız.</h6>
                             <form class="pt-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-lg" name="tc" id="exampleInputEmail1" placeholder="TC No Girin...">
+                                    <input type="text" class="form-control form-control-lg" name="tc" id="exampleInputEmail1" value="<%= inputtcno %>" placeholder="TC No Girin...">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-lg" name="password" id="exampleInputPassword1" placeholder="Şifre Girin...">
+                                    <input type="password" class="form-control form-control-lg" name="password" id="exampleInputPassword1" value="<%= inputpassword %>" placeholder="Şifre Girin...">
                                 </div>
                                 <div class="mt-3">
                                     <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" value="Giriş Yap" name="login">

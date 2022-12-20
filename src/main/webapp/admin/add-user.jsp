@@ -3,12 +3,34 @@
     Created on : 5 Ara 2022, 22:20:01
     Author     : Bahadır
 --%>
+<%@page import="DataAccess.Entities.City"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="BusinessLayer.CityService"%>
 <%@include file="authorization.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
 <!-- header -->
 <%@ include file="header.jsp" %>
 <body class="hold-transition sidebar-mini layout-fixed">
+<script>
+    function Validate(){
+        let txtFirstName = document.forms["form"]["txtFirstName"].value;
+        let txtLastName = document.forms["form"]["txtLastName"].value;
+        let txtEmail = document.forms["form"]["txtEmail"].value;
+        let txtPassword = document.forms["form"]["txtPassword"].value;
+        let txtPhoneNumber = document.forms["form"]["txtPhoneNumber"].value;
+        let txtAddress = document.forms["form"]["txtAddress"].value;
+        let txtBirthDate = document.forms["form"]["txtBirthDate"].value;
+        let txtImage = document.forms["form"]["txtImage"].value;
+        
+        if (txtFirstName === "" || txtLastName === "" || txtEmail === "" || txtPassword === "" || txtPhoneNumber === "" || txtAddress === "" || txtBirthDate === "" || txtImage === ""){
+            alert("Her Kutucuğu Doldurun");
+            return false;
+        }
+        return true;
+    }
+</script>
 <div class="wrapper">
   <!-- Navbar -->
     <%@ include file="navbar.jsp" %>
@@ -37,7 +59,7 @@
 
     <!-- Main content -->
     <section class="content">
-        <form action="UserAdd" method="post" enctype="multipart/form-data">
+        <form action="UserAdd" method="post" enctype="multipart/form-data" name="form" onsubmit="return Validate();">
             <div class="card">
                 <div class="card-header">
                     <div class="card-tools">
@@ -77,6 +99,23 @@
                     <div class="form-group mb-2">
                         <label class="form-label">Kullanıcı Telefon Numarası</label>
                         <input type="text" class="form-control" name="txtPhoneNumber">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group mb-2">
+                        <label class="form-label">Şehir</label>
+                        <select class="form-control form-select" name="slcCity">
+                            <%
+                                CityService service=new CityService();
+                                ArrayList<City> cities=new ArrayList<City>();
+                                cities=service.List();
+                                for(int i=0;i<cities.size();i++){
+                            %>
+                            <option value="<%=cities.get(i).getID()%>"><%=cities.get(i).getName()%></option>
+                            <%        
+                                }
+                            %>      
+                        </select>
                     </div>
                 </div>
                 <div class="card-body">

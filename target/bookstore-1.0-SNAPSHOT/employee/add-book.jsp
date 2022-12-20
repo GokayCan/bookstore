@@ -10,6 +10,23 @@
 
 <%@ include file="header.jsp" %>
 <body>
+    <script>
+    function Validate(){
+        let txtName = document.forms["form"]["txtName"].value;
+        let txtSubject = document.forms["form"]["txtSubject"].value;
+        let txtStock = document.forms["form"]["txtStock"].value;
+        let txtPublishDate = document.forms["form"]["txtPublishDate"].value;
+        let slcPublisher = document.forms["form"]["slcPublisher"].value;
+        let txtPageNumber = document.forms["form"]["txtPageNumber"].value;
+        let txtPrintCount = document.forms["form"]["txtPrintCount"].value;
+        let txtImage = document.forms["form"]["txtImage"].value;
+        if (txtName === "" || txtSubject === "" || txtStock === "" || txtPublishDate === ""  || slcPublisher === ""  || txtPageNumber === ""  || txtPrintCount === "" || txtImage === ""){
+            alert("Her Kutucuğu Doldurun");
+            return false;
+        }
+        return true;
+    }
+</script>
   <div class="container-scroller">
     <!-- Navbar-->
     <%@ include file="navbar.jsp" %>
@@ -18,7 +35,7 @@
       <%@ include file="sidebar.jsp" %>
       <div class="main-panel">
         <div class="content-wrapper">
-            <form action="EmployeeBookAdd" method="post" enctype="multipart/form-data">
+            <form action="EmployeeBookAdd" method="post" enctype="multipart/form-data"  name="form" onsubmit="return Validate();">
                 <div class="card">
                     <div class="card-header">
                         <h2 class="text-center text-header">Kitap Ekle</h2>

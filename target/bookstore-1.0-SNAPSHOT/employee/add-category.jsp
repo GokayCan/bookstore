@@ -12,6 +12,29 @@
 
 <%@ include file="header.jsp" %>
 <body>
+    <script>
+    function Validate(){
+        let txtName = document.forms["form"]["txtName"].value;
+        if (txtName === ""){
+            alert("Her Kutucuğu Doldurun");
+            return false;
+        }
+        return true;
+    }
+</script>
+    <script>
+    function Validate(){
+        let txtFirstName = document.forms["form"]["txtFirstName"].value;
+        let txtLastName = document.forms["form"]["txtLastName"].value;
+        let txtBirthDate = document.forms["form"]["txtBirthDate"].value;
+        let txtBiography = document.forms["form"]["txtBiography"].value;
+        if (txtFirstName === "" || txtLastName === "" || txtBirthDate === "" || txtBiography === ""){
+            alert("Her Kutucuğu Doldurun");
+            return false;
+        }
+        return true;
+    }
+</script>
   <div class="container-scroller">
     <!-- Navbar-->
     <%@ include file="navbar.jsp" %>
@@ -21,7 +44,7 @@
       <div class="main-panel">
         <div class="content-wrapper">
             
-            <form method="post" action="#">
+            <form method="post" action="#" name="form" onsubmit="return Validate();">
                 <div class="card">
                     <div class="card-header">
                         <h2 class="text-center text-header">Kategori Ekle</h2>
@@ -46,7 +69,9 @@
                 Category category=new Category();
                 CategoryService service=new CategoryService();
                 
-                category.setName(request.getParameter("txtName"));
+                String txtName = new String(request.getParameter("txtName").getBytes("ISO-8859-9"), "UTF-8");
+                
+                category.setName(txtName);
                 service.Add(category);
                 
                 response.sendRedirect("categories.jsp");

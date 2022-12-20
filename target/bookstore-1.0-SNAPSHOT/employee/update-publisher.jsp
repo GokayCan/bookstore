@@ -12,6 +12,17 @@
 
 <%@ include file="header.jsp" %>
 <body>
+<script>
+    function Validate(){
+        let txtName = document.forms["form"]["txtName"].value;
+        
+        if (txtName === ""){
+            alert("Her Kutucuğu Doldurun");
+            return false;
+        }
+        return true;
+    }
+</script>
   <div class="container-scroller">
     <!-- Navbar-->
     <%@ include file="navbar.jsp" %>
@@ -31,7 +42,7 @@
         
             %>
             
-            <form method="post" action="#">
+            <form method="post" action="#" name="form" onsubmit="return Validate();">
                 <div class="card">
                     <div class="card-header">
                         <h2 class="text-center text-header">Yayınevi Güncelle</h2>
@@ -53,7 +64,8 @@
             <%
                 if(request.getParameter("save")!=null){
 
-                    publisher.setName(request.getParameter("txtName"));
+                    String txtName = new String(request.getParameter("txtName").getBytes("ISO-8859-9"), "UTF-8");
+                    publisher.setName(txtName);
                     service.Update(publisher);
 
                     response.sendRedirect("publishers.jsp");

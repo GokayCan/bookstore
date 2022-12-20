@@ -3,10 +3,9 @@
     Created on : 6 Dec 2022, 00:38:29
     Author     : mavia
 --%>
-
+<%@include file="authorization.jsp" %>
 <%@page import="BusinessLayer.UserService" %>
 <%@page import="DataAccess.Entities.Loan" %>
-<%@include file="authorization.jsp" %>
 <%@page import="BusinessLayer.LoanService" %>
 <%@page import="DataAccess.Entities.Book" %>
 <%@page import="java.util.ArrayList" %>
@@ -17,6 +16,17 @@
 
 <%@ include file="header.jsp" %>
 <body>
+    <script>
+    function Validate(){
+        let txtEmail = document.forms["form"]["txtEmail"].value;
+        let txtBookId = document.forms["form"]["txtBookId"].value;
+        if (txtEmail === "" || txtBookId === ""){
+            alert("Her Kutucuğu Doldurun");
+            return false;
+        }
+        return true;
+    }
+</script>
 <div class="container-scroller">
     <!-- Navbar-->
     <%@ include file="navbar.jsp" %>
@@ -26,7 +36,7 @@
         <div class="main-panel">
             <div class="content-wrapper">
 
-                <form method="post" action="#" name="form">
+                <form method="post" action="#" name="form"  name="form" onsubmit="return Validate();">
                     <div class="card">
                         <div class="card-header">
                             <h2 class="text-center text-header">Kitap Ver</h2>
@@ -94,7 +104,8 @@
                                 break;
                             }
                         }
-                        int userid = userservice.getIDByEmail(request.getParameter("txtEmail"));
+                        String txtEmail = new String(request.getParameter("txtEmail").getBytes("ISO-8859-9"), "UTF-8");
+                        int userid = userservice.getIDByEmail(txtEmail);
                         String bookid = request.getParameter("txtBookId");
                         boolean result = bookservice.CheckStockAmount(Integer.parseInt(bookid));
                         if (result){

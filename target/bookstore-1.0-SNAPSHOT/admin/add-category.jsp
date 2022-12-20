@@ -11,6 +11,16 @@
 <!-- header -->
 <%@ include file="header.jsp" %>
 <body class="hold-transition sidebar-mini layout-fixed">
+<script>
+    function Validate(){
+        let txtName = document.forms["form"]["txtName"].value;
+        if (txtName === ""){
+            alert("Her Kutucuğu Doldurun");
+            return false;
+        }
+        return true;
+    }
+</script>
 <div class="wrapper">
   <!-- Navbar -->
     <%@ include file="navbar.jsp" %>
@@ -39,7 +49,7 @@
 
     <!-- Main content -->
     <section class="content">
-        <form method="post" action="#">
+        <form method="post" action="#" name="form" onsubmit="return Validate();">
             <div class="card">
                 <div class="card-header">
                     <div class="card-tools">
@@ -71,9 +81,9 @@
                 Category category=new Category();
                 CategoryService service=new CategoryService();
                 
-                String Name = new String(request.getParameter("txtName").getBytes("ISO-8859-9"), "UTF-8");
+                String txtName = new String(request.getParameter("txtName").getBytes("ISO-8859-9"), "UTF-8");
                 
-                category.setName(Name);
+                category.setName(txtName);
                 service.Add(category);
                 
                 response.sendRedirect("categories.jsp");

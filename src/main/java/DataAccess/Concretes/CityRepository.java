@@ -2,7 +2,6 @@ package DataAccess.Concretes;
 
 import DataAccess.Abstractions.ICityRepository;
 import DataAccess.Entities.City;
-import DataAccess.Entities.Publisher;
 import java.sql.SQLException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -95,11 +94,9 @@ public class CityRepository extends Repository implements ICityRepository{
         String query="SELECT * FROM City Where ID='"+ID+"'";
         
         try {
-            st=con.createStatement();
-            rs=st.executeQuery(query);
-            
-            rs.next();
-            
+            st =con.createStatement();
+            rs =st.executeQuery(query);    
+            rs.next();  
             city.setName(rs.getString("Name"));
             city.setID(rs.getInt("ID"));
             
@@ -109,4 +106,20 @@ public class CityRepository extends Repository implements ICityRepository{
         
         return city;
     }    
+
+    @Override
+    public String getByName(int ID) {
+        String query="SELECT Name FROM City Where ID = ?";
+        System.out.print(ID);
+        try {
+            pst=con.prepareStatement(query); 
+            pst.setInt(1,ID);
+            rs = pst.executeQuery();
+            rs.next();
+            return rs.getString("Name");            
+        } catch (SQLException ex) {
+        ex.printStackTrace();
+        }
+        return "Bos";
+    }
 }

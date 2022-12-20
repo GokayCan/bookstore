@@ -43,4 +43,12 @@ public class CityService{
         cityRepository.Delete(ID);
     }
     
+    public String getByName(int ID) {
+        
+        CityRepository cityRepository=new CityRepository();
+        
+        String city = cityRepository.getByName(ID);
+        
+        return city;
+    }
 }

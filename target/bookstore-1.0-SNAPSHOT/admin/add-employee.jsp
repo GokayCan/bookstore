@@ -9,6 +9,22 @@
 <!-- header -->
 <%@ include file="header.jsp" %>
 <body class="hold-transition sidebar-mini layout-fixed">
+    <script>
+    function Validate(){
+        let txtFirstName = document.forms["form"]["txtFirstName"].value;
+        let txtLastName = document.forms["form"]["txtLastName"].value;
+        let txtUserName = document.forms["form"]["txtUserName"].value;
+        let txtPassword = document.forms["form"]["txtPassword"].value;
+        let txtStartDate = document.forms["form"]["txtStartDate"].value;
+        let txtImage = document.forms["form"]["txtImage"].value;
+        
+        if (txtFirstName === "" || txtLastName === "" || txtUserName === "" || txtPassword  === "" || txtStartDate === "" || txtImage === ""){
+            alert("Her Kutucuğu Doldurun");
+            return false;
+        }
+        return true;
+    }
+</script>
 <div class="wrapper">
   <!-- Navbar -->
     <%@ include file="navbar.jsp" %>
@@ -37,7 +53,7 @@
 
     <!-- Main content -->
     <section class="content">
-        <form action="EmployeeAdd" method="post" enctype="multipart/form-data">
+        <form action="EmployeeAdd" method="post" enctype="multipart/form-data" name="form" onsubmit="return Validate();">
             <div class="card">
                 <div class="card-header">
                     <div class="card-tools">

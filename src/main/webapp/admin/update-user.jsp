@@ -3,6 +3,7 @@
     Created on : 7 Ara 2022, 21:58:28
     Author     : Bahadır
 --%>
+<%@page import="java.util.ArrayList"%>
 <%@include file="authorization.jsp" %>
 <%@page import="BusinessLayer.*"%>
 <%@page import="DataAccess.Entities.*"%>
@@ -11,6 +12,24 @@
 <!-- header -->
 <%@ include file="header.jsp" %>
 <body class="hold-transition sidebar-mini layout-fixed">
+<script>
+    function Validate(){
+        let txtFirstName = document.forms["form"]["txtFirstName"].value;
+        let txtLastName = document.forms["form"]["txtLastName"].value;
+        let txtEmail = document.forms["form"]["txtEmail"].value;
+        let txtPassword = document.forms["form"]["txtPassword"].value;
+        let txtPhoneNumber = document.forms["form"]["txtPhoneNumber"].value;
+        let txtAddress = document.forms["form"]["txtAddress"].value;
+        let txtBirthDate = document.forms["form"]["txtBirthDate"].value;
+        //let txtImage = document.forms["form"]["txtImage"].value;
+        
+        if (txtFirstName === "" || txtLastName === "" || txtEmail === "" || txtPassword === "" || txtPhoneNumber === "" || txtAddress === "" || txtBirthDate === ""){
+            alert("Her Kutucuğu Doldurun");
+            return false;
+        }
+        return true;
+    }
+</script>
 <div class="wrapper">
   <!-- Navbar -->
     <%@ include file="navbar.jsp" %>
@@ -43,10 +62,10 @@
         <%
             int ID=Integer.parseInt(request.getParameter("ID"));
             
-            UserService service=new UserService();
+            UserService userservice=new UserService();
             User user=new User();
             
-            user=service.getByID(ID);
+            user = userservice.getByID(ID);
         
         %>
         
@@ -95,15 +114,33 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group mb-2">
-                        <label class="form-label">Kullanıcı Adresi</label>
+                        <label class="form-label">Şehir</label>
+                        <select class="form-control form-select" name="slcCity">
+                            <%
+                                CityService cityservice = new CityService();
+                                ArrayList<City> cities = new ArrayList<City>();
+                                String oldcity = cityservice.getByName(user.getCityID());
+                                
+                                cities=cityservice.List();
+                                for(int i=0;i<cities.size();i++){
+                            %>
+                            <option value="<%=cities.get(i).getID()%>"><%=cities.get(i).getName()%></option>
+                            <%        
+                                }
+                            %>      
+                        </select>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group mb-2">
+                        <label class="form-label">Kullanıcı Adresi <%=oldcity%></label>
                         <input type="text" class="form-control" name="txtAddress" value="<%=user.getAddress()%>">
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="form-group mb-2">
                         <label class="form-label">Kullanıcı Doğum Tarihi</label>
-                        <input type="text" class="form-control" disabled name="txtOldBirthDate" value="<%=user.getBirthDate()%>">
-                        <input type="date" class="form-control" name="txtBirthDate">
+                        <input type="date" class="form-control" name="txtOldBirthDate" value="<%=user.getBirthDate()%>">
                     </div>
                 </div>
                 <div class="card-body">

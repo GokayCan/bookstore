@@ -13,4 +13,6 @@ public interface ICityRepository{
     public void Delete(int ID);
 
     public City getById(int ID);
+    
+    public String getByName(int ID);
 }

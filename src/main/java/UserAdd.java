@@ -53,13 +53,23 @@ public class UserAdd extends HttpServlet{
 
         java.sql.Date sqlBirthDate = new java.sql.Date(BirthDate.getTime());
         
-        user.setFirstName(request.getParameter("txtFirstName"));
-        user.setLastName(request.getParameter("txtLastName"));
-        user.setEmail(request.getParameter("txtEmail"));
-        user.setPassword(request.getParameter("txtPassword"));
-        user.setAddress(request.getParameter("txtAddress"));
-        user.setPhoneNumber(request.getParameter("txtPhoneNumber"));
-        user.setCityID(1);
+        
+        
+        String txtFirstName = new String(request.getParameter("txtFirstName").getBytes("ISO-8859-9"), "UTF-8");
+        String txtLastName = new String(request.getParameter("txtLastName").getBytes("ISO-8859-9"), "UTF-8");
+        String txtEmail = new String(request.getParameter("txtEmail").getBytes("ISO-8859-9"), "UTF-8");
+        String txtPassword = new String(request.getParameter("txtPassword").getBytes("ISO-8859-9"), "UTF-8");
+        String txtAddress = new String(request.getParameter("txtAddress").getBytes("ISO-8859-9"), "UTF-8");
+        String txtPhoneNumber = new String(request.getParameter("txtPhoneNumber").getBytes("ISO-8859-9"), "UTF-8");
+        int CityID = Integer.parseInt(request.getParameter("slcCity"));
+        
+        user.setFirstName(txtFirstName);
+        user.setLastName(txtLastName);
+        user.setEmail(txtEmail);
+        user.setPassword(txtPassword);
+        user.setAddress(txtAddress);
+        user.setPhoneNumber(txtPhoneNumber);
+        user.setCityID(CityID);
         user.setBirthDate(sqlBirthDate);
         user.setImageUrl(sImageFileName);
         

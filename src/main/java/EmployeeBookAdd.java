@@ -54,11 +54,16 @@ public class EmployeeBookAdd extends HttpServlet{
         }
 
         java.sql.Date sqlPublishDate = new java.sql.Date(PublishDate.getTime());
-
-        book.setName(request.getParameter("txtName"));
-        book.setSubject(request.getParameter("txtSubject"));
-        book.setPageNumber(request.getParameter("txtPageNumber"));
-        book.setPrintCount(request.getParameter("txtPrintCount"));
+        
+        String txtName = new String(request.getParameter("txtName").getBytes("ISO-8859-9"), "UTF-8");
+        String txtSubject = new String(request.getParameter("txtSubject").getBytes("ISO-8859-9"), "UTF-8");
+        String txtPageNumber = new String(request.getParameter("txtPageNumber").getBytes("ISO-8859-9"), "UTF-8");
+        String txtPrintCount = new String(request.getParameter("txtPrintCount").getBytes("ISO-8859-9"), "UTF-8");
+        
+        book.setName(txtName);
+        book.setSubject(txtSubject);
+        book.setPageNumber(txtPageNumber);
+        book.setPrintCount(txtPrintCount);
         book.setImageUrl(sImageFileName);
         book.setPublisherID(Integer.parseInt(request.getParameter("slcPublisher")));
         book.setPublishDate(sqlPublishDate);

@@ -3,7 +3,7 @@
     Created on : 7 Ara 2022, 22:56:55
     Author     : Bahadır
 --%>
-
+<%@include file="authorization.jsp" %>
 <%@page import="DataAccess.Entities.User"%>
 <%@page import="BusinessLayer.UserService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +12,24 @@
 
 <%@ include file="header.jsp" %>
 <body>
+<script>
+    function Validate(){
+        let txtFirstName = document.forms["form"]["txtFirstName"].value;
+        let txtLastName = document.forms["form"]["txtLastName"].value;
+        let txtEmail = document.forms["form"]["txtEmail"].value;
+        let txtPassword = document.forms["form"]["txtPassword"].value;
+        let txtPhoneNumber = document.forms["form"]["txtPhoneNumber"].value;
+        let txtAddress = document.forms["form"]["txtAddress"].value;
+        let txtBirthDate = document.forms["form"]["txtBirthDate"].value;
+        //let txtImage = document.forms["form"]["txtImage"].value;
+        
+        if (txtFirstName === "" || txtLastName === "" || txtEmail === "" || txtPassword === "" || txtPhoneNumber === "" || txtAddress === "" || txtBirthDate === ""){
+            alert("Her Kutucuğu Doldurun");
+            return false;
+        }
+        return true;
+    }
+</script>
   <div class="container-scroller">
     <!-- Navbar-->
     <%@ include file="navbar.jsp" %>
@@ -31,7 +49,7 @@
         
             %>
         
-            <form action="UserUpdate" method="post" enctype="multipart/form-data">
+            <form action="UserUpdate" method="post" enctype="multipart/form-data" name="form" onsubmit="return Validate();">
                 <div class="card">
                     <div class="card-header">
                         <div class="card-tools">

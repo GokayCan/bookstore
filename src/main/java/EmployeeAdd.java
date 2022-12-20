@@ -52,11 +52,15 @@ public class EmployeeAdd extends HttpServlet{
         }
 
         java.sql.Date sqlStartDate = new java.sql.Date(StartDate.getTime());
-
-        employee.setFirstName(request.getParameter("txtFirstName"));
-        employee.setLastName(request.getParameter("txtLastName"));
-        employee.setTCNo(request.getParameter("txtUserName"));
-        employee.setPassword(request.getParameter("txtPassword"));
+        String txtFirstName = new String(request.getParameter("txtFirstName").getBytes("ISO-8859-9"), "UTF-8");
+        String txtLastName = new String(request.getParameter("txtLastName").getBytes("ISO-8859-9"), "UTF-8");
+        String txtUserName = new String(request.getParameter("txtUserName").getBytes("ISO-8859-9"), "UTF-8");
+        String txtPassword = new String(request.getParameter("txtPassword").getBytes("ISO-8859-9"), "UTF-8");
+        
+        employee.setFirstName(txtFirstName);
+        employee.setLastName(txtLastName);
+        employee.setTCNo(txtUserName);
+        employee.setPassword(txtPassword);
         employee.setStartDate(sqlStartDate);
         employee.setDocument(sImageFileName);
         
