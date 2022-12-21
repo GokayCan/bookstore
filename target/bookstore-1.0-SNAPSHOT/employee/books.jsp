@@ -32,7 +32,15 @@
                         <thead>
                             <th scope="col">ID</th>
                             <th scope="col">Kitap Adı</th>
-                            <th scope="col"></th>
+                            <th scope="col">Stok Miktarı</th>
+                            <th scope="col">Sayfa Sayısı</th>
+                            <th scope="col">Yazarlar</th>
+                            <th scope="col">Basım</th>
+                            <th scope="col">Yayınevi</th>
+                            <th scope="col">Çevirmenler</th>
+                            <th scope="col">Kategoriler</th>
+                            <th scope="col">Basım Tarihi</th>    
+                            <th scope="col">Kitap Bilgisi Güncelle</th>
                             <th scope="col"></th>
                         </thead>
                         <tbody>
@@ -46,6 +54,14 @@
                                 <tr>
                                     <td><%=books.get(i).getID()%></td>
                                     <td><%=books.get(i).getName()%></td>
+                                    <td><%=books.get(i).getStock()%></td>
+                                    <td><%=books.get(i).getPageNumber()%></td>
+                                    <td><%=books.get(i).getAuthors()%></td>
+                                    <td><%=books.get(i).getPrintCount()%></td>
+                                    <td><%=books.get(i).getPublisherName()%></td>
+                                    <td><%=books.get(i).getTranslators()%></td>
+                                    <td><%=books.get(i).getCategories()%></td>
+                                    <td><%=books.get(i).getPublishDate()%></td>
                                     <td><a href="update-book.jsp?ID=<%=books.get(i).getID()%>" class="btn btn-warning"><i class="ti-pencil"></i> Güncelle</a></td>
                                     <td><a href="delete-book.jsp?ID=<%=books.get(i).getID()%>" class="btn btn-danger"><i class="icon-trash"></i> Sil</a></td>
                                 </tr>

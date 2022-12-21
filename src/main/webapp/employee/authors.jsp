@@ -34,6 +34,7 @@
                         <th scope="col">Adı</th>
                         <th scope="col">Soyadı</th>
                         <th scope="col">Doğum Tarihi</th>
+                        <th scope="col">Biyografi</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
                         </thead>
@@ -49,6 +50,7 @@
                                     <td><%=authors.get(i).getFirstName()%></td>
                                     <td><%=authors.get(i).getLastName()%></td>
                                     <td><%=authors.get(i).getBirthDate()%></td>
+                                    <td><%=authors.get(i).getBiography()%></td>
                                     <td><a href="update-author.jsp?ID=<%=authors.get(i).getID()%>" class="btn btn-warning"><i class="ti-pencil"></i> Güncelle</a></td>
                                     <td><a href="delete-author.jsp?ID=<%=authors.get(i).getID()%>" class="btn btn-danger"><i class="icon-trash"></i> Sil</a></td>
                                 </tr>

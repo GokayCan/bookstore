@@ -247,6 +247,8 @@ public class BookRepository extends Repository implements IBookRepository{
         return null;
     }
 
+    
+    
     @Override
     public boolean CheckStockAmount(int BookID) {
         String query = "Select Count(*) as Result From Book Where ID = '"+ BookID +"' and Stock > 0";

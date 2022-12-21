@@ -37,7 +37,7 @@
                                     %>
                                     <tr>
                                         <td><%=publishers.get(i).getName()%></td>
-                                        <td><a class="btn btn-outline-info"><i class="fas fa-search fa-fw"></i> Kitapları Görüntüle</a></td>
+                                        <td><a href="book-publisher.jsp?ID=<%=publishers.get(i).getID()%>" class="btn btn-outline-info"><i class="fas fa-search fa-fw"></i> Kitapları Görüntüle</a></td>
                                     </tr>
                                     <%
                                         }
