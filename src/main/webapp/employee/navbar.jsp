@@ -4,8 +4,35 @@
     Author     : Bahadır
 --%>
 
+<%@page import="BusinessLayer.*"%>
+<%@page import="DataAccess.Entities.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    
+    <%
+        Employee emp=new Employee();
+        
+        EmployeeService employeeService=new EmployeeService();
+        
+        String employeeid = "";
+        
+        Cookie cookie;
+        Cookie[] cookies;
+        cookies = request.getCookies();
+        for (int i = 0; i < cookies.length; i++) {
+            cookie = cookies[i];
+            if (cookie.getName().equals("employeeid")) {
+                employeeid = cookie.getValue();
+                break;
+            }
+        }
+        
+        emp=employeeService.getByID(Integer.parseInt(employeeid));
+        System.out.println(emp.getDocument());
+        
+        
+    %>
+    
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
       <a class="navbar-brand brand-logo mr-5" href="index.jsp">BookStore</a>
       <a class="navbar-brand brand-logo-mini" href="index.jsp"><img src="images/logo-mini.svg" alt="logo"/></a>
@@ -29,10 +56,10 @@
       <ul class="navbar-nav navbar-nav-right">
         <li class="nav-item nav-profile dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-            <img src="images/faces/face28.jpg" alt="profile"/>
+            <img src="../assets/<%=emp.getDocument()%>" alt="profile"/>
           </a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-            <a class="dropdown-item">
+            <a class="dropdown-item" href="settings.jsp?ID=<%=emp.getID()%>">
               <i class="ti-settings text-primary"></i>
               Ayarlar
             </a>

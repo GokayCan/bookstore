@@ -111,6 +111,7 @@ public class EmployeeRepository extends Repository implements IEmployeeRepositor
             employee.setTCNo(rs.getString("TcNo"));
             employee.setPassword(rs.getString("Password"));
             employee.setStartDate(rs.getDate("StartDate"));
+            employee.setDocument(rs.getString("Document"));
             employee.setID(rs.getInt("ID"));
             
         } catch (SQLException ex) {

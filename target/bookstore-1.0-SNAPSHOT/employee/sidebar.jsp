@@ -20,12 +20,6 @@
         </a>
       </li>
         <li class="nav-item">
-        <a class="nav-link" href="book-list.jsp">
-          <i class="icon-book menu-icon"></i>
-          <span class="menu-title">Kitap Listesi</span>
-        </a>
-      </li>
-        <li class="nav-item">
             <a class="nav-link" href="publishers.jsp">
           <i class="ti-briefcase menu-icon"></i>
           <span class="menu-title">Yayınevleri</span>

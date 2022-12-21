@@ -18,7 +18,30 @@
       <%@ include file="sidebar.jsp" %>
       <div class="main-panel">
         <div class="content-wrapper">
-            
+            <div class="col-md-12 mb-4 stretch-card transparent">
+                <div class="card card-dark-blue">
+                  <div class="card-body">
+                    <p class="mb-4">Kitap Sayısı</p>
+                    <p class="fs-30 mb-2">61344</p>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-12 mb-4 stretch-card transparent">
+                <div class="card card-light-blue">
+                  <div class="card-body">
+                    <p class="mb-4">Üye Sayısı</p>
+                    <p class="fs-30 mb-2">61344</p>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-12 mb-4 stretch-card transparent">
+                <div class="card card-light-danger">
+                  <div class="card-body">
+                    <p class="mb-4">Ödünç Alınan Kitap Sayısı</p>
+                    <p class="fs-30 mb-2">61344</p>
+                  </div>
+                </div>
+            </div>
         </div>
         <!-- footer -->
         <%@ include file="footer.jsp" %>

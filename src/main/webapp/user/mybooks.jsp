@@ -12,10 +12,27 @@
         <%@ include file="sidebar.jsp" %>
         <div id="layoutSidenav_content">
             <div class="m-2">
-                <%                    
+                
+                <%
+                    int UserID;
+                    String email="";
+                    Cookie cookie;
+                    Cookie[] cookies;
+                    cookies = request.getCookies();
+                    for (int i = 0; i < cookies.length; i++) {
+                        cookie = cookies[i];
+                        if (cookie.getName().equals("email")) {
+                            email = cookie.getValue();
+                            break;
+                        }
+                    }
+                    
                     UserService service = new UserService();
+                    
+                    UserID=service.getIDByEmail(email);
+                    
                     ArrayList<Book> books = new ArrayList<Book>();
-                    books = service.MyBookList(11);
+                    books = service.MyBookList(UserID);
                     for (int i = 0; i < books.size(); i++) {
                 %>
 
@@ -42,11 +59,6 @@
                                     <p>Stok Sayısı:<%=books.get(i).getStock()%></p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <div style="display:flex;justify-content: end">
-                            <a href="loan-book.jsp?ID=<%=books.get(i).getID()%>" class="btn btn-info mr-2"><i class="fas fa-arrow-down"></i> Ödünç Al</a>
                         </div>
                     </div>
                 </div>
