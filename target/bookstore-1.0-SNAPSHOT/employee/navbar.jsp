@@ -14,20 +14,20 @@
         
         EmployeeService employeeService=new EmployeeService();
         
-        String employeeid = "";
+        String employee_id = "";
         
-        Cookie cookie;
-        Cookie[] cookies;
-        cookies = request.getCookies();
-        for (int i = 0; i < cookies.length; i++) {
-            cookie = cookies[i];
-            if (cookie.getName().equals("employeeid")) {
-                employeeid = cookie.getValue();
+        Cookie cookiee;
+        Cookie[] cookiess;
+        cookiess = request.getCookies();
+        for (int i = 0; i < cookiess.length; i++) {
+            cookiee = cookiess[i];
+            if (cookiee.getName().equals("employeeid")) {
+                employee_id = cookiee.getValue();
                 break;
             }
         }
         
-        emp=employeeService.getByID(Integer.parseInt(employeeid));
+        emp=employeeService.getByID(Integer.parseInt(employee_id));
         System.out.println(emp.getDocument());
         
         
@@ -63,7 +63,7 @@
               <i class="ti-settings text-primary"></i>
               Ayarlar
             </a>
-            <a class="dropdown-item" href="login.jsp">
+            <a class="dropdown-item" href="logout.jsp">
               <i class="ti-power-off text-primary"></i>
               Çıkış Yap
             </a>

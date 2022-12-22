@@ -67,7 +67,7 @@
             if (td) {
                 txtValue = td.innerText;
                 if(filter){
-                    if (txtValue == "Hayır") {
+                    if (txtValue === "Hayır") {
                         tr[i].style.visibility = "visible";
                     } else {
                         tr[i].style.visibility = "collapse";

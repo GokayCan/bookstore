@@ -47,7 +47,7 @@
                                     <td><%=translators.get(i).getFirstName()%></td>
                                     <td><%=translators.get(i).getLastName()%></td>
                                     <td><a href="update-translator.jsp?ID=<%=translators.get(i).getID()%>" class="btn btn-warning"><i class="ti-pencil"></i> Güncelle</a></td>
-                                    <td><a href="delete-translator.jsp?ID=<%=translators.get(i).getID()%>" class="btn btn-danger"><i class="icon-trash"></i> Sil</a></td>
+                                    <td><a href="delete-translator.jsp?ID=<%=translators.get(i).getID()%>" class="btn btn-danger" onclick="return confirm('Emin misin?')"><i class="icon-trash"></i> Sil</a></td>
                                 </tr>
                             <%        
                                 }

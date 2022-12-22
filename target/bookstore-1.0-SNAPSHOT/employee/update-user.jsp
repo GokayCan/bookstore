@@ -21,9 +21,9 @@
         let txtPhoneNumber = document.forms["form"]["txtPhoneNumber"].value;
         let txtAddress = document.forms["form"]["txtAddress"].value;
         let txtBirthDate = document.forms["form"]["txtBirthDate"].value;
-        //let txtImage = document.forms["form"]["txtImage"].value;
+        let txtImage = document.forms["form"]["txtImage"].value;
         
-        if (txtFirstName === "" || txtLastName === "" || txtEmail === "" || txtPassword === "" || txtPhoneNumber === "" || txtAddress === "" || txtBirthDate === ""){
+        if (txtFirstName === "" || txtLastName === "" || txtEmail === "" || txtPassword === "" || txtPhoneNumber === "" || txtAddress === "" || txtBirthDate === "" || txtImage === ""){
             alert("Her Kutucuğu Doldurun");
             return false;
         }

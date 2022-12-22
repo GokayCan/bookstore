@@ -62,8 +62,7 @@
                         </div>
                         <div class="form-group mb-2">
                             <label class="form-label">Yazar Doğum Tarihi</label>
-                            <input type="text" class="form-control" disabled name="txtBirthDate" value="<%=author.getBirthDate()%>">
-                            <input type="date" class="form-control" name="txtBirthDate">
+                            <input type="date" class="form-control" name="txtBirthDate" value="<%=author.getBirthDate()%>">
                         </div>
                             <div class="form-group mb-2">
                             <label class="form-label">Yazar Biyografisi</label>

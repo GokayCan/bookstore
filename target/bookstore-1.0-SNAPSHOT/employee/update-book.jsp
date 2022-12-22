@@ -13,6 +13,31 @@
 
 <%@ include file="header.jsp" %>
 <body>
+<script>
+    function Validate(){
+        let txtName = document.forms["form"]["txtName"].value;
+        let txtSubject = document.forms["form"]["txtSubject"].value;
+        let txtStock = document.forms["form"]["txtStock"].value;
+        let txtPublishDate = document.forms["form"]["txtPublishDate"].value;
+        let slcPublisher = document.forms["form"]["slcPublisher"].value;
+        let txtPageNumber = document.forms["form"]["txtPageNumber"].value;
+        let txtPrintCount = document.forms["form"]["txtPrintCount"].value;
+        let txtImage = document.forms["form"]["txtImage"].value;
+        if (txtName === "" || txtSubject === "" || txtStock === "" || txtPublishDate === ""  || slcPublisher === ""  || txtPageNumber === ""  || txtPrintCount === "" || txtImage === ""){
+            alert("Her Kutucuğu Doldurun");
+            return false;
+        }
+        else if(isNaN(txtStock)){
+            alert("Stock miktarı sayısal değer içermelidir");
+            return false;
+        }
+        else if(isNaN(txtPageNumber)){
+            alert("Sayfa sayısı sayısal değer içermelidir");
+            return false;
+        }
+        return true;
+    }
+</script>
   <div class="container-scroller">
     <!-- Navbar-->
     <%@ include file="navbar.jsp" %>
@@ -66,8 +91,7 @@
                 <div class="card-body">
                     <div class="form-group mb-2">
                         <label class="form-label">Kitap Yayım Tarihi</label>
-                        <input type="text"  class="form-control" disabled name="txtOldPublishDate" value="<%=book.getPublishDate()%>">
-                        <input type="date" class="form-control" name="txtPublishDate">
+                        <input type="date"  class="form-control" name="txtPublishDate" value="<%=book.getPublishDate()%>">
                     </div>
                 </div>
                 <div class="card-body">

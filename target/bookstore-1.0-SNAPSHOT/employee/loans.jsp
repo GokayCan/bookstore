@@ -33,13 +33,13 @@
                         </div>
                         <table class="table table-bordered table-hover text-center" id="myTable">
                             <thead>
-                            <th scope="col">Ödünç Alan Kullanıcı</th>
-                            <th scope="col">Ödünç Veren Çalışan</th>
-                            <th scope="col">Ödünç Verilen Kitap</th>
-                            <th scope="col">Ödünç Alma Tarihi</th>
-                            <th scope="col">Son Tarih Tarihi</th>
+                            <th scope="col">Alan Kullanıcı</th>
+                            <th scope="col">Çalışan</th>
+                            <th scope="col">Kitap</th>
+                            <th scope="col">Alma Tarihi</th>
+                            <th scope="col">Son Tarih</th>
                             <th scope="col">İade Tarihi</th>
-                            <th scope="col">İade Edildi Mi?</th>
+                            <th scope="col">İade Edildi Mi</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
                             </thead>
@@ -74,11 +74,11 @@
                                     }
                                 %>
                                 <td>
-                                    <a href="update-loan.jsp?ID=<%=loans.get(i).getID()%>" class="btn btn-warning"><i
+                                    <a href="update-loan.jsp?ID=<%=loans.get(i).getID()%>" class="btn btn-warning" onclick="return confirm('Güncellemek İstediğinizden Emin misin?')"><i
                                             class="far fa-edit"></i> Güncelle</a>
                                 </td>
                                 <td>
-                                    <a href="delete-loan.jsp?ID=<%=loans.get(i).getID()%>" class="btn btn-danger"><i
+                                    <a href="delete-loan.jsp?ID=<%=loans.get(i).getID()%>" class="btn btn-danger" onclick="return confirm('Emin misin?')"><i
                                             class="far fa-trash-alt"></i> Sil</a>
                                 </td>
                             </tr>

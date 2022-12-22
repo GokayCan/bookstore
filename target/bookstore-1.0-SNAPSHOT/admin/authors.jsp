@@ -89,7 +89,7 @@
                                         <a href="update-author.jsp?ID=<%=authors.get(i).getID()%>" class="btn btn-warning"><i class="far fa-edit"></i> Güncelle</a>
                                     </td>
                                     <td>
-                                        <a href="delete-author.jsp?ID=<%=authors.get(i).getID()%>" class="btn btn-danger"><i class="far fa-trash-alt"></i> Sil</a>
+                                        <a href="delete-author.jsp?ID=<%=authors.get(i).getID()%>" onclick="return confirm('Emin misin?')" class="btn btn-danger"><i class="far fa-trash-alt"></i> Sil</a>
                                     </td>
                                 </tr>
                         <%        

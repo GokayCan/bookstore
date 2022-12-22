@@ -85,7 +85,7 @@
                                         <a href="update-publisher.jsp?ID=<%=publishers.get(i).getID()%>" class="btn btn-warning"><i class="far fa-edit"></i> Güncelle</a>
                                     </td>
                                     <td>
-                                        <a href="delete-publisher.jsp?ID=<%=publishers.get(i).getID()%>" class="btn btn-danger"><i class="far fa-trash-alt"></i> Sil</a>
+                                        <a href="delete-publisher.jsp?ID=<%=publishers.get(i).getID()%>" class="btn btn-danger" onclick="return confirm('Emin misin?')"><i class="far fa-trash-alt"></i> Sil</a>
                                     </td>
                                 </tr>
                         <%        

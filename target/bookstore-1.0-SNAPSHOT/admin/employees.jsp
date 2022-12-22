@@ -92,7 +92,7 @@
                                         <a href="update-employee.jsp?ID=<%=employees.get(i).getID()%>" class="btn btn-warning"><i class="far fa-edit"></i> Güncelle</a>
                                     </td>
                                     <td>
-                                        <a href="delete-employee.jsp?ID=<%=employees.get(i).getID()%>" class="btn btn-danger"><i class="far fa-trash-alt"></i> Sil</a>
+                                        <a href="delete-employee.jsp?ID=<%=employees.get(i).getID()%>" class="btn btn-danger" onclick="return confirm('Emin misin?')"><i class="far fa-trash-alt"></i> Sil</a>
                                     </td>
                                 </tr>
                         <%        

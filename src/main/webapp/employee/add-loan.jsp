@@ -24,6 +24,10 @@
             alert("Her Kutucuğu Doldurun");
             return false;
         }
+        else if(isNaN(txtBookId)){
+            alert("BookID sayısal değer içermelidir");
+            return false;
+        }
         return true;
     }
 </script>

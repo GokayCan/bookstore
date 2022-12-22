@@ -85,7 +85,7 @@
                         <div class="card-footer">
                             <div style="display:flex;justify-content: end">
                                 <a href="update-user.jsp?ID=<%=users.get(i).getID()%>" class="btn btn-warning mr-2"><i class="far fa-edit"></i> Güncelle</a>
-                                <a href="delete-book.jsp?ID=<%=users.get(i).getID()%>" class="btn btn-danger"><i class="far fa-trash-alt"></i> Sil</a>
+                                <a href="delete-book.jsp?ID=<%=users.get(i).getID()%>" class="btn btn-danger" onclick="return confirm('Emin misin?')"><i class="far fa-trash-alt"></i> Sil</a>
                             </div>
                         </div>
             </div>

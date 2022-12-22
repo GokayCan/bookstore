@@ -24,6 +24,14 @@
             alert("Her Kutucuğu Doldurun");
             return false;
         }
+        else if(isNaN(txtStock)){
+            alert("Stock miktarı sayısal değer içermelidir");
+            return false;
+        }
+        else if(isNaN(txtPageNumber)){
+            alert("Sayfa sayısı sayısal değer içermelidir");
+            return false;
+        }
         return true;
     }
 </script>

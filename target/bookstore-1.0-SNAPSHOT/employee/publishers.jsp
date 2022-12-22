@@ -46,7 +46,7 @@
                                     <td><%=publishers.get(i).getID()%></td>
                                     <td><%=publishers.get(i).getName()%></td>
                                     <td><a href="update-publisher.jsp?ID=<%=publishers.get(i).getID()%>" class="btn btn-warning"><i class="ti-pencil"></i> Güncelle</a></td>
-                                    <td><a href="delete-publisher.jsp?ID=<%=publishers.get(i).getID()%>" class="btn btn-danger"><i class="icon-trash"></i> Sil</a></td>
+                                    <td><a href="delete-publisher.jsp?ID=<%=publishers.get(i).getID()%>" class="btn btn-danger" onclick="return confirm('Emin misin?')"><i class="icon-trash"></i> Sil</a></td>
                                 </tr>
                             <%        
                                 }

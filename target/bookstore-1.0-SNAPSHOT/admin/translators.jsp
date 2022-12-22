@@ -87,7 +87,7 @@
                                         <a href="update-translator.jsp?ID=<%=translators.get(i).getID()%>" class="btn btn-warning"><i class="far fa-edit"></i> Güncelle</a>
                                     </td>
                                     <td>
-                                        <a href="delete-translator.jsp?ID=<%=translators.get(i).getID()%>" class="btn btn-danger"><i class="far fa-trash-alt"></i> Sil</a>
+                                        <a href="delete-translator.jsp?ID=<%=translators.get(i).getID()%>" class="btn btn-danger" onclick="return confirm('Emin misin?')"><i class="far fa-trash-alt"></i> Sil</a>
                                     </td>
                                 </tr>
                         <%        
