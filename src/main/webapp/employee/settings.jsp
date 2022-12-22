@@ -71,7 +71,7 @@
                                                 <div class="form-group mb-2">
                                                     <label for="exampleInputFile" class="form-label">Fotoğrafımı Güncelle</label>
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="exampleInputFile" name="txtImage">
+                                                        <input type="file" class="custom-file-input" name="txtImage" value="<%=employee.getDocument()%>">
                                                             <label class="custom-file-label" for="exampleInputFile" >Profil Fotoğrafı Seç</label>
                                                     </div>
                                                 </div>

@@ -23,6 +23,14 @@ public class EMyUpdate extends HttpServlet{
         Employee employee=new Employee();
 
         Part file=request.getPart("txtImage");
+        
+        if(file.equals("")){
+            System.out.println("Dosya BoşDeğil");
+        }
+        
+        else{
+            System.out.println("Dosya Boş");
+        }
 
         String sImageFileName = file.getSubmittedFileName();  // get selected image file name
         
