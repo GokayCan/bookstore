@@ -3,6 +3,9 @@
     Created on : 5 Kas 2022, 00:05:25
     Author     : Bahadır
 --%>
+<%@page import="DataAccess.Entities.*"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="BusinessLayer.*"%>
 <%@include file="authorization.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
@@ -34,10 +37,26 @@
             <!-- /.content-header -->
 
             <!-- Main content -->
+            
+            <%
+                BookService bookService=new BookService();
+                EmployeeService employeeService=new EmployeeService();
+                UserService userService=new UserService();
+                
+                ArrayList<Book> books=new ArrayList<Book>();
+                ArrayList<User> users=new ArrayList<User>();
+                ArrayList<Employee> employees=new ArrayList<Employee>();
+                
+                books=bookService.List();
+                users=userService.List();
+                employees=employeeService.List();
+                
+            %>
+            
             <section class="content">
                 <div class="small-box bg-info">
                     <div class="inner">
-                        <h3>150</h3>
+                        <h3><%=books.size()%></h3>
 
                         <p>Kitap Bulunmakta</p>
                     </div>
@@ -48,7 +67,7 @@
                 </div>
                 <div class="small-box bg-primary">
                     <div class="inner">
-                        <h3>150</h3>
+                        <h3><%=employees.size()%></h3>
 
                         <p>Çalışan Bulunmakta</p>
                     </div>
@@ -59,7 +78,7 @@
                 </div>
                 <div class="small-box bg-success">
                     <div class="inner">
-                        <h3>150</h3>
+                        <h3><%=users.size()%></h3>
 
                         <p>Üye Bulunmakta</p>
                     </div>

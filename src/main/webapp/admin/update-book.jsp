@@ -85,8 +85,7 @@
                 <div class="card-body">
                     <div class="form-group mb-2">
                         <label class="form-label">Kitap Yayım Tarihi</label>
-                        <input type="text"  class="form-control" disabled name="txtOldPublishDate" value="<%=book.getPublishDate()%>">
-                        <input type="date" class="form-control" name="txtPublishDate">
+                        <input type="date" class="form-control" name="txtPublishDate" value="<%=book.getPublishDate()%>">
                     </div>
                 </div>
                 <div class="card-body">

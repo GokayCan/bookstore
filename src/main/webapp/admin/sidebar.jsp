@@ -108,14 +108,6 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a href="loans.jsp" class="nav-link">
-              <i class="nav-icon fas fa-arrow-left"></i>
-              <p>
-                Emanetler
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
             <a href="authors.jsp" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>

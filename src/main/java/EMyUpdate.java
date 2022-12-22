@@ -1,5 +1,5 @@
-import BusinessLayer.UserService;
-import DataAccess.Entities.User;
+import BusinessLayer.EmployeeService;
+import DataAccess.Entities.Employee;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,13 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 @MultipartConfig
-@WebServlet("/admin/UserUpdate")
-public class UserUpdate extends HttpServlet{
+@WebServlet("/employee/EMyUpdate")
+public class EMyUpdate extends HttpServlet{
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
             
-        UserService service=new UserService();
+        EmployeeService service=new EmployeeService();
 
-        User user=new User();
+        Employee employee=new Employee();
 
         Part file=request.getPart("txtImage");
 
@@ -44,39 +44,32 @@ public class UserUpdate extends HttpServlet{
             ex.printStackTrace();
         }
 
-        java.util.Date BirthDate = null;
+        java.util.Date StartDate = null;
         try {
-            BirthDate = sdf.parse(request.getParameter("txtBirthDate"));
+            StartDate = sdf.parse(request.getParameter("txtStartDate"));
         } catch (ParseException ex) {
             ex.printStackTrace();
         }
 
-        java.sql.Date sqlBirthDate = new java.sql.Date(BirthDate.getTime());
+        java.sql.Date sqlStartDate = new java.sql.Date(StartDate.getTime());
         
         String txtFirstName = new String(request.getParameter("txtFirstName").getBytes("ISO-8859-9"), "UTF-8");
         String txtLastName = new String(request.getParameter("txtLastName").getBytes("ISO-8859-9"), "UTF-8");
-        String txtEmail = new String(request.getParameter("txtEmail").getBytes("ISO-8859-9"), "UTF-8");
+        String txtUserName = new String(request.getParameter("txtUserName").getBytes("ISO-8859-9"), "UTF-8");
         String txtPassword = new String(request.getParameter("txtPassword").getBytes("ISO-8859-9"), "UTF-8");
-        String txtAddress = new String(request.getParameter("txtAddress").getBytes("ISO-8859-9"), "UTF-8");
-        String txtPhoneNumber = new String(request.getParameter("txtPhoneNumber").getBytes("ISO-8859-9"), "UTF-8");
-        
-        int CityID = Integer.parseInt(request.getParameter("slcCity"));
         
         
-        user.setID(Integer.parseInt(request.getParameter("txtID")));
-        user.setFirstName(txtFirstName);
-        user.setLastName(txtLastName);
-        user.setEmail(txtEmail);
-        user.setPassword(txtPassword);
-        user.setAddress(txtAddress);
-        user.setPhoneNumber(txtPhoneNumber);
-        user.setCityID(CityID);
-        user.setBirthDate(sqlBirthDate);
-        user.setImageUrl(sImageFileName);
+        employee.setID(Integer.parseInt(request.getParameter("txtID")));
+        employee.setFirstName(txtFirstName);
+        employee.setLastName(txtLastName);
+        employee.setTCNo(txtUserName);
+        employee.setPassword(txtPassword);
+        employee.setStartDate(sqlStartDate);
+        employee.setDocument(sImageFileName);
         
-        service.Update(user);
+        service.Update(employee);
 
-        response.sendRedirect("users.jsp");
+        response.sendRedirect("index.jsp");
     }
     
 }

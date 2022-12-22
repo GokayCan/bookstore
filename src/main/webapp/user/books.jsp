@@ -52,11 +52,6 @@
                     </div>
                 </div>
                 </div>
-                        <div class="card-footer">
-                            <div style="display:flex;justify-content: end">
-                                <a href="loan-book.jsp?ID=<%=books.get(i).getID()%>" class="btn btn-info mr-2"><i class="fas fa-arrow-down"></i> Ödünç Al</a>
-                            </div>
-                        </div>
             </div>
                                 
         <%        

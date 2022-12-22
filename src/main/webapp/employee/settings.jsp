@@ -21,7 +21,8 @@
             <div class="main-panel">
                 <div class="content-wrapper">
 
-                    <%                int ID = Integer.parseInt(request.getParameter("ID"));
+                    <%                
+                        int ID = Integer.parseInt(request.getParameter("ID"));
 
                         EmployeeService service = new EmployeeService();
                         Employee employee = new Employee();
@@ -51,16 +52,22 @@
                                             <div class="card-body">
                                                 <div class="form-group mb-2">
                                                     <label class="form-label">Kullanıcı Adım</label>
-                                                    <input type="text" class="form-control" name="txtEmail" value="<%=employee.getTCNo()%>">
+                                                    <input type="text" class="form-control" name="txtUserName" value="<%=employee.getTCNo()%>">
                                                 </div>
                                             </div>
                                             <div class="card-body">
                                                 <div class="form-group mb-2">
                                                     <label class="form-label">Şifrem</label>
-                                                    <input type="text" class="form-control" name="txtPassword" value="<%=employee.getPassword()%>">
+                                                    <input type="password" class="form-control" name="txtPassword" value="<%=employee.getPassword()%>">
                                                 </div>
                                             </div>
-                                            <div class="card-body">
+                                                <div class="card-body">
+                                                    <div class="form-group mb-2">
+                                                    <label class="form-label">İşe Başlama Tarihim</label>
+                                                    <input type="date" class="form-control" name="txtStartDate" value="<%=employee.getStartDate()%>">
+                                                </div>
+                                                </div>   
+                                                    <div class="card-body">
                                                 <div class="form-group mb-2">
                                                     <label for="exampleInputFile" class="form-label">Fotoğrafımı Güncelle</label>
                                                     <div class="custom-file">

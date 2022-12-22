@@ -25,12 +25,18 @@
                         <h2 class="text-header text-center">Verilen Kitaplar</h2>
                     </div>
                     <div class="card-body">
-                        <a href="add-loan.jsp" class="btn btn-primary mt-2 mb-2"><i class="icon-plus"></i> Yeni Ekle</a>
-                        <input type="text" class="form-control-sm" id="myInput" onkeyup="myFunction2();" placeholder="Kullanıcı Adını Girin">
-                        <div class="d-flex justify-content-end">
-                            <input class="form-check-dark" type="checkbox" id="filter" onchange="myfilter();">
-                            <label class="form-check-label" style="color:blue;font-style: oblique">Filtrele</label>
+                        <div class="row col-12 mb-2">
+                            <div class="col-10">
+                                <a href="add-loan.jsp" class="btn btn-primary"><i class="icon-plus"></i> Yeni Ekle</a>
+                            </div>
+                            <div class="col-2">
+                                <div class="d-flex justify-content-end">
+                                    <input class="form-check-dark" type="checkbox" id="filter" onchange="myfilter();">
+                                    <label class="form-check-label" style="color:blue;font-style: oblique">Filtrele</label>
+                                </div>
+                            </div>
                         </div>
+                        <input type="text" class="form-control mb-2" id="myInput" onkeyup="myFunction2();" placeholder="Kullanıcı Adını Girin">
                         <table class="table table-bordered table-hover text-center" id="myTable">
                             <thead>
                             <th scope="col">Alan Kullanıcı</th>

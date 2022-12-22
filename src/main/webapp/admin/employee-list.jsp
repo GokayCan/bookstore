@@ -75,7 +75,7 @@
                             <img class="img-fluid" src="../assets/<%=employees.get(i).getDocument()%>" style="width:400px;height: 620px;"></img>
                         </div>
                         <div class="col-6">
-                            <p>İşe Başlama Tarihi<%=employees.get(i).getStartDate()%></p>
+                            <p>İşe Başlama Tarihi:<%=employees.get(i).getStartDate()%></p>
                         </div>
                     </div>
                 </div>

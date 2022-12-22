@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 @MultipartConfig
-@WebServlet("/admin/UserUpdate")
-public class UserUpdate extends HttpServlet{
+@WebServlet("/user/UMyUpdate")
+public class UMyUpdate extends HttpServlet{
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
             
         UserService service=new UserService();
@@ -59,7 +59,6 @@ public class UserUpdate extends HttpServlet{
         String txtPassword = new String(request.getParameter("txtPassword").getBytes("ISO-8859-9"), "UTF-8");
         String txtAddress = new String(request.getParameter("txtAddress").getBytes("ISO-8859-9"), "UTF-8");
         String txtPhoneNumber = new String(request.getParameter("txtPhoneNumber").getBytes("ISO-8859-9"), "UTF-8");
-        
         int CityID = Integer.parseInt(request.getParameter("slcCity"));
         
         
@@ -76,7 +75,7 @@ public class UserUpdate extends HttpServlet{
         
         service.Update(user);
 
-        response.sendRedirect("users.jsp");
+        response.sendRedirect("index.jsp");
     }
     
 }

@@ -30,6 +30,9 @@
 <header class="py-5 bg-light border-bottom mb-4">
     <div class="container">
         <div class="text-center my-5">
+            <img class="img-fluid" src="../assets/BSG.jpg" style="width:400px;">
+                
+            </img>
             <h1 class="fw-bolder">Welcome to BookStore!</h1>
             <p class="lead mb-0">Kitap Okuyun</p>
         </div>

@@ -106,8 +106,7 @@
                 <div class="card-body">
                     <div class="form-group mb-2">
                         <label class="form-label">Çalışan Başlangıç Tarihi</label>
-                        <input type="text" name="txtOldStartDate" disabled class="form-control" value="<%=employee.getStartDate()%>">
-                        <input type="date" class="form-control" name="txtStartDate">
+                        <input type="date" class="form-control" name="txtStartDate" value="<%=employee.getStartDate()%>">
                     </div>
                 </div>
                 <div class="card-body">

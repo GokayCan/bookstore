@@ -32,7 +32,7 @@ public class EmployeeBookUpdate extends HttpServlet{
 
         String sImageFileName = file.getSubmittedFileName();  // get selected image file name
         
-        String uploadPath = "C:/Users/mavia/Desktop/bookstore/src/main/webapp/assets/" + sImageFileName;
+        String uploadPath = "C:/Users/Bahadır/Desktop/bookstore/src/main/webapp/assets/" + sImageFileName;
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
