@@ -108,10 +108,13 @@
                                     ArrayList<City> cities = new ArrayList<City>();
                                     cities=cityservice.List();
                                     for(int i=0;i<cities.size();i++){
-                                %>
-                                <option value="<%=cities.get(i).getID()%>"><%=cities.get(i).getName()%></option>
-                                <%        
-                                    }
+                                    if(cities.get(i).getID() == user.getCityID()){%>
+                                        <option selected value="<%=cities.get(i).getID()%>"><%=cities.get(i).getName()%></option>
+                                    <%}
+                                    else{%>
+                                        <option value="<%=cities.get(i).getID()%>"><%=cities.get(i).getName()%></option>
+                                    <%}       
+                                    }%>
                                 %>      
                             </select>
                         </div>

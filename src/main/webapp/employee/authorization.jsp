@@ -4,7 +4,7 @@
     response.setHeader("Pragma","no-cache");
     response.setDateHeader ("Expires", 0);
 
-    if (session.getAttribute("authorization") != "employee"){
+    /*if (session.getAttribute("authorization") != "employee"){
         response.sendRedirect("login.jsp");
-    }
+    }*/
 %>

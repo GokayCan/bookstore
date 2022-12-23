@@ -116,18 +116,19 @@
                     <div class="form-group mb-2">
                         <label class="form-label">Şehir</label>
                         <select class="form-control form-select" name="slcCity">
-                            <%
-                                CityService cityservice = new CityService();
-                                ArrayList<City> cities = new ArrayList<City>();
-                                String oldcity = cityservice.getByName(user.getCityID());
-                                
-                                cities=cityservice.List();
-                                for(int i=0;i<cities.size();i++){
-                            %>
-                            <option value="<%=cities.get(i).getID()%>"><%=cities.get(i).getName()%></option>
-                            <%        
-                                }
-                            %>      
+                                <%
+                                    CityService cityservice = new CityService();
+                                    ArrayList<City> cities = new ArrayList<City>();
+                                    cities=cityservice.List();
+                                    for(int i=0;i<cities.size();i++){
+                                    if(cities.get(i).getID() == user.getCityID()){%>
+                                        <option selected value="<%=cities.get(i).getID()%>"><%=cities.get(i).getName()%></option>
+                                    <%}
+                                    else{%>
+                                        <option value="<%=cities.get(i).getID()%>"><%=cities.get(i).getName()%></option>
+                                    <%}       
+                                    }%>
+                                %>      
                         </select>
                     </div>
                 </div>

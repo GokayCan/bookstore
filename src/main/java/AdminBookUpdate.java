@@ -1,3 +1,4 @@
+
 import BusinessLayer.*;
 import DataAccess.Entities.*;
 import java.io.FileOutputStream;
@@ -15,24 +16,37 @@ import javax.servlet.http.Part;
 
 @MultipartConfig
 @WebServlet("/admin/AdminBookUpdate")
-public class AdminBookUpdate extends HttpServlet{
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-            
-        BookService bookService=new BookService();
-        BookCategoryService categoryService=new BookCategoryService();
-        BookAuthorService authorService=new BookAuthorService();
-        BookTranslatorService translatorService=new BookTranslatorService();
-        
-        Book book=new Book();
-        BookCategory bookCategory=new BookCategory();
-        BookAuthor bookAuthor=new BookAuthor();
-        BookTranslator bookTranslator=new BookTranslator();
+public class AdminBookUpdate extends HttpServlet {
 
-        Part file=request.getPart("txtImage");
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        BookService bookService = new BookService();
+        BookCategoryService categoryService = new BookCategoryService();
+        BookAuthorService authorService = new BookAuthorService();
+        BookTranslatorService translatorService = new BookTranslatorService();
+
+        Book book = new Book();
+        BookCategory bookCategory = new BookCategory();
+        BookAuthor bookAuthor = new BookAuthor();
+        BookTranslator bookTranslator = new BookTranslator();
+
+        Part file = request.getPart("txtImage");
+        
+        System.out.println(request.getPart("txtImage"));
 
         String sImageFileName = file.getSubmittedFileName();  // get selected image file name
+
+        if(sImageFileName.equals("")){
+            System.out.println("Dosya Boş");
+        }
         
-        String uploadPath = "C:/Users/Bahadır/Desktop/bookstore/src/main/webapp/assets/" + sImageFileName;
+        else{
+            System.out.println(sImageFileName);
+        }
+        
+        String uploadPath = "C:/Users/gokay/Desktop/Desktop/bookstore/src/main/webapp/assets/" + sImageFileName;//deneme
+        
+        System.out.println("Dosya Yolum:"+uploadPath);
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -58,58 +72,82 @@ public class AdminBookUpdate extends HttpServlet{
         }
 
         java.sql.Date sqlPublishDate = new java.sql.Date(PublishDate.getTime());
-        
+
         String sCategories[] = request.getParameterValues("cbCategory");
-        String sAuthors[]=request.getParameterValues("cbAuthor");
-        String sTranslators[]=request.getParameterValues("cbTranslator");
         
-        int iBookID=Integer.parseInt(request.getParameter("txtID"));
-        
-        for (int i = 0; i < sCategories.length; i++) {
-            categoryService.Delete(iBookID);
-        }
+        String sAuthors[] = request.getParameterValues("cbAuthor");
+        String sTranslators[] = request.getParameterValues("cbTranslator");
+
+        int iBookID = Integer.parseInt(request.getParameter("txtID"));
+
+        if (sCategories == null) {
+            //System.out.println("Kategoriler İşaretli Değil");
+        } else {
             
-        for (int i = 0; i < sCategories.length; i++) {
-            bookCategory.setBookID(iBookID);
-            bookCategory.setCategoryID(Integer.parseInt(sCategories[i]));
-            categoryService.Add(bookCategory);
+            for (int i = 0; i < sCategories.length; i++) {
+                categoryService.Delete(iBookID);
+            }
+
+            for (int i = 0; i < sCategories.length; i++) {
+                bookCategory.setBookID(iBookID);
+                bookCategory.setCategoryID(Integer.parseInt(sCategories[i]));
+                categoryService.Add(bookCategory);
+            }
+            
         }
         
-        for (int i = 0; i < sAuthors.length; i++) {
+        if(sAuthors == null){
+            //System.out.println("Yazarlar İşaretli Değil");
+        }
+        
+        else{
+            
+            for (int i = 0; i < sAuthors.length; i++) {
             authorService.Delete(iBookID);
-        }
+            }
+
+            for (int i = 0; i < sAuthors.length; i++) {
+                bookAuthor.setBookID(iBookID);
+                bookAuthor.setAuthorID(Integer.parseInt(sAuthors[i]));
+                authorService.Add(bookAuthor);
+            }
             
-        for (int i = 0; i < sAuthors.length; i++) {
-            bookAuthor.setBookID(iBookID);
-            bookAuthor.setAuthorID(Integer.parseInt(sAuthors[i]));
-            authorService.Add(bookAuthor);
+        }
+
+        if(sTranslators == null){
+            //System.out.println("Çevirmenler İşaretli Değil");
         }
         
-        for (int i = 0; i < sTranslators.length; i++) {
+        else{
+            
+            for (int i = 0; i < sTranslators.length; i++) {
             translatorService.Delete(iBookID);
-        }
+            }
+
+            for (int i = 0; i < sTranslators.length; i++) {
+                bookTranslator.setBookID(iBookID);
+                bookTranslator.setTranslatorID(Integer.parseInt(sTranslators[i]));
+                translatorService.Add(bookTranslator);
+            }
             
-        for (int i = 0; i < sTranslators.length; i++) {
-            bookTranslator.setBookID(iBookID);
-            bookTranslator.setTranslatorID(Integer.parseInt(sTranslators[i]));
-            translatorService.Add(bookTranslator);
         }
+
         
-        
+
         book.setID(iBookID);
         book.setName(request.getParameter("txtName"));
         book.setSubject(request.getParameter("txtSubject"));
         book.setPageNumber(request.getParameter("txtPageNumber"));
         book.setPrintCount(request.getParameter("txtPrintCount"));
-        book.setImageUrl(sImageFileName);
+        book.setImageUrl(request.getParameter("txtImageUrl"));
         book.setPublisherID(Integer.parseInt(request.getParameter("slcPublisher")));
         book.setPublishDate(sqlPublishDate);
         book.setStock(Integer.parseInt((request.getParameter("txtStock"))));
         book.setEnable(true);
-        
+
         bookService.Update(book);
 
         response.sendRedirect("books.jsp");
     }
-    
+
 }

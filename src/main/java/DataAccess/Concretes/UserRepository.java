@@ -130,7 +130,7 @@ public class UserRepository extends Repository implements IUserRepository{
             user.setPassword(rs.getString("Password"));
             user.setPhoneNumber(rs.getString("PhoneNumber"));
             user.setAddress(rs.getString("Address"));
-            user.setCityName(rs.getString("CityID"));
+            user.setCityID(Integer.parseInt(rs.getString("CityID")));
             user.setBirthDate(rs.getDate("BirthDate"));
             user.setImageUrl(rs.getString("ImageUrl"));
             user.setID(rs.getInt("ID"));

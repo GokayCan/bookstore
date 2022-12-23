@@ -83,19 +83,22 @@
                                         <textarea class="form-control" name="txtAddress"><%=user.getAddress()%></textarea>
                                     </div>
                                     <div class="form-group mb-2">
-                                        <label class="form-label">Şehir</label>
+                                        <label class="form-label">Şehirim</label>
                                         <select class="form-control form-select" name="slcCity">
                                             <%
-                                                CityService cityService = new CityService();
+                                                CityService cityservice = new CityService();
                                                 ArrayList<City> cities = new ArrayList<City>();
-                                                cities = cityService.List();
-                                                for (int i = 0; i < cities.size(); i++) {
-                                            %>
-                                            <option value="<%=cities.get(i).getID()%>"><%=cities.get(i).getName()%></option>
-                                            <%
-                                                }
+                                                cities=cityservice.List();
+                                                for(int i=0;i<cities.size();i++){
+                                                if(cities.get(i).getID() == user.getCityID()){%>
+                                                    <option selected value="<%=cities.get(i).getID()%>"><%=cities.get(i).getName()%></option>
+                                                <%}
+                                                else{%>
+                                                    <option value="<%=cities.get(i).getID()%>"><%=cities.get(i).getName()%></option>
+                                                <%}       
+                                                }%>
                                             %>      
-                                        </select>
+                                    </select>
                                     </div>
                                     <div class="form-group mb-2">
                                         <label for="exampleInputFile" class="form-label">Fotoğrafımı Güncelle</label>

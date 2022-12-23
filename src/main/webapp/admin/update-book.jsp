@@ -212,7 +212,8 @@
                     <div class="form-group mb-2">
                         <label for="exampleInputFile" class="form-label">Kitap Kapak</label>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="exampleInputFile" name="txtImage">
+                            <input type="file" class="custom-file-input" id="exampleInputFile" name="txtImage" value="<%=book.getImageUrl()%>">
+                            <input type="text" disabled class="custom-file-input" id="exampleInputFile" name="txtImageUrl" value="<%=book.getImageUrl()%>">
                             <label class="custom-file-label" for="exampleInputFile" >Kapak Fotoğrafı Seç</label>
                         </div>
                     </div>
