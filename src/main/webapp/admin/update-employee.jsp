@@ -112,9 +112,10 @@
                 <div class="card-body">
                     <div class="form-group mb-2">
                         <label for="exampleInputFile" class="form-label">Çalışan Profil Fotoğrafı</label>
+                        <input type="hidden" class="form-control"  name="txtImageUrl" value="<%=employee.getDocument()%>">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="exampleInputFile" name="txtImage">
-                            <label class="custom-file-label" for="exampleInputFile" >Çalışan Profil Fotoğrafı Seç</label>
+                            <input type="file" class="custom-file-input" id="exampleInputFile" name="txtImage" >
+                            <label class="custom-file-label" for="exampleInputFile" >Kapak Fotoğrafı Seç</label>
                         </div>
                     </div>
                 </div>

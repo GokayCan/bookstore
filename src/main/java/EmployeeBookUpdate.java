@@ -31,8 +31,20 @@ public class EmployeeBookUpdate extends HttpServlet{
         Part file=request.getPart("txtImage");
 
         String sImageFileName = file.getSubmittedFileName();  // get selected image file name
+
+        if(sImageFileName.equals("")){
+            System.out.println("Dosya Boş");
+            sImageFileName=request.getParameter("txtImageUrl");
+        }
         
-        String uploadPath = "C:/Users/Bahadır/Desktop/bookstore/src/main/webapp/assets/" + sImageFileName;
+        else{
+            System.out.println(sImageFileName);
+        }
+        
+        
+        String root=getServletContext().getRealPath("/");
+
+        String uploadPath = root+"/assets/" + sImageFileName;  // upload path where we have to upload our actual image
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -60,39 +72,61 @@ public class EmployeeBookUpdate extends HttpServlet{
         java.sql.Date sqlPublishDate = new java.sql.Date(PublishDate.getTime());
         
         String sCategories[] = request.getParameterValues("cbCategory");
-        String sAuthors[]=request.getParameterValues("cbAuthor");
-        String sTranslators[]=request.getParameterValues("cbTranslator");
-        
-        int iBookID=Integer.parseInt(request.getParameter("txtID"));
-        
-        for (int i = 0; i < sCategories.length; i++) {
-            categoryService.Delete(iBookID);
-        }
+        String sAuthors[] = request.getParameterValues("cbAuthor");
+        String sTranslators[] = request.getParameterValues("cbTranslator");
+
+        int iBookID = Integer.parseInt(request.getParameter("txtID"));
+
+        if (sCategories == null) {
+            //System.out.println("Kategoriler İşaretli Değil");
+        } else {
             
-        for (int i = 0; i < sCategories.length; i++) {
-            bookCategory.setBookID(iBookID);
-            bookCategory.setCategoryID(Integer.parseInt(sCategories[i]));
-            categoryService.Add(bookCategory);
+            for (int i = 0; i < sCategories.length; i++) {
+                categoryService.Delete(iBookID);
+            }
+
+            for (int i = 0; i < sCategories.length; i++) {
+                bookCategory.setBookID(iBookID);
+                bookCategory.setCategoryID(Integer.parseInt(sCategories[i]));
+                categoryService.Add(bookCategory);
+            }
+            
         }
         
-        for (int i = 0; i < sAuthors.length; i++) {
+        if(sAuthors == null){
+            //System.out.println("Yazarlar İşaretli Değil");
+        }
+        
+        else{
+            
+            for (int i = 0; i < sAuthors.length; i++) {
             authorService.Delete(iBookID);
-        }
+            }
+
+            for (int i = 0; i < sAuthors.length; i++) {
+                bookAuthor.setBookID(iBookID);
+                bookAuthor.setAuthorID(Integer.parseInt(sAuthors[i]));
+                authorService.Add(bookAuthor);
+            }
             
-        for (int i = 0; i < sAuthors.length; i++) {
-            bookAuthor.setBookID(iBookID);
-            bookAuthor.setAuthorID(Integer.parseInt(sAuthors[i]));
-            authorService.Add(bookAuthor);
+        }
+
+        if(sTranslators == null){
+            //System.out.println("Çevirmenler İşaretli Değil");
         }
         
-        for (int i = 0; i < sTranslators.length; i++) {
-            translatorService.Delete(iBookID);
-        }
+        else{
             
-        for (int i = 0; i < sTranslators.length; i++) {
-            bookTranslator.setBookID(iBookID);
-            bookTranslator.setTranslatorID(Integer.parseInt(sTranslators[i]));
-            translatorService.Add(bookTranslator);
+            for (int i = 0; i < sTranslators.length; i++) {
+            translatorService.Delete(iBookID);
+            }
+
+            for (int i = 0; i < sTranslators.length; i++) {
+                bookTranslator.setBookID(iBookID);
+                bookTranslator.setTranslatorID(Integer.parseInt(sTranslators[i]));
+                translatorService.Add(bookTranslator);
+            }
+            
         }
         
         

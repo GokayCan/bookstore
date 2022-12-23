@@ -26,7 +26,18 @@ public class EmployeeUserUpdate extends HttpServlet{
 
         String sImageFileName = file.getSubmittedFileName();  // get selected image file name
         
-        String uploadPath = "C:/Users/Bahadır/Desktop/bookstore/src/main/webapp/assets/" + sImageFileName;
+        if(sImageFileName.equals("")){
+            System.out.println("Dosya Boş");
+            sImageFileName=request.getParameter("txtImageUrl");
+        }
+        
+        else{
+            System.out.println(sImageFileName);
+        }
+        
+        String root=getServletContext().getRealPath("/");
+
+        String uploadPath = root+"/assets/" + sImageFileName;
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 

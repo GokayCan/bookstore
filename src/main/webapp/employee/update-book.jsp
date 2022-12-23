@@ -193,8 +193,9 @@
                 <div class="card-body">
                     <div class="form-group mb-2">
                         <label for="exampleInputFile" class="form-label">Kitap Kapak</label>
+                        <input type="hidden" class="form-control"  name="txtImageUrl" value="<%=book.getImageUrl()%>">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="exampleInputFile" name="txtImage" value="<%=book.getImageUrl()%>">
+                            <input type="file" class="custom-file-input" id="exampleInputFile" name="txtImage" >
                             <label class="custom-file-label" for="exampleInputFile" >Kapak Fotoğrafı Seç</label>
                         </div>
                     </div>

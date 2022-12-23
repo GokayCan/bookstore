@@ -38,13 +38,17 @@ public class AdminBookUpdate extends HttpServlet {
 
         if(sImageFileName.equals("")){
             System.out.println("Dosya Boş");
+            sImageFileName=request.getParameter("txtImageUrl");
         }
         
         else{
             System.out.println(sImageFileName);
         }
         
-        String uploadPath = "C:/Users/gokay/Desktop/Desktop/bookstore/src/main/webapp/assets/" + sImageFileName;//deneme
+        
+        String root=getServletContext().getRealPath("/");
+
+        String uploadPath = root+"/assets/" + sImageFileName;  // upload path where we have to upload our actual image
         
         System.out.println("Dosya Yolum:"+uploadPath);
 
@@ -74,7 +78,6 @@ public class AdminBookUpdate extends HttpServlet {
         java.sql.Date sqlPublishDate = new java.sql.Date(PublishDate.getTime());
 
         String sCategories[] = request.getParameterValues("cbCategory");
-        
         String sAuthors[] = request.getParameterValues("cbAuthor");
         String sTranslators[] = request.getParameterValues("cbTranslator");
 
@@ -139,7 +142,7 @@ public class AdminBookUpdate extends HttpServlet {
         book.setSubject(request.getParameter("txtSubject"));
         book.setPageNumber(request.getParameter("txtPageNumber"));
         book.setPrintCount(request.getParameter("txtPrintCount"));
-        book.setImageUrl(request.getParameter("txtImageUrl"));
+        book.setImageUrl(sImageFileName);
         book.setPublisherID(Integer.parseInt(request.getParameter("slcPublisher")));
         book.setPublishDate(sqlPublishDate);
         book.setStock(Integer.parseInt((request.getParameter("txtStock"))));

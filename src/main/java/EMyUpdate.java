@@ -24,17 +24,20 @@ public class EMyUpdate extends HttpServlet{
 
         Part file=request.getPart("txtImage");
         
-        if(file.equals("")){
-            System.out.println("Dosya BoşDeğil");
+        String sImageFileName = file.getSubmittedFileName();  // get selected image file name
+        
+        if(sImageFileName.equals("")){
+            System.out.println("Dosya Boş");
+            sImageFileName=request.getParameter("txtImageUrl");
         }
         
         else{
-            System.out.println("Dosya Boş");
+            System.out.println(sImageFileName);
         }
-
-        String sImageFileName = file.getSubmittedFileName();  // get selected image file name
         
-        String uploadPath = "C:/Users/Bahadır/Desktop/bookstore/src/main/webapp/assets/" + sImageFileName;
+        String root=getServletContext().getRealPath("/");
+
+        String uploadPath = root+"/assets/" + sImageFileName;
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 

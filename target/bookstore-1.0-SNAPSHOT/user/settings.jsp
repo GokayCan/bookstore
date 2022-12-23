@@ -102,27 +102,28 @@
                                     </div>
                                     <div class="form-group mb-2">
                                         <label for="exampleInputFile" class="form-label">Fotoğrafımı Güncelle</label>
+                                        <input type="hidden" class="form-control"  name="txtImageUrl" value="<%=user.getImageUrl()%>">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="exampleInputFile" name="txtImage">
-                                                <label class="custom-file-label" for="exampleInputFile" >Profil Fotoğrafı Seç</label>
+                                            <input type="file" class="custom-file-input" id="exampleInputFile" name="txtImage" >
+                                            <label class="custom-file-label" for="exampleInputFile" >Kapak Fotoğrafı Seç</label>
                                         </div>
                                     </div>
-                                    </div>
-                                    </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div style="display:flex;justify-content: end;">
-                                            <button type="submit" name="save" class="btn btn-success"><i class="fas fa-check"></i> Kaydet</button>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    </div>
-                                    </form>
-                                    <%@ include file="footer.jsp" %>
-                                    </div>
-                                    </div>
-                                    <%@ include file="script.jsp" %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div style="display:flex;justify-content: end;">
+                                <button type="submit" name="save" class="btn btn-success"><i class="fas fa-check"></i> Kaydet</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+<%@ include file="footer.jsp" %>
+        </div>
+    </div>
+<%@ include file="script.jsp" %>
 
-                                    </body>
-                                    </html>
+</body>
+</html>
 

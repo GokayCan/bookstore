@@ -134,7 +134,7 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group mb-2">
-                        <label class="form-label">Kullanıcı Adresi <%=oldcity%></label>
+                        <label class="form-label">Kullanıcı Adresi</label>
                         <input type="text" class="form-control" name="txtAddress" value="<%=user.getAddress()%>">
                     </div>
                 </div>
@@ -147,10 +147,11 @@
                 <div class="card-body">
                     <div class="form-group mb-2">
                         <label for="exampleInputFile" class="form-label">Kullanıcı Profil Fotoğrafı</label>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="exampleInputFile" name="txtImage">
-                            <label class="custom-file-label" for="exampleInputFile" >Kullanıcı Profil Fotoğrafı Seç</label>
-                        </div>
+                        <input type="hidden" class="form-control"  name="txtImageUrl" value="<%=user.getImageUrl()%>">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="exampleInputFile" name="txtImage" >
+                                <label class="custom-file-label" for="exampleInputFile" >Kapak Fotoğrafı Seç</label>
+                            </div>
                     </div>
                 </div>
                 <div class="card-footer">
