@@ -123,10 +123,11 @@ public class EmployeeRepository extends Repository implements IEmployeeRepositor
 
     @Override
     public Employee AccountExist(String tc, String password) {
-        String query = "Select ID,TcNo,Password From Employee where TcNo = '"+ tc +"' and Password = '"+ password +"'";
+        String query = "Select ID,TcNo,Password From Employee where TcNo = ? and Password = ?";
         try{
-            st = con.createStatement();
-            rs = st.executeQuery(query);
+            pst = con.prepareStatement(query);
+            pst.setString(1, tc);
+            pst.setString(2, password);
             rs.next();
             Employee emp = new Employee();
             emp.setID(rs.getInt("ID"));

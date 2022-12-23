@@ -144,10 +144,11 @@ public class UserRepository extends Repository implements IUserRepository{
 
     @Override
     public User getByEmail(String email, String password) {
-        String query = "Select ID From User where Email = '"+email+"' and Password = '"+password+"'";
+        String query = "Select ID From User where Email = ? and Password = ?";
         try {
-            st = con.createStatement();
-            rs = st.executeQuery(query);
+            pst = con.prepareStatement(query);
+            pst.setString(1, email);
+            pst.setString(2, password);
             rs.next();
             int id = rs.getInt("ID");
             

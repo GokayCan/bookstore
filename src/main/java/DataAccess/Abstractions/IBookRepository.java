@@ -20,4 +20,5 @@ public interface IBookRepository{
     public ArrayList<Book> getBooksByCategory(int ID);
     
     public ArrayList<Book> getBooksByAuthor(int ID);
+    
 }

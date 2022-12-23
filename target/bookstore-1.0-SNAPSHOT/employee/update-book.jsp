@@ -22,8 +22,8 @@
         let slcPublisher = document.forms["form"]["slcPublisher"].value;
         let txtPageNumber = document.forms["form"]["txtPageNumber"].value;
         let txtPrintCount = document.forms["form"]["txtPrintCount"].value;
-        let txtImage = document.forms["form"]["txtImage"].value;
-        if (txtName === "" || txtSubject === "" || txtStock === "" || txtPublishDate === ""  || slcPublisher === ""  || txtPageNumber === ""  || txtPrintCount === "" || txtImage === ""){
+        //let txtImage = document.forms["form"]["txtImage"].value;
+        if (txtName === "" || txtSubject === "" || txtStock === "" || txtPublishDate === ""  || slcPublisher === ""  || txtPageNumber === ""  || txtPrintCount === ""){
             alert("Her Kutucuğu Doldurun");
             return false;
         }

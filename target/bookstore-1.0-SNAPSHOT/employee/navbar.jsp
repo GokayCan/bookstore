@@ -15,7 +15,7 @@
         EmployeeService employeeService=new EmployeeService();
         
         String employee_id = "";
-        
+        if (session.getAttribute("authorization") == "employee"){
         Cookie cookiee;
         Cookie[] cookiess;
         cookiess = request.getCookies();
@@ -29,6 +29,8 @@
         
         emp=employeeService.getByID(Integer.parseInt(employee_id));
         System.out.println(emp.getDocument());
+        }
+
         
         
     %>

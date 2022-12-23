@@ -20,7 +20,7 @@
         let txtPageNumber = document.forms["form"]["txtPageNumber"].value;
         let txtPrintCount = document.forms["form"]["txtPrintCount"].value;
         let txtImage = document.forms["form"]["txtImage"].value;
-        if (txtName === "" || txtSubject === "" || txtStock === "" || txtPublishDate === ""  || slcPublisher === ""  || txtPageNumber === ""  || txtPrintCount === "" || txtImage === ""){
+        if (txtName === "" || txtSubject === "" || txtStock === "" || txtPublishDate === ""  || slcPublisher === ""  || txtPageNumber === ""  || txtPrintCount === ""  || txtImage === ""){
             alert("Her Kutucuğu Doldurun");
             return false;
         }

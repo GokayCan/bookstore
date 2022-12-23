@@ -49,8 +49,5 @@ public class BookService{
    
     public boolean CheckStockAmount(int BookID){
         return repo.CheckStockAmount(BookID);
-    }
-    
-    
-    
+    } 
 }

@@ -1,7 +1,7 @@
 package DataAccess.Concretes;
 
+import BusinessLayer.BookService;
 import DataAccess.Abstractions.ILoanRepository;
-import DataAccess.Entities.Category;
 import DataAccess.Entities.Loan;
 
 import java.sql.*;
@@ -16,16 +16,15 @@ public class LoanRepository extends Repository implements ILoanRepository {
     Statement st;
     PreparedStatement pst;
 
-
     @Override
     public ArrayList<Loan> getList() {
 
-        String query = "Select L.ID , L.UserID , CONCAT(U.FirstName, \" \" ,U.LastName) as User , " +
-                "L.BookID , B.Name , L.EmployeeID , CONCAT(E.FirstName, \" \" ,E.LastName) as Employee , " +
-                "L.LoanDate , L.MaxReturnDate , L.ReturnedDate , L.IsEnd from Loan L " +
-                "inner join Book B on L.BookID = B.ID " +
-                "inner join User U on L.UserID = U.ID " +
-                "inner join Employee E on L.EmployeeID = E.ID";
+        String query = "Select L.ID , L.UserID , CONCAT(U.FirstName, \" \" ,U.LastName) as User , "
+                + "L.BookID , B.Name , L.EmployeeID , CONCAT(E.FirstName, \" \" ,E.LastName) as Employee , "
+                + "L.LoanDate , L.MaxReturnDate , L.ReturnedDate , L.IsEnd from Loan L "
+                + "inner join Book B on L.BookID = B.ID "
+                + "inner join User U on L.UserID = U.ID "
+                + "inner join Employee E on L.EmployeeID = E.ID";
         loans = new ArrayList<Loan>();
         try {
             st = con.createStatement();
@@ -67,9 +66,9 @@ public class LoanRepository extends Repository implements ILoanRepository {
         } else {
             IsEnd = 1;
         }
-        String query = "INSERT INTO Loan (UserID,EmployeeID,BookID,LoanDate,MaxReturnDate,IsEnd) " +
-                "Values ('" + loan.getUserID() + "','" + loan.getEmployeeID() + "','" + loan.getBookID() + "'," +
-                "'" + loan.getLoanDate() + "','" + loan.getMaxReturnDate() + "','" + IsEnd + "')";
+        String query = "INSERT INTO Loan (UserID,EmployeeID,BookID,LoanDate,MaxReturnDate,IsEnd) "
+                + "Values ('" + loan.getUserID() + "','" + loan.getEmployeeID() + "','" + loan.getBookID() + "',"
+                + "'" + loan.getLoanDate() + "','" + loan.getMaxReturnDate() + "','" + IsEnd + "')";
         try {
             st = con.createStatement();
             st.execute(query);
@@ -95,10 +94,10 @@ public class LoanRepository extends Repository implements ILoanRepository {
 
     @Override
     public void Delete(int ID) {
-        String query="DELETE FROM Loan Where ID='"+ID+"'";
+        String query = "DELETE FROM Loan Where ID='" + ID + "'";
 
         try {
-            st=con.createStatement();
+            st = con.createStatement();
             st.execute(query);
 
         } catch (SQLException ex) {

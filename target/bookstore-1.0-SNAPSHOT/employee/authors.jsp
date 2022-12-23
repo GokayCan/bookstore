@@ -52,7 +52,7 @@
                                     <td><%=authors.get(i).getBirthDate()%></td>
                                     <td><%=authors.get(i).getBiography()%></td>
                                     <td><a href="update-author.jsp?ID=<%=authors.get(i).getID()%>" class="btn btn-warning"><i class="ti-pencil"></i> Güncelle</a></td>
-                                    <td><a href="delete-author.jsp?ID=<%=authors.get(i).getID()%>" class="btn btn-danger" onclick="return confirm('Emin misin?')"><i class="icon-trash"></i> Sil</a></td>
+                                    <td><a href="delete-author.jsp?ID=<%=authors.get(i).getID()%>" class="btn btn-danger" onclick="return confirm("Emin misin")"><i class="icon-trash"></i> Sil</a></td>
                                 </tr>
                             <%        
                                 }

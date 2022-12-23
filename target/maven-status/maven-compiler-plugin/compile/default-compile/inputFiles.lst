@@ -38,9 +38,11 @@ C:\Users\gokay\Desktop\Desktop\bookstore\src\main\java\EmployeeUpdate.java
 C:\Users\gokay\Desktop\Desktop\bookstore\src\main\java\EmployeeBookAdd.java
 C:\Users\gokay\Desktop\Desktop\bookstore\src\main\java\DataAccess\Entities\City.java
 C:\Users\gokay\Desktop\Desktop\bookstore\src\main\java\DataAccess\Abstractions\IFineRepository.java
+C:\Users\gokay\Desktop\Desktop\bookstore\src\main\java\EMyUpdate.java
 C:\Users\gokay\Desktop\Desktop\bookstore\src\main\java\BusinessLayer\AuthorService.java
 C:\Users\gokay\Desktop\Desktop\bookstore\src\main\java\BusinessLayer\UserService.java
 C:\Users\gokay\Desktop\Desktop\bookstore\src\main\java\DataAccess\Entities\User.java
+C:\Users\gokay\Desktop\Desktop\bookstore\src\main\java\UMyUpdate.java
 C:\Users\gokay\Desktop\Desktop\bookstore\src\main\java\DataAccess\Entities\BookAuthor.java
 C:\Users\gokay\Desktop\Desktop\bookstore\src\main\java\DataAccess\Abstractions\IAuthorRepository.java
 C:\Users\gokay\Desktop\Desktop\bookstore\src\main\java\DataAccess\Concretes\EmployeeRepository.java

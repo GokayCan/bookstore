@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="bookstore" options="-endorseddirs C:\Users\mavia\Desktop\bookstore\target/endorsed" />
+      <module name="bookstore" options="-endorseddirs C:\Users\gokay\Desktop\Desktop\bookstore\target/endorsed" />
     </option>
   </component>
 </project>

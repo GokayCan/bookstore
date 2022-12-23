@@ -9,7 +9,8 @@
     cookies = request.getCookies();
     String inputtcno = "";
     String inputpassword = "";
-    for (int i = 0; i < cookies.length; i++) {
+    if (cookies != null){
+        for (int i = 0; i < cookies.length; i++) {
         cookie = cookies[i];
         if (cookie.getName().equals("tcno")) {
             inputtcno = cookie.getValue();
@@ -17,6 +18,7 @@
         if (cookie.getName().equals("password")) {
             inputpassword = cookie.getValue();
         }
+    }
     }
 %>
 <%@page import="DataAccess.Entities.Employee"%>

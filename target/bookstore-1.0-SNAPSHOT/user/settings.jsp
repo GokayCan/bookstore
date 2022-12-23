@@ -12,12 +12,29 @@
 <html lang="en">
     <%@ include file="header.jsp" %>
     <body class="sb-nav-fixed">
+        <script>
+    function Validate(){
+        let txtFirstName = document.forms["form"]["txtFirstName"].value;
+        let txtLastName = document.forms["form"]["txtLastName"].value;
+        let txtEmail = document.forms["form"]["txtEmail"].value;
+        let txtPassword = document.forms["form"]["txtPassword"].value;
+        let txtPhoneNumber = document.forms["form"]["txtPhoneNumber"].value;
+        let txtAddress = document.forms["form"]["txtAddress"].value;
+        let txtBirthDate = document.forms["form"]["txtBirthDate"].value;
+        //let txtImage = document.forms["form"]["txtImage"].value;
+        if (txtFirstName === "" || txtLastName === "" || txtEmail === "" || txtPassword === "" || txtPhoneNumber === "" || txtAddress === "" || txtBirthDate === ""){
+            alert("Her Kutucuğu Doldurun");
+            return false;
+        }
+        return true;
+    }
+</script>
         <%@ include file="navbar.jsp" %>
     <div id="layoutSidenav">
         <%@ include file="sidebar.jsp" %>
         <div id="layoutSidenav_content">
 
-            <form action="UMyUpdate" method="post" enctype="multipart/form-data" name="form">
+            <form action="UMyUpdate" method="post" enctype="multipart/form-data" name="form" onsubmit="return Validate()">
                 <div class="m-2">
                     <%                        
                         int ID = Integer.parseInt(request.getParameter("ID"));
