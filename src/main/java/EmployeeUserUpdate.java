@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 @MultipartConfig
-@WebServlet("/admin/UserUpdate")
-public class UserUpdate extends HttpServlet{
+@WebServlet("/employee/EmployeeUserUpdate")
+public class EmployeeUserUpdate extends HttpServlet{
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
             
         UserService service=new UserService();

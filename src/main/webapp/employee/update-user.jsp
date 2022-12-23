@@ -3,6 +3,7 @@
     Created on : 7 Ara 2022, 22:56:55
     Author     : Bahadır
 --%>
+<%@page import="java.util.ArrayList"%>
 <%@include file="authorization.jsp" %>
 <%@page import="DataAccess.Entities.User"%>
 <%@page import="BusinessLayer.UserService"%>
@@ -49,7 +50,7 @@
         
             %>
         
-            <form action="UserUpdate" method="post" enctype="multipart/form-data" name="form" onsubmit="return Validate();">
+            <form action="EmployeeUserUpdate" method="post" enctype="multipart/form-data" name="form" onsubmit="return Validate();">
                 <div class="card">
                     <div class="card-header">
                         <div class="card-tools">
@@ -100,9 +101,25 @@
                     </div>
                     <div class="card-body">
                         <div class="form-group mb-2">
+                            <label class="form-label">Şehir</label>
+                            <select class="form-control form-select" name="slcCity">
+                                <%
+                                    CityService cityservice = new CityService();
+                                    ArrayList<City> cities = new ArrayList<City>();
+                                    cities=cityservice.List();
+                                    for(int i=0;i<cities.size();i++){
+                                %>
+                                <option value="<%=cities.get(i).getID()%>"><%=cities.get(i).getName()%></option>
+                                <%        
+                                    }
+                                %>      
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group mb-2">
                             <label class="form-label">Kullanıcı Doğum Tarihi</label>
-                            <input type="text" class="form-control" disabled name="txtOldBirthDate" value="<%=user.getBirthDate()%>">
-                            <input type="date" class="form-control" name="txtBirthDate">
+                            <input type="date" class="form-control" name="txtBirthDate" value="<%=user.getBirthDate()%>">
                         </div>
                     </div>
                     <div class="card-body">

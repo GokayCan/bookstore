@@ -37,7 +37,7 @@
                         <div class="auth-form-light text-left py-5 px-4 px-sm-5">
                             <h4>Hoş Geldiniz!</h4>
                             <h6 class="font-weight-light">Devam etmek için lütfen giriş yapınız.</h6>
-                            <form class="pt-3">
+                            <form class="pt-3" method="post">
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-lg" name="tc" id="exampleInputEmail1" value="<%= inputtcno %>" placeholder="TC No Girin...">
                                 </div>

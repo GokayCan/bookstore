@@ -131,16 +131,73 @@ public class BookRepository extends Repository implements IBookRepository{
     public Book getById(int ID) {
         Book book=new Book();
         
+        String Categories="";
+        String Authors="";
+        String Translators="";
+        
         String query="SELECT B.ID,B.Name,B.Subject,B.Stock,B.PageNumber,B.PrintCount,B.PublishDate,B.ImageUrl,P.Name As Publisher FROM Book B "
-                + "inner join Publisher P on B.PublisherID = P.ID Where B.ID='"+ID+"'";
+                + "inner join Publisher P on B.PublisherID = P.ID Where B.ID='"+ID+"'"; 
+        
+        String categoryQuery="SELECT C.Name as CategoryName From BookCategory BC inner join Book B on BC.BookID=B.ID inner join Category C on C.ID=BC.CategoryID"
+                + " where B.ID='"+ID+"'";
+        
+        String authorQuery="SELECT Concat(A.FirstName, \" \" , A.LastName) as AuthorName From BookAuthor BA inner join Book B on BA.BookID=B.ID inner join Author A on A.ID=BA.AuthorID " +
+                " where B.ID='"+ID+"'";
+        
+        String translatorQuery="SELECT Concat(T.FirstName, \" \" , T.LastName) as TranslatorName From BookTranslator BT inner join Book B on BT.BookID=B.ID inner join Translator T on T.ID=BT.TranslatorID"
+                + " where B.ID='"+ID+"'";
+
+
+        try{
+            Statement stCategory=con.createStatement();
+            ResultSet rsCategories=stCategory.executeQuery(categoryQuery);
+            
+            while (rsCategories.next()){
+                Categories += rsCategories.getString("CategoryName") + ",";
+            }
+            
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        try{
+            Statement stAuthor=con.createStatement();
+            ResultSet rsAuthor=stAuthor.executeQuery(authorQuery);
+            
+            while (rsAuthor.next()){
+                Authors += rsAuthor.getString("AuthorName") + ",";
+            }
+            
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        try{
+            Statement stTranslator=con.createStatement();
+            ResultSet rsTranslator=stTranslator.executeQuery(translatorQuery);
+            
+            while (rsTranslator.next()){
+                Translators += rsTranslator.getString("TranslatorName") + ",";
+            }
+            
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
         
         try {
+            
             st=con.createStatement();
             rs=st.executeQuery(query);
             
             rs.next();
             
             book.setName(rs.getString("Name"));
+            book.setCategories(Categories);
+            book.setAuthors(Authors);
+            book.setTranslators(Translators);
             book.setSubject(rs.getString("Subject"));
             book.setPageNumber(rs.getString("PageNumber"));
             book.setPrintCount(rs.getString("PrintCount"));

@@ -116,6 +116,7 @@
                 <div class="card-body">
                     <div class="form-group mb-2">
                         <label class="form-label">Kitap Yayınevi</label>
+                        <p>Mevcut Yayınevi:<%=book.getPublisherName()%></p>
                         <select class="form-control form-select" name="slcPublisher">
                             <%
                                 PublisherService publisherService=new PublisherService();
@@ -144,6 +145,7 @@
                 </div>
                 <div class="card-body">
                     <label>Kategoriler</label>
+                    <p>Mevcut Kategorier:<%=book.getCategories()%></p>
                     <br>
                     <div class="form-check form-check-inline">
                     <%
@@ -165,6 +167,7 @@
                 </div>
                 <div class="card-body">
                     <label>Yazarlar</label>
+                    <p>Mevcut Yazarlar:<%=book.getAuthors()%></p>
                     <br>
                     <div class="form-check form-check-inline">
                     <%
@@ -187,6 +190,7 @@
                 </div>
                 <div class="card-body">
                     <label>Çevirmenler</label>
+                    <p>Mevcut Çevirmenler:<%=book.getTranslators()%></p>
                     <br>
                     <%
                         TranslatorService translatorService=new TranslatorService();

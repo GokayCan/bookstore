@@ -69,7 +69,7 @@
         
         %>
         
-        <form action="UserUpdate" method="post" enctype="multipart/form-data">
+        <form action="AdminUserUpdate" method="post" enctype="multipart/form-data">
             <div class="card">
                 <div class="card-header">
                     <div class="card-tools">

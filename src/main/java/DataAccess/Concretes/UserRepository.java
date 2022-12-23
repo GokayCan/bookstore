@@ -149,6 +149,7 @@ public class UserRepository extends Repository implements IUserRepository{
             pst = con.prepareStatement(query);
             pst.setString(1, email);
             pst.setString(2, password);
+            rs=pst.executeQuery();
             rs.next();
             int id = rs.getInt("ID");
             
@@ -167,6 +168,7 @@ public class UserRepository extends Repository implements IUserRepository{
         try {
             st = con.createStatement();
             rs = st.executeQuery(query);
+            
             rs.next();
             int id = rs.getInt("ID");
 
