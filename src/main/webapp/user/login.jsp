@@ -9,13 +9,15 @@
     cookies = request.getCookies();
     String inputemail = "";
     String inputpassword = "";
-    for (int i = 0; i < cookies.length; i++) {
-        cookie = cookies[i];
-        if (cookie.getName().equals("email")) {
-            inputemail = cookie.getValue();
-        }
-        if (cookie.getName().equals("password")) {
-            inputpassword = cookie.getValue();
+    if (cookies != null){
+        for (int i = 0; i < cookies.length; i++) {
+            cookie = cookies[i];
+            if (cookie.getName().equals("email")) {
+                inputemail = cookie.getValue();
+            }
+            if (cookie.getName().equals("password")) {
+                inputpassword = cookie.getValue();
+            }
         }
     }
 %>

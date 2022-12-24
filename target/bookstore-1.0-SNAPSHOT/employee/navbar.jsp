@@ -11,28 +11,24 @@
     
     <%
         Employee emp=new Employee();
-        
         EmployeeService employeeService=new EmployeeService();
-        
         String employee_id = "";
+        
         if (session.getAttribute("authorization") == "employee"){
-        Cookie cookiee;
-        Cookie[] cookiess;
-        cookiess = request.getCookies();
-        for (int i = 0; i < cookiess.length; i++) {
-            cookiee = cookiess[i];
-            if (cookiee.getName().equals("employeeid")) {
-                employee_id = cookiee.getValue();
-                break;
+            Cookie cookiee;
+            Cookie[] cookiess;
+            cookiess = request.getCookies();
+            if (cookiess != null){
+                for (int i = 0; i < cookiess.length; i++) {
+                cookiee = cookiess[i];
+                    if (cookiee.getName().equals("employeeid")) {
+                        employee_id = cookiee.getValue();
+                        break;
+                    }
+                }       
             }
-        }
-        
-        emp=employeeService.getByID(Integer.parseInt(employee_id));
-        System.out.println(emp.getDocument());
-        }
-
-        
-        
+            emp=employeeService.getByID(Integer.parseInt(employee_id));
+        }   
     %>
     
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">

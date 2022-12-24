@@ -2,14 +2,8 @@ package DataAccess.Concretes;
 
 import DataAccess.Abstractions.ICategoryRepository;
 import DataAccess.Entities.Category;
-import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 public class CategoryRepository extends Repository implements ICategoryRepository {
 
@@ -20,9 +14,6 @@ public class CategoryRepository extends Repository implements ICategoryRepositor
     ResultSet rs;
     PreparedStatement pst;
     
-    public CategoryRepository(){
-        
-    }
 
     @Override
     public ArrayList<Category> getList() {
@@ -43,9 +34,8 @@ public class CategoryRepository extends Repository implements ICategoryRepositor
 
                 categories.add(category);
                 
-                System.out.println(categories);
             }
-
+            //con.close();
             return categories;
 
         } catch (SQLException ex) {
@@ -63,6 +53,7 @@ public class CategoryRepository extends Repository implements ICategoryRepositor
         try {
             st=con.createStatement();
             st.execute(query);
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -77,7 +68,7 @@ public class CategoryRepository extends Repository implements ICategoryRepositor
         try {
             st=con.createStatement();
             st.execute(query);
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -91,7 +82,7 @@ public class CategoryRepository extends Repository implements ICategoryRepositor
         try {
             st=con.createStatement();
             st.execute(query);
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -113,7 +104,7 @@ public class CategoryRepository extends Repository implements ICategoryRepositor
             
             category.setName(rs.getString("Name"));
             category.setID(rs.getInt("ID"));
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

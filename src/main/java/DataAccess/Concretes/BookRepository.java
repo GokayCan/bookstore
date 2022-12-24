@@ -79,6 +79,7 @@ public class BookRepository extends Repository implements IBookRepository{
                 
                 books.add(book);   
             }
+            //con.close();
             return books;
 
         } catch (SQLException ex) {
@@ -96,6 +97,7 @@ public class BookRepository extends Repository implements IBookRepository{
         try {
             st=con.createStatement();
             st.execute(query);
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -109,6 +111,7 @@ public class BookRepository extends Repository implements IBookRepository{
         try {
             st=con.createStatement();
             st.execute(query);
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -121,7 +124,7 @@ public class BookRepository extends Repository implements IBookRepository{
         try {
             st=con.createStatement();
             st.execute(query);
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -210,7 +213,7 @@ public class BookRepository extends Repository implements IBookRepository{
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        
+        //con.close();
         return book;
     }
     
@@ -231,6 +234,7 @@ public class BookRepository extends Repository implements IBookRepository{
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        //con.close();
         return books;
     }
 
@@ -246,7 +250,7 @@ public class BookRepository extends Repository implements IBookRepository{
             
             while (rs.next()) {
                 book = new Book();
-                ID = rs.getInt("ID");
+                //ID = rs.getInt("ID");
                 book.setID(rs.getInt("ID"));
                 book.setName(rs.getString("Name"));
                 book.setSubject(rs.getString("Subject"));
@@ -260,6 +264,7 @@ public class BookRepository extends Repository implements IBookRepository{
                 
                 books.add(book);   
             }
+            //con.close();
             return books;
 
         } catch (SQLException ex) {
@@ -281,7 +286,7 @@ public class BookRepository extends Repository implements IBookRepository{
             
             while (rs.next()) {
                 book = new Book();
-                ID = rs.getInt("ID");
+                //ID = rs.getInt("ID");
                 book.setID(rs.getInt("ID"));
                 book.setName(rs.getString("Name"));
                 book.setSubject(rs.getString("Subject"));
@@ -295,6 +300,7 @@ public class BookRepository extends Repository implements IBookRepository{
                 
                 books.add(book);   
             }
+            //con.close();
             return books;
 
         } catch (SQLException ex) {
@@ -313,7 +319,9 @@ public class BookRepository extends Repository implements IBookRepository{
             st = con.createStatement();
             rs = st.executeQuery(query);
             rs.next();
-            if(rs.getInt("Result") > 0){
+            int result = rs.getInt("Result");
+            //con.close();
+            if(result > 0){
                 return true;
             }       
         }catch(Exception ex){
@@ -321,4 +329,38 @@ public class BookRepository extends Repository implements IBookRepository{
         }
         return false;
     }   
+
+    @Override
+    public ArrayList<Book> getBooksByPublisher(int ID) {
+        String query = "SELECT B.ID,B.Name,B.Subject,B.Stock,P.Name as Publisher,B.PublishDate,B.PageNumber,B.PrintCount,B.ImageUrl FROM Book B " +
+                        "inner join Publisher P on B.PublisherID = P.ID Where B.PublisherID = '"+ID+"'";
+        books = new ArrayList<Book>();
+
+        try {
+            st = con.createStatement();
+            rs = st.executeQuery(query);
+            
+            while (rs.next()) {
+                book = new Book();
+                book.setID(rs.getInt("ID"));
+                book.setName(rs.getString("Name"));
+                book.setSubject(rs.getString("Subject"));
+                book.setPageNumber(rs.getString("PageNumber"));
+                book.setPrintCount(rs.getString("PrintCount"));
+                book.setStock(rs.getInt("Stock"));
+                book.setPublishDate(rs.getDate("PublishDate"));
+                book.setPublisherName(rs.getString("Publisher"));
+                book.setImageUrl(rs.getString("ImageUrl"));
+                
+                books.add(book);   
+            }
+            //con.close();
+            return books;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return null;
+    }
 }

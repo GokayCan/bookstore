@@ -17,7 +17,8 @@ import javax.servlet.http.Part;
 @WebServlet("/admin/EmployeeUpdate")
 public class EmployeeUpdate extends HttpServlet{
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-            
+        
+        boolean value = false;
         EmployeeService service=new EmployeeService();
 
         Employee employee=new Employee();
@@ -33,6 +34,7 @@ public class EmployeeUpdate extends HttpServlet{
         
         else{
             System.out.println(sImageFileName);
+            value = true;
         }
         
         String root=getServletContext().getRealPath("/");
@@ -42,15 +44,15 @@ public class EmployeeUpdate extends HttpServlet{
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
         try {
+            if (value){
+                FileOutputStream fos = new FileOutputStream(uploadPath);
+                InputStream is = file.getInputStream();
 
-            FileOutputStream fos = new FileOutputStream(uploadPath);
-            InputStream is = file.getInputStream();
-
-            byte[] data = new byte[is.available()];
-            is.read(data);
-            fos.write(data);
-            fos.close();
-
+                byte[] data = new byte[is.available()];
+                is.read(data);
+                fos.write(data);
+                fos.close();
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
         }

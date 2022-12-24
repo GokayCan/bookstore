@@ -20,17 +20,21 @@
 
                 <%                    
                     myCookies = request.getCookies();
-                    for (int i = 0; i < myCookies.length; i++) {
-                        myCookie = myCookies[i];
-                        if (myCookie.getName().equals("email")) {
-                            myEmail = myCookie.getValue();
-                            break;
+                    if (myCookies != null){
+                        for (int i = 0; i < myCookies.length; i++) {
+                            myCookie = myCookies[i];
+                            if (myCookie.getName().equals("email")) {
+                                myEmail = myCookie.getValue();
+                                break;
+                            }
                         }
                     }
+
 
                     myID = userService.getIDByEmail(myEmail);
 
                     BookService bookService = new BookService();
+                    UserService usrservice = new UserService();
                     AuthorService authorService = new AuthorService();
                     CategoryService categoryService = new CategoryService();
                     PublisherService publisherService = new PublisherService();
@@ -45,7 +49,7 @@
                     categories = categoryService.List();
                     authors = authorService.List();
                     publishers = publisherService.List();
-                    myBooks=userService.MyBookList(myID);
+                    myBooks = usrservice.MyBookList(myID);
                 %>
 
                 <div class="card bg-success text-white mb-2">

@@ -46,6 +46,10 @@ public class BookService{
         return repo.getBooksByAuthor(ID);
     }
     
+    public ArrayList<Book> ListByPublisher(int ID) {
+        return repo.getBooksByPublisher(ID);
+    }
+    
    
     public boolean CheckStockAmount(int BookID){
         return repo.CheckStockAmount(BookID);

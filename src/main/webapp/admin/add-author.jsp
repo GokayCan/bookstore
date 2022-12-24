@@ -119,7 +119,6 @@
                 author.setBiography(txtBiography);
                 service.Add(author);
                 
-                System.out.println(author);
                 
                 response.sendRedirect("authors.jsp");
             }

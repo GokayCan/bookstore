@@ -35,7 +35,7 @@ public class PublisherRepository extends Repository implements IPublisherReposit
 
                 publishers.add(publisher);
             }
-
+            //con.close();
             return publishers;
 
         } catch (SQLException ex) {
@@ -53,6 +53,7 @@ public class PublisherRepository extends Repository implements IPublisherReposit
         try {
             st=con.createStatement();
             st.execute(query);
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -66,7 +67,7 @@ public class PublisherRepository extends Repository implements IPublisherReposit
         try {
             st=con.createStatement();
             st.execute(query);
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -80,7 +81,7 @@ public class PublisherRepository extends Repository implements IPublisherReposit
         try {
             st=con.createStatement();
             st.execute(query);
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -100,7 +101,7 @@ public class PublisherRepository extends Repository implements IPublisherReposit
             
             publisher.setName(rs.getString("Name"));
             publisher.setID(rs.getInt("ID"));
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

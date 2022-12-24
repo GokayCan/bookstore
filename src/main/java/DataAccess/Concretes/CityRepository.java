@@ -36,7 +36,7 @@ public class CityRepository extends Repository implements ICityRepository{
 
                 cities.add(city);
             }
-
+            //con.close();
             return cities;
 
         } catch (SQLException ex) {
@@ -54,6 +54,7 @@ public class CityRepository extends Repository implements ICityRepository{
         try {
             st=con.createStatement();
             st.execute(query);
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -67,7 +68,7 @@ public class CityRepository extends Repository implements ICityRepository{
         try {
             st=con.createStatement();
             st.execute(query);
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -81,7 +82,7 @@ public class CityRepository extends Repository implements ICityRepository{
         try {
             st=con.createStatement();
             st.execute(query);
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -99,7 +100,7 @@ public class CityRepository extends Repository implements ICityRepository{
             rs.next();  
             city.setName(rs.getString("Name"));
             city.setID(rs.getInt("ID"));
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -110,13 +111,14 @@ public class CityRepository extends Repository implements ICityRepository{
     @Override
     public String getByName(int ID) {
         String query="SELECT Name FROM City Where ID = ?";
-        System.out.print(ID);
         try {
             pst=con.prepareStatement(query); 
             pst.setInt(1,ID);
             rs = pst.executeQuery();
             rs.next();
-            return rs.getString("Name");            
+            String name = rs.getString("Name");
+            //con.close();
+            return name;           
         } catch (SQLException ex) {
         ex.printStackTrace();
         }

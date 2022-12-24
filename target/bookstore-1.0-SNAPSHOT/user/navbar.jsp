@@ -15,17 +15,17 @@
         Cookie myCookie;
         Cookie[] myCookies;
         myCookies = request.getCookies();
-        for (int i = 0; i < myCookies.length; i++) {
+        if(myCookies != null){
+            for (int i = 0; i < myCookies.length; i++) {
             myCookie = myCookies[i];
             if (myCookie.getName().equals("email")) {
                 myEmail = myCookie.getValue();
                 break;
             }
         }
-
-        UserService userService = new UserService();
-
-        myID=userService.getIDByEmail(myEmail);
+        }
+            UserService userService = new UserService();    
+            myID=userService.getIDByEmail(myEmail);
     %>
     
     <a class="navbar-brand" href="index.jsp">BookStoreApp</a>

@@ -35,7 +35,7 @@ public class AuthorRepository extends Repository implements IAuthorRepository {
 
                 authors.add(author);
             }
-
+            //con.close();
             return authors;
 
         } catch (SQLException ex) {
@@ -52,6 +52,7 @@ public class AuthorRepository extends Repository implements IAuthorRepository {
         try {
             st=con.createStatement();
             st.execute(query);
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -65,7 +66,7 @@ public class AuthorRepository extends Repository implements IAuthorRepository {
         try {
             st=con.createStatement();
             st.execute(query);
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -79,7 +80,7 @@ public class AuthorRepository extends Repository implements IAuthorRepository {
         try {
             st=con.createStatement();
             st.execute(query);
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -102,7 +103,7 @@ public class AuthorRepository extends Repository implements IAuthorRepository {
             author.setBirthDate(rs.getDate("BirthDate"));
             author.setBiography(rs.getString("Biography"));
             author.setID(rs.getInt("ID"));
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

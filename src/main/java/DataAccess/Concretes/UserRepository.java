@@ -39,12 +39,10 @@ public class UserRepository extends Repository implements IUserRepository{
                 user.setCityName(rs.getString("C.Name"));
                 user.setBirthDate(rs.getDate("BirthDate"));
                 user.setImageUrl(rs.getString("ImageUrl"));
-                
                 users.add(user);
                 
-                System.out.println(users);
             }
-
+            //con.close();
             return users;
 
         } catch (SQLException ex) {
@@ -64,6 +62,7 @@ public class UserRepository extends Repository implements IUserRepository{
         try {
             st=con.createStatement();
             st.execute(query);
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -77,6 +76,7 @@ public class UserRepository extends Repository implements IUserRepository{
         try {
             st=con.createStatement();
             st.execute(query);
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -92,7 +92,7 @@ public class UserRepository extends Repository implements IUserRepository{
         try {
             st=con.createStatement();
             st.execute(query);
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -106,7 +106,7 @@ public class UserRepository extends Repository implements IUserRepository{
         try {
             st=con.createStatement();
             st.execute(query);
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -134,7 +134,7 @@ public class UserRepository extends Repository implements IUserRepository{
             user.setBirthDate(rs.getDate("BirthDate"));
             user.setImageUrl(rs.getString("ImageUrl"));
             user.setID(rs.getInt("ID"));
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -154,7 +154,7 @@ public class UserRepository extends Repository implements IUserRepository{
             int id = rs.getInt("ID");
             
             user=getById(id);
-            
+            //con.close();
             return user;
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -171,7 +171,7 @@ public class UserRepository extends Repository implements IUserRepository{
             
             rs.next();
             int id = rs.getInt("ID");
-
+            //con.close();
             return id;
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -204,6 +204,7 @@ public class UserRepository extends Repository implements IUserRepository{
                 
                 books.add(book);   
             }
+            //con.close();
             return books;
 
         } catch (SQLException ex) {
@@ -221,6 +222,7 @@ public class UserRepository extends Repository implements IUserRepository{
             rs = st.executeQuery(query);
             rs.next();
             int row = rs.getInt("Row");
+            //con.close();
             if (row == 0){
                 return false;
             }
@@ -229,7 +231,4 @@ public class UserRepository extends Repository implements IUserRepository{
         }
         return true;
     }
-    
-    
-   
 }

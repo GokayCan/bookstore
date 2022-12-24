@@ -13,12 +13,12 @@ public class EmployeeService{
     }
 
     public ArrayList<Employee> List() {       
-        ArrayList<Employee> employees=repo.getList();  
+        ArrayList<Employee> employees = repo.getList();  
         return employees;
     }
 
     public Employee getByID(int ID) {
-        Employee employee=new Employee();       
+        Employee employee = new Employee();       
         employee=repo.getById(ID);     
         return employee;
     }

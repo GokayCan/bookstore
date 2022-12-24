@@ -1,6 +1,5 @@
 package DataAccess.Abstractions;
 
-import DataAccess.Entities.BaseEntity;
 import DataAccess.Entities.Category;
 import java.util.ArrayList;
 

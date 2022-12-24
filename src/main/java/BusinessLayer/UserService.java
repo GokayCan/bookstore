@@ -1,7 +1,6 @@
 package BusinessLayer;
 
 import DataAccess.Concretes.*;
-import DataAccess.Entities.BaseEntity;
 import DataAccess.Entities.*;
 import java.util.ArrayList;
 
@@ -18,9 +17,7 @@ public class UserService{
 
     public User getByID(int ID) {
         User user=new User();
-        
         user=repo.getById(ID);
-        
         return user;
     }
 

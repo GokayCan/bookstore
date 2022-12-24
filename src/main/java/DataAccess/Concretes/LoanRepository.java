@@ -1,9 +1,7 @@
 package DataAccess.Concretes;
 
-import BusinessLayer.BookService;
 import DataAccess.Abstractions.ILoanRepository;
 import DataAccess.Entities.Loan;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -43,6 +41,7 @@ public class LoanRepository extends Repository implements ILoanRepository {
                 loan.setReturnedDate(rs.getDate("ReturnedDate"));
                 loan.setIsEnd(rs.getBoolean("IsEnd"));
                 loans.add(loan);
+                //con.close();
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -72,6 +71,7 @@ public class LoanRepository extends Repository implements ILoanRepository {
         try {
             st = con.createStatement();
             st.execute(query);
+            //con.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -87,6 +87,7 @@ public class LoanRepository extends Repository implements ILoanRepository {
         try {
             st = con.createStatement();
             st.execute(query);
+            //con.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -99,7 +100,7 @@ public class LoanRepository extends Repository implements ILoanRepository {
         try {
             st = con.createStatement();
             st.execute(query);
-
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -124,6 +125,7 @@ public class LoanRepository extends Repository implements ILoanRepository {
             loan.setLoanDate(rs.getDate("LoanDate"));
             loan.setMaxReturnDate(rs.getDate("MaxReturnDate"));
             loan.setReturnedDate(rs.getDate("ReturnedDate"));
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

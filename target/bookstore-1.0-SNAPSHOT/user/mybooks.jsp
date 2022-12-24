@@ -19,20 +19,24 @@
                     Cookie cookie;
                     Cookie[] cookies;
                     cookies = request.getCookies();
-                    for (int i = 0; i < cookies.length; i++) {
-                        cookie = cookies[i];
-                        if (cookie.getName().equals("email")) {
-                            email = cookie.getValue();
-                            break;
+                    if (cookies != null){
+                        for (int i = 0; i < cookies.length; i++) {
+                            cookie = cookies[i];
+                            if (cookie.getName().equals("email")) {
+                                email = cookie.getValue();
+                                break;
+                            }
                         }
                     }
+
                     
                     UserService service = new UserService();
+                    UserService service2 = new UserService();
                     
                     UserID=service.getIDByEmail(email);
                     
                     ArrayList<Book> books = new ArrayList<Book>();
-                    books = service.MyBookList(UserID);
+                    books = service2.MyBookList(UserID);
                     for (int i = 0; i < books.size(); i++) {
                 %>
 

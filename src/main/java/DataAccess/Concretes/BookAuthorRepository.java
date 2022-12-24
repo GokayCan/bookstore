@@ -1,12 +1,10 @@
 package DataAccess.Concretes;
+
 import DataAccess.Abstractions.IBookAuthorRepository;
 import DataAccess.Entities.BookAuthor;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
+
 
 public class BookAuthorRepository extends Repository implements IBookAuthorRepository{
  
@@ -14,10 +12,6 @@ public class BookAuthorRepository extends Repository implements IBookAuthorRepos
     ResultSet rs;
     PreparedStatement pst;
     
-    @Override
-    public ArrayList<BookAuthor> getList() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
     @Override
     public void Add(BookAuthor entity) {
@@ -26,14 +20,10 @@ public class BookAuthorRepository extends Repository implements IBookAuthorRepos
         try {
             st=con.createStatement();
             st.execute(query);
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-    }
-
-    @Override
-    public void Update(BookAuthor entity) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
@@ -43,14 +33,11 @@ public class BookAuthorRepository extends Repository implements IBookAuthorRepos
         try {
             st=con.createStatement();
             st.execute(query);
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
 
-    @Override
-    public BookAuthor getById(int ID) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+
 }

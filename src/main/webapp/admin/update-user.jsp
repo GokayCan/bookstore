@@ -69,7 +69,7 @@
         
         %>
         
-        <form action="AdminUserUpdate" method="post" enctype="multipart/form-data">
+        <form action="AdminUserUpdate" method="post" enctype="multipart/form-data" name="form" onsubmit="return Validate();">
             <div class="card">
                 <div class="card-header">
                     <div class="card-tools">
@@ -97,19 +97,19 @@
                 <div class="card-body">
                     <div class="form-group mb-2">
                         <label class="form-label">Kullanıcı Mail Adresi</label>
-                        <input type="text" class="form-control" name="txtEmail" value="<%=user.getEmail()%>">
+                        <input type="email" class="form-control" name="txtEmail" value="<%=user.getEmail()%>">
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="form-group mb-2">
                         <label class="form-label">Kullanıcı Şifresi</label>
-                        <input type="text" class="form-control" name="txtPassword" value="<%=user.getPassword()%>">
+                        <input type="password" class="form-control" name="txtPassword" value="<%=user.getPassword()%>">
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="form-group mb-2">
                         <label class="form-label">Kullanıcı Telefon Numarası</label>
-                        <input type="text" class="form-control" name="txtPhoneNumber" value="<%=user.getPhoneNumber()%>">
+                        <input type="number" class="form-control" name="txtPhoneNumber" value="<%=user.getPhoneNumber()%>">
                     </div>
                 </div>
                 <div class="card-body">
@@ -141,7 +141,7 @@
                 <div class="card-body">
                     <div class="form-group mb-2">
                         <label class="form-label">Kullanıcı Doğum Tarihi</label>
-                        <input type="date" class="form-control" name="txtOldBirthDate" value="<%=user.getBirthDate()%>">
+                        <input type="date" class="form-control" name="txtBirthDate" value="<%=user.getBirthDate()%>">
                     </div>
                 </div>
                 <div class="card-body">

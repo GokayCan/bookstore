@@ -17,7 +17,8 @@ import javax.servlet.http.Part;
 @WebServlet("/employee/EmployeeBookUpdate")
 public class EmployeeBookUpdate extends HttpServlet{
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-            
+        
+        boolean value = false;
         BookService bookService=new BookService();
         BookCategoryService categoryService=new BookCategoryService();
         BookAuthorService authorService=new BookAuthorService();
@@ -39,6 +40,7 @@ public class EmployeeBookUpdate extends HttpServlet{
         
         else{
             System.out.println(sImageFileName);
+            value = true;
         }
         
         
@@ -49,15 +51,15 @@ public class EmployeeBookUpdate extends HttpServlet{
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
         try {
+            if (value){
+                FileOutputStream fos = new FileOutputStream(uploadPath);
+                InputStream is = file.getInputStream();
 
-            FileOutputStream fos = new FileOutputStream(uploadPath);
-            InputStream is = file.getInputStream();
-
-            byte[] data = new byte[is.available()];
-            is.read(data);
-            fos.write(data);
-            fos.close();
-
+                byte[] data = new byte[is.available()];
+                is.read(data);
+                fos.write(data);
+                fos.close();
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -128,13 +130,16 @@ public class EmployeeBookUpdate extends HttpServlet{
             }
             
         }
-        
+        String txtName = new String(request.getParameter("txtName").getBytes("ISO-8859-9"), "UTF-8");
+        String txtSubject = new String(request.getParameter("txtSubject").getBytes("ISO-8859-9"), "UTF-8");
+        String txtPageNumber = new String(request.getParameter("txtPageNumber").getBytes("ISO-8859-9"), "UTF-8");
+        String txtPrintCount = new String(request.getParameter("txtPrintCount").getBytes("ISO-8859-9"), "UTF-8");
         
         book.setID(iBookID);
-        book.setName(request.getParameter("txtName"));
-        book.setSubject(request.getParameter("txtSubject"));
-        book.setPageNumber(request.getParameter("txtPageNumber"));
-        book.setPrintCount(request.getParameter("txtPrintCount"));
+        book.setName(txtName);
+        book.setSubject(txtSubject);
+        book.setPageNumber(txtPageNumber);
+        book.setPrintCount(txtPrintCount);
         book.setImageUrl(sImageFileName);
         book.setPublisherID(Integer.parseInt(request.getParameter("slcPublisher")));
         book.setPublishDate(sqlPublishDate);

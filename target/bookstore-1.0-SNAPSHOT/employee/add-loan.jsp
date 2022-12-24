@@ -49,7 +49,7 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label class="form-label">Kullanıcı e-postası</label>
-                                <input type="text" class="form-control" name="txtEmail">
+                                <input type="email" class="form-control" name="txtEmail">
                             </div>
 
                             <input type="text" class="form-control mb-2" id="myInput" onkeyup="myFunction()"

@@ -15,7 +15,6 @@ DataAccess\Abstractions\IBookRepository.class
 DataAccess\Concretes\EmployeeRepository.class
 DataAccess\Concretes\Repository.class
 BusinessLayer\CategoryService.class
-UserUpdate.class
 EmployeeBookAdd.class
 BusinessLayer\CityService.class
 AdminBookUpdate.class
@@ -24,7 +23,6 @@ DataAccess\Abstractions\IAdminRepository.class
 DataAccess\Abstractions\ILoanRepository.class
 DataAccess\Entities\BookTranslator.class
 DataAccess\Entities\BookAuthor.class
-BusinessLayer\FineService.class
 BusinessLayer\PublisherService.class
 DataAccess\Concretes\BookAuthorRepository.class
 BusinessLayer\BookTranslatorService.class
@@ -43,7 +41,6 @@ DataAccess\Entities\Employee.class
 DataAccess\Entities\BaseEntity.class
 BusinessLayer\EmployeeService.class
 DataAccess\Abstractions\IUserRepository.class
-DataAccess\Abstractions\IFineRepository.class
 DataAccess\Entities\Fine.class
 BusinessLayer\LoanService.class
 DataAccess\Abstractions\IBookTranslatorRepository.class
@@ -60,7 +57,6 @@ BusinessLayer\AdminService.class
 DataAccess\Connect.class
 DataAccess\Entities\Category.class
 DataAccess\Abstractions\ITranslatorRepository.class
-DataAccess\Concretes\FineRepository.class
 EmployeeUpdate.class
 BusinessLayer\TranslatorService.class
 DataAccess\Entities\Author.class

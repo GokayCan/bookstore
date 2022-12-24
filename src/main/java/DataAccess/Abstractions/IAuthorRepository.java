@@ -1,7 +1,6 @@
 package DataAccess.Abstractions;
 
 import DataAccess.Entities.Author;
-import DataAccess.Entities.BaseEntity;
 import java.util.ArrayList;
 
 public interface IAuthorRepository{

@@ -36,7 +36,7 @@ public class TranslatorRepository extends Repository implements ITranslatorRepos
 
                 translators.add(translator);
             }
-
+            //con.close();
             return translators;
 
         } catch (SQLException ex) {
@@ -54,6 +54,7 @@ public class TranslatorRepository extends Repository implements ITranslatorRepos
         try {
             st=con.createStatement();
             st.execute(query);
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -67,7 +68,7 @@ public class TranslatorRepository extends Repository implements ITranslatorRepos
         try {
             st=con.createStatement();
             st.execute(query);
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -81,7 +82,7 @@ public class TranslatorRepository extends Repository implements ITranslatorRepos
         try {
             st=con.createStatement();
             st.execute(query);
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -102,7 +103,7 @@ public class TranslatorRepository extends Repository implements ITranslatorRepos
             translator.setFirstName(rs.getString("FirstName"));
             translator.setLastName(rs.getString("LastName"));
             translator.setID(rs.getInt("ID"));
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

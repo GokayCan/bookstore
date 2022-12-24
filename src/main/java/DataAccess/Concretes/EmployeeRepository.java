@@ -2,10 +2,8 @@ package DataAccess.Concretes;
 
 import DataAccess.Abstractions.IEmployeeRepository;
 import DataAccess.Entities.Employee;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 public class EmployeeRepository extends Repository implements IEmployeeRepository {
@@ -41,7 +39,7 @@ public class EmployeeRepository extends Repository implements IEmployeeRepositor
 
                 employees.add(employee);
             }
-
+            //con.close();
             return employees;
 
         } catch (SQLException ex) {
@@ -59,6 +57,7 @@ public class EmployeeRepository extends Repository implements IEmployeeRepositor
         try {
             st=con.createStatement();
             st.execute(query);
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -74,7 +73,7 @@ public class EmployeeRepository extends Repository implements IEmployeeRepositor
         try {
             st=con.createStatement();
             st.execute(query);
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -88,7 +87,7 @@ public class EmployeeRepository extends Repository implements IEmployeeRepositor
         try {
             st=con.createStatement();
             st.execute(query);
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -113,7 +112,7 @@ public class EmployeeRepository extends Repository implements IEmployeeRepositor
             employee.setStartDate(rs.getDate("StartDate"));
             employee.setDocument(rs.getString("Document"));
             employee.setID(rs.getInt("ID"));
-            
+            //con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -137,7 +136,7 @@ public class EmployeeRepository extends Repository implements IEmployeeRepositor
             emp.setID(rs.getInt("ID"));
             emp.setTCNo(rs.getString("TCNo"));
             emp.setPassword(rs.getString("Password"));
-
+            //con.close();
             return emp;
         }catch(Exception ex){
             ex.printStackTrace();
