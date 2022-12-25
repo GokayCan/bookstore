@@ -12,6 +12,7 @@
 <html lang="tr">
 <%@ include file="header.jsp" %>
 <body>
+    
 <div class="container-scroller">
     <!-- Navbar-->
     <%@ include file="navbar.jsp" %>
@@ -37,7 +38,8 @@
                             </div>
                         </div>
                         <input type="text" class="form-control mb-2" id="myInput" onkeyup="myFunction2();" placeholder="Kullanıcı Adını Girin">
-                        <table class="table table-bordered table-hover text-center" id="myTable">
+                            <table class="table table-bordered table-hover text-center" style="display: block; overflow-x: auto; white-space: nowrap;" id="myTable" >
+                            
                             <thead>
                             <th scope="col">Alan Kullanıcı</th>
                             <th scope="col">Çalışan</th>
@@ -49,7 +51,7 @@
                             <th scope="col"></th>
                             <th scope="col"></th>
                             </thead>
-                            <tbody>
+                            <tbody display:table; width:100%;table-layout:fixed;>
                             <%
                                 LoanService service = new LoanService();
                                 ArrayList<Loan> loans;

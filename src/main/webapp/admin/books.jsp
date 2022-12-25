@@ -63,7 +63,7 @@
                       </div>
                     </div>
                 </div>
-                <table class="table table-bordered table-hover" style="text-align: center;" id="myTable">
+                <table class="table table-bordered table-hover" style="display: block; overflow-x: auto; white-space: nowrap;" id="myTable">
                     <thead>
                         <th scope="col">ID</th>
                         <th scope="col">Kitap Adı</th>

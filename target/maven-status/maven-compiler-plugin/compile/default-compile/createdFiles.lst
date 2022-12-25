@@ -22,11 +22,14 @@ DataAccess\Entities\User.class
 DataAccess\Abstractions\IAdminRepository.class
 DataAccess\Abstractions\ILoanRepository.class
 DataAccess\Entities\BookTranslator.class
+EmployeeUserUpdate.class
 DataAccess\Entities\BookAuthor.class
 BusinessLayer\PublisherService.class
 DataAccess\Concretes\BookAuthorRepository.class
 BusinessLayer\BookTranslatorService.class
 EmployeeBookUpdate.class
+UMyUpdate.class
+AdminUserUpdate.class
 DataAccess\Concretes\CategoryRepository.class
 DataAccess\Entities\Publisher.class
 DataAccess\Concretes\AuthorRepository.class
@@ -56,6 +59,7 @@ DataAccess\Entities\City.class
 BusinessLayer\AdminService.class
 DataAccess\Connect.class
 DataAccess\Entities\Category.class
+EMyUpdate.class
 DataAccess\Abstractions\ITranslatorRepository.class
 EmployeeUpdate.class
 BusinessLayer\TranslatorService.class

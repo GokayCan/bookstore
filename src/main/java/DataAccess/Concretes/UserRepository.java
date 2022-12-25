@@ -181,7 +181,7 @@ public class UserRepository extends Repository implements IUserRepository{
     
     @Override
     public ArrayList<Book> getMyBooks(int ID) {
-        String query="SELECT B.ID,B.Name,B.Subject,B.Stock,B.Enable,P.Name as Publisher ,B.PublishDate,B.PageNumber,B.PrintCount,B.ImageUrl FROM Book B inner join Publisher P on B.PublisherID = P.ID inner join Loan L on L.UserID='"+ID+"' where B.ID=L.BookID";
+        String query="SELECT B.ID,B.Name,B.Subject,B.Stock,B.Enable,P.Name as Publisher ,B.PublishDate,B.PageNumber,B.PrintCount,B.ImageUrl FROM Book B inner join Publisher P on B.PublisherID = P.ID inner join Loan L on L.UserID='"+ID+"' where B.ID=L.BookID and L.IsEnd='"+0+"'";
         
         books = new ArrayList<Book>();
 

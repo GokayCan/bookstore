@@ -28,7 +28,7 @@
                 <div class="card-body">
                     <a href="add-book.jsp" class="btn btn-primary mt-2 mb-2"><i class="icon-plus"></i> Yeni Ekle</a>
                     <input type="text" class="form-control mb-2" id="myInput" onkeyup="myFunction()" placeholder="Kitap Adını Girerek Arama Yapın..">
-                    <table class="table table-bordered table-hover text-center" id="myTable">
+                    <table class="table table-bordered table-hover text-center" style="display: block; overflow-x: auto; white-space: nowrap;" id="myTable">
                         <thead>
                             <th scope="col">Kitap Adı</th>
                             <th scope="col">Stok Miktarı</th>

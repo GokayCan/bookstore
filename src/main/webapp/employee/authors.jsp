@@ -28,7 +28,7 @@
                 <div class="card-body">
                     <a href="add-author.jsp" class="btn btn-primary mt-2 mb-2"><i class="icon-plus"></i> Yeni Ekle</a>
                     <input type="text" class="form-control mb-2" id="myInput" onkeyup="myFunction()" placeholder="Yazar Adını Girerek Arama Yapın..">
-                    <table class="table table-bordered table-hover text-center" id="myTable">
+                    <table class="table table-bordered table-hover text-center"  id="myTable">
                         <thead>
                         <th scope="col">Id</th>
                         <th scope="col">Adı</th>
@@ -52,7 +52,7 @@
                                     <td><%=authors.get(i).getBirthDate()%></td>
                                     <td><%=authors.get(i).getBiography()%></td>
                                     <td><a href="update-author.jsp?ID=<%=authors.get(i).getID()%>" class="btn btn-warning"><i class="ti-pencil"></i> Güncelle</a></td>
-                                    <td><a href="delete-author.jsp?ID=<%=authors.get(i).getID()%>" class="btn btn-danger" onclick="return confirm("Emin misin")"><i class="icon-trash"></i> Sil</a></td>
+                                    <td><a href="delete-author.jsp?ID=<%=authors.get(i).getID()%>" class="btn btn-danger" onclick="return confirm('Emin misin?')"><i class="icon-trash"></i> Sil</a></td>
                                 </tr>
                             <%        
                                 }
